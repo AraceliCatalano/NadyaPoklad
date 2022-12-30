@@ -1,12 +1,16 @@
+
 import Header from './components/home/Header';
-import Footer from './components/home/Footer';
+import Home from './components/home/Home';
+import Generic from './routes/Generic'
+//import Footer from './components/home/Footer';
 
 function App() {
   return (
     <>
       <Header />
-      <div>Este es el body</div>
-      <Footer />
+      <Generic>
+        <Home />
+      </Generic>
     </>
   );
 }
