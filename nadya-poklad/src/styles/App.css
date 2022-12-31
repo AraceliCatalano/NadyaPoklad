@@ -1,0 +1,42 @@
+*{
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.footerbg{
+    background-color: #2F434A !important; 
+    color: white !important;
+    font-family: Marcellus;
+    font-size: 36px !important;
+
+ 
+}
+
+.footerbg p {
+    font-size: 14px;
+    text-align: center;
+    margin: 0;
+}
+
+.footerContainer{
+    flex-direction: column;
+    margin: 2px;
+    padding:2px;
+
+}
+
+.btn {
+    color: #ACD8EC !important;
+    font-size: 26px;
+    border:0px;
+    
+    
+}
+
+.icon{
+    font-size: 30px;
+}
+
+*, ::after, ::before {
+    border: 0px !important;
+}
