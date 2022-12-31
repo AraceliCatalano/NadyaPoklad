@@ -11,9 +11,22 @@ body {
     background-color: #43555C !important;
     color: white !important;
     margin: 80px 20px 80px 20px !important;
+    font-family: Poppins;
+}
+.btn {
+    color: #ACD8EC !important;
+    font-size: 22px;
+    border:1px solid #ACD8EC !important ;
+    cursor: pointer !important
+  
+}
+.btn:hover{
+    background-color: #C2CED6 !important;
+    color: black !important;
+
 }
 
-/* Header */
+/****** HEADER ******/
 
 .title, .link {
     font-family: "Marcellus" !important;
@@ -53,6 +66,20 @@ body {
     border-radius: 0 !important;
 }
 
+/****** END HEADER ******/
+
+/**********LOGIN***********/
+
+.loginContainer{
+    max-width: 500px;
+}
+.login-title{
+    border-bottom:1px solid #ACD8EC !important;
+    padding-bottom: 5px ;
+    font-size: 18px !important;
+}
+/********** END LOGIN***********/
+
 
 /*******FOOTER********/
 
@@ -78,10 +105,12 @@ body {
 
 }
 
-.btn {
+.btn-footer {
     color: #ACD8EC !important;
+
     font-size: 26px;
-    border:0px;
+    background-color: #2F434A !important;
+   
     
     
 }

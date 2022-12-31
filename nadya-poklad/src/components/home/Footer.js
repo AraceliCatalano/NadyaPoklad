@@ -12,10 +12,10 @@ export default function Footer() {
             <Navbar.Brand className="footerbg"><Link to="/" className="title"> Nadya Poklad </Link></Navbar.Brand>
    
                 <div className="">
-                    <button type="button" className="btn ">
+                    <button type="button" className="btn-footer mx-2">
                         <i className="bi bi-envelope-fill icon"></i>  
                     </button>
-                    <button type="button" className="btn">
+                    <button type="button" className="btn-footer mx-2">
                         <i className="bi bi-youtube icon"></i>
                     </button>
                 </div>
