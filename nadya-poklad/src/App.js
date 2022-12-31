@@ -1,14 +1,16 @@
-import Header from './components/home/Header';
-import Footer from './components/home/Footer';
-import 'bootstrap/dist/css/bootstrap.min.css';
 
+import Header from './components/home/Header';
+import Home from './components/home/Home';
+//import Generic from './routes/Generic'
+import Footer from './components/home/Footer';
+import './styles/App.css'
 
 function App() {
   return (
     <>
       <Header />
-      <div>Este es el body</div>
-      <Footer />
+        <Home />
+        <Footer />
     </>
   );
 }
