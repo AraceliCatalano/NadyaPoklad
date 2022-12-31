@@ -3,6 +3,59 @@
     box-sizing: border-box;
 }
 
+*, ::after, ::before {
+    border: 0px !important;
+}
+
+body {
+    background-color: #43555C !important;
+    color: white !important;
+    margin: 80px 20px 80px 20px !important;
+}
+
+/* Header */
+
+.title, .link {
+    font-family: "Marcellus" !important;
+    text-decoration: none !important;
+    color: white !important;
+}
+
+
+.navbar-brand {
+    color: white !important;
+}
+.navbar-nav .dropdown-menu, .navbar-nav {
+    background-color: #C2CED6 !important;
+    opacity: 85% !important;
+    border: 0px !important;
+}  
+
+.navbar-text, .nav-link, .dropdown-item {
+    color: #000 !important;
+    padding-right: 20px !important;
+    font-family: "Marcellus" !important;
+    font-size: medium !important;
+}
+
+.header{
+    background-color: #2F434A;
+}
+
+.navbar-toggler-icon {
+    color: white !important;
+    border: none !important;
+}
+.navbar-toggler-icon:hover, .navbar-toggler:hover {
+    background-color: #C2CED6 !important;
+    opacity: 85% !important;
+    border: 0px !important;
+    border-radius: 0 !important;
+}
+
+
+/*******FOOTER********/
+
 .footerbg{
     background-color: #2F434A !important; 
     color: white !important;
@@ -37,59 +90,32 @@
     font-size: 30px;
 }
 
-*, ::after, ::before {
-    border: 0px !important;
-}
-body {
-    background-color: #2F434A;
-    opacity: 90% !important;
-}
 
-/* Header */
-
-.title {
-    font-family: "Marcellus";
-    text-decoration: none;
-}
-
-.navbar-brand {
-    color: white !important;
-}
-.navbar-nav .dropdown-menu, .navbar-nav {
-    background-color: #C2CED6 !important;
-    opacity: 85% !important;
-    border: 0px !important;
-}  
-
-.navbar-text, .nav-link, .dropdown-item {
-    color: #000 !important;
-    padding-right: 20px !important;
-    font-family: "Marcellus" !important;
-    font-size: medium !important;
-}
-
-.header{
-    background-color: #2F434A;
-}
-
-.navbar-toggler-icon {
-    color: white !important;
-    border: none !important;
-}
-.navbar-toggler-icon:hover, .navbar-toggler:hover {
-    background-color: #C2CED6 !important;
-    opacity: 85% !important;
-    border: 0px !important;
-    border-radius: 0 !important;
-}
+/****** END FOOTER ******/
 
 
-@media (min-width: 722px) {
+
+
+
+
+
+
+
+
+
+@media (min-width: 768px) {
     .navbar-nav .dropdown-menu, .navbar-nav {
         background-color: #2F434A !important;
     }  
     .navbar-text, .nav-link, .dropdown-item {
         color: white !important;
+    }
+
+    .navbar-expand-md .navbar-collapse {
+        display: flex !important;
+        flex-basis: auto;
+        justify-content: flex-end !important;
+        align-items: center !important;
     }
 }
 

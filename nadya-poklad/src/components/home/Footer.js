@@ -6,7 +6,7 @@ export default function Footer() {
   return (
     
     <Navbar className="footerbg"  expand="lg" variant="light" fixed= "bottom" >
-        <Container className='footerContainer' >
+        <Container fluid className='footerContainer' >
            
             <Navbar.Brand href="#" className="footerbg"> Nadya Poklad </Navbar.Brand>
    
