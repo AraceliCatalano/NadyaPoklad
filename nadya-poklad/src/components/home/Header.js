@@ -8,27 +8,26 @@ export default function Header() {
     return (
         <>
         <div className="header">
-            HEADER
-            <Navbar bg="dark" variant="dark" expand="lg" fixed="top">
+          
+            <Navbar expand="md" fixed="top" className="header" >
               <Container>
-            
-                <Navbar.Brand >Nadya Poklad</Navbar.Brand>
-                <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                <Navbar.Brand href="#home" className="title">Nadya Poklad</Navbar.Brand>
+                <Navbar.Toggle aria-controls="basic-navbar-nav" align="end"/>
                   <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">
                       <Navbar.Text> The Artist </Navbar.Text>
                       <NavDropdown title="Works" id="basic-nav-dropdown" className="link">
-                        <NavDropdown.Item> Pianist </NavDropdown.Item>
-                        <NavDropdown.Item> Compser </NavDropdown.Item>
-                        <NavDropdown.Item> Musical Event Organizer </NavDropdown.Item>
-                        <NavDropdown.Item> Teacher </NavDropdown.Item>
+                        <NavDropdown.Item className="link"> Pianist </NavDropdown.Item>
+                        <NavDropdown.Item className="link"> Compser </NavDropdown.Item>
+                        <NavDropdown.Item className="link"> Musical Event Organizer </NavDropdown.Item>
+                        <NavDropdown.Item className="link"> Teacher </NavDropdown.Item>
                        </NavDropdown>
-                      <Navbar.Text> Engage </Navbar.Text>
-                      <Navbar.Text> Upcoming events </Navbar.Text>
-                      <Navbar.Text> Contact </Navbar.Text>
+                      <Navbar.Text className="link"> Engage </Navbar.Text>
+                      <Navbar.Text className="link"> Upcoming events </Navbar.Text>
+                      <Navbar.Text className="link"> Contact </Navbar.Text>
                       
                     </Nav>
-                    <Nav className="justify-content-end">
+                    <Nav className="justify-content-end link">
                      
                       Login
                     </Nav>
