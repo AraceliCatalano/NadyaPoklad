@@ -1,5 +1,6 @@
 import React from 'react'
-import {Navbar, Container} from 'react-bootstrap'
+import { Navbar, Container } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 import '../../styles/App.css'
 
 export default function Footer() {
@@ -8,7 +9,7 @@ export default function Footer() {
     <Navbar className="footerbg"  expand="lg" variant="light" fixed= "bottom" >
         <Container fluid className='footerContainer' >
            
-            <Navbar.Brand href="#" className="footerbg"> Nadya Poklad </Navbar.Brand>
+            <Navbar.Brand className="footerbg"><Link to="/" className="title"> Nadya Poklad </Link></Navbar.Brand>
    
                 <div className="">
                     <button type="button" className="btn ">
