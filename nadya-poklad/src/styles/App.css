@@ -1,6 +1,16 @@
+*{
+    margin: 0;
+    box-sizing: border-box;
+}
+
+*, ::after, ::before {
+    border: 0px !important;
+}
+
 body {
-    background-color: #2F434A;
-    opacity: 90% !important;
+    background-color: #43555C !important;
+    color: white !important;
+    margin: 80px 20px 80px 20px !important;
 }
 *{
     margin: 0;
@@ -9,10 +19,12 @@ body {
 
 /* Header */
 
-.title {
-    font-family: "Marcellus";
-    text-decoration: none;
+.title, .link {
+    font-family: "Marcellus" !important;
+    text-decoration: none !important;
+    color: white !important;
 }
+
 
 .navbar-brand {
     color: white !important;
@@ -53,6 +65,9 @@ body {
     border-radius: 0 !important;
 }
 
+
+/*******FOOTER********/
+
 .footerbg{
     background-color: #2F434A !important; 
     color: white !important;
@@ -83,20 +98,32 @@ body {
     font-size: 20px;
 }
 
-*, ::after, ::before {
-    border: 0px !important;
-}
+
+/****** END FOOTER ******/
 
 
 
-@media (min-width: 722px) {
+
+
+
+
+
+
+
+
+@media (min-width: 768px) {
     .navbar-nav .dropdown-menu, .navbar-nav {
         background-color: #2F434A !important;
     }  
     .navbar-text, .nav-link, .dropdown-item {
         color: white !important;
     }
+
+    .navbar-expand-md .navbar-collapse {
+        display: flex !important;
+        flex-basis: auto;
+        justify-content: flex-end !important;
+        align-items: center !important;
+    }
 }
-
-
 
