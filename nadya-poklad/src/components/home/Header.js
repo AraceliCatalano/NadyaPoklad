@@ -15,37 +15,39 @@ export default function Header() {
                 <Navbar.Toggle aria-controls="basic-navbar-nav" align="end"/>
                   <Navbar.Collapse id="basic-navbar-nav">
                     <Nav >
-                      <Navbar.Text > <Link to="/theartist" className="link">The Artist</Link> </Navbar.Text>
-                      <NavDropdown title="Works" id="basic-nav-dropdown" className="link">
-                        <NavDropdown.Item className="link">
-                          <Link to="/works/pianist" className="link"> 
+                      <Navbar.Text > <Link to="/theartist" className="link link-header">The Artist</Link> </Navbar.Text>
+                      <NavDropdown title="Works" id="basic-nav-dropdown" className=" link ">
+                        <NavDropdown.Item className="link-dropdown ">
+                          <Link to="/works/pianist" className="link-header"> 
                             Pianist 
                           </Link>
                         </NavDropdown.Item>
-                        <NavDropdown.Item className="link">
-                          <Link to="/works/composer" className="link"> 
+                        <NavDropdown.Item className="link-dropdown ">
+                          <Link to="/works/composer" className="link-header"> 
                             Composer 
                           </Link>
                         </NavDropdown.Item>
-                        <NavDropdown.Item className="link"> 
-                          <Link to="/works/musical_event_organizer" className="link"> 
+                        <NavDropdown.Item className="link-dropdown "> 
+                          <Link to="/works/musical_event_organizer" className="link-header"> 
                             Musical Event Organizer 
                           </Link>
                         </NavDropdown.Item>
-                        <NavDropdown.Item className="link"> 
-                          <Link to="/works/teacher" className="link"> 
+                        <NavDropdown.Item className="link-dropdown "> 
+                          <Link to="/works/teacher" className="link-header"> 
                             Teacher 
                           </Link>
                         </NavDropdown.Item>
                        </NavDropdown>
 
-                      <Navbar.Text className="link"><Link to="/engage" className="link">  Engage </Link></Navbar.Text>
-                      <Navbar.Text className="link"><Link to="/upcoming_events" className="link">  Upcoming events </Link>  </Navbar.Text>
-                      <Navbar.Text className="link"> <Link to="/contact" className="link">  Contact </Link> </Navbar.Text>
+                      <Navbar.Text className="link"><Link to="/engage" className="link link-header">  Engage </Link></Navbar.Text>
+                      <Navbar.Text className="link"><Link to="/upcoming_events" className="link link-header">  Upcoming events </Link>  </Navbar.Text>
+                      <Navbar.Text className="link"> <Link to="/contact" className="link link-header">  Contact </Link> </Navbar.Text>
                      
                     </Nav>
-                    <Nav className="justify-content-end link">
-                      <Link to="/login_admin" className="link">  Login </Link>
+                    <Nav className="justify-content-end ">
+                      <Navbar.Text className="link">
+                      <Link to="/login_admin" className="link link-header">  Login </Link>
+                      </Navbar.Text>
                     </Nav> 
                   </Navbar.Collapse>
               </Container>
