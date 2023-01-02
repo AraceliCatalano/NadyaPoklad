@@ -47,6 +47,10 @@ html{
     color: black !important;
 }
 
+.offcanvas {
+    background-color: #2F434A !important;
+}
+
 /****** HEADER ******/
 
 .title, .link {
@@ -59,16 +63,16 @@ html{
 
 .link-header{
  position: relative;
- color: #ACD8EC;
+ color: white;
  text-decoration: none;
+}
 
-    
+.dropdown-menu {
+    --bs-dropdown-link-active-bg: #ACD8EC !important;
 }
 
 .link-header:hover{
-  color: #000;
- 
-
+  color: white;
 }
 
 .link-header::before{
@@ -94,20 +98,23 @@ html{
     color: white !important;
 }
 .navbar-nav .dropdown-menu, .navbar-nav {
-    background-color: #C2CED6 !important;
-    opacity: 85% !important;
+    opacity: 80% !important;
     border: 0px !important;
 }  
-
+.dropdown-menu {
+    background-color: #2F434A !important;
+}
 .navbar-text, .nav-link, .dropdown-item {
-    color: #000 !important;
+   
     padding-right: 20px !important;
     font-family: "Marcellus" !important;
     font-size: medium !important;
 }
 
-.navbar-text:hover, .nav-link:hover, .dropdown-item:hover {
-    text-decoration: underline !important;
+.navbar-text:hover, .nav-link:hover, .dropdown-item:hover, .navbar-text a:hover {
+    text-decoration: none !important;
+    background-color: #2F434A !important;
+    
 }
 
 .dropdown-item:hover {
@@ -118,17 +125,24 @@ html{
     background-color: #2F434A;
 }
 
-.navbar-toggler-icon {
+span.navbar-toggler-icon {
     color: white !important;
-    border: none !important;
+    border: none !important; 
 }
 .navbar-toggler-icon:hover, .navbar-toggler:hover {
-    background-color: #C2CED6 !important;
+    background-color: #2F434A !important;
     opacity: 85% !important;
     border: 0px !important;
     border-radius: 0 !important;
+    color: white !important;
 }
 
+
+
+.navbar-toggler:focus {
+    box-shadow: none !important; 
+
+}
 /****** END HEADER ******/
 
 /**********LOGIN***********/
