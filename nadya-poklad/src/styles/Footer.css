@@ -1,0 +1,61 @@
+
+/*******FOOTER********/
+.footer{
+
+    margin-top: calc(100% - 0.1%);
+}
+
+.footerbrand{
+    display: flex;
+    justify-content: center;
+    background-color: #2F434A !important; 
+    color: white !important;
+    font-family: Marcellus;
+    font-size: 36px !important;
+    width: 100%;
+
+}
+
+.footerbg {
+    display: flex;
+    justify-content: center;
+    background-color: #2F434A !important; 
+    color: white !important;
+    font-family: Marcellus;
+    font-size: 20px !important;
+    width: 100%;
+    
+    
+}
+
+
+.footerbg p {
+    font-size: 14px;
+    text-align: center;
+    margin: 0;
+    
+    
+}
+
+.footerContainer{
+    flex-direction: column;
+    margin: auto;
+    padding:2px;
+    width:100%;
+
+}
+
+.btn-footer {
+    color: #ACD8EC !important;
+    font-size: 26px;
+    background-color: #2F434A !important;
+    
+}
+
+.icon{
+    font-size: 25px;
+    padding:5px;
+}
+
+
+/****** END FOOTER ******/
