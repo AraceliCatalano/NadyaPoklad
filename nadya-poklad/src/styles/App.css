@@ -1,30 +1,94 @@
+@import url(Contact.css);
+@import url(Footer.css);
+
 *{
     margin: 0;
     box-sizing: border-box;
+    -webkit-user-select: none;
+    user-select: none;
+    
 }
 
-*, ::after, ::before {
-    border: 0px !important;
+ *, ::after, ::before {
+
 }
+
 
 body {
     background-color: #43555C !important;
     color: white !important;
     margin: 80px 20px 80px 20px !important;
+    font-family: Poppins;
+    display: flex ;
+    flex-wrap: wrap;
+    flex-direction: column ;
+    min-height:100%   ;
+    
 }
 *{
     margin: 0;
     box-sizing: border-box;
 }
 
-/* Header */
+html{
+    min-height: 90%;
+
+}
+
+.btn {
+    color: #ACD8EC !important;
+    font-size: 22px;
+    border:1px solid #ACD8EC !important ;
+    cursor: pointer !important
+  
+}
+.btn:hover{
+    background-color: rgb(194, 206, 214) !important;
+    color: black !important;
+}
+
+/****** HEADER ******/
 
 .title, .link {
     font-family: "Marcellus" !important;
     text-decoration: none !important;
     color: white !important;
+    cursor: pointer;
 }
 
+
+.link-header{
+ position: relative;
+ color: #ACD8EC;
+ text-decoration: none;
+
+    
+}
+
+.link-header:hover{
+  color: #000;
+ 
+
+}
+
+.link-header::before{
+  content: "";
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 2px;
+  bottom: 0;
+  top: 20px;
+  left: 0;
+  background-color: #ACD8EC;
+  transform: scaleX(0);
+  transform-origin: top left;
+  transition: transform 0.3s ease;
+}
+
+.link-header:hover::before{
+    transform: scaleX(1);
+}
 
 .navbar-brand {
     color: white !important;
@@ -65,48 +129,19 @@ body {
     border-radius: 0 !important;
 }
 
+/****** END HEADER ******/
 
-/*******FOOTER********/
+/**********LOGIN***********/
 
-.footerbg{
-    background-color: #2F434A !important; 
-    color: white !important;
-    font-family: Marcellus;
-    font-size: 21px !important;
+.loginContainer{
+    max-width: 500px;
 }
-
-.footerbg p {
-    font-size: 11px;
-    text-align: center;
-    margin: 0;
+.login-title{
+    border-bottom:1px solid #ACD8EC !important;
+    padding-bottom: 5px ;
+    font-size: 18px !important;
 }
-
-.footerContainer{
-    flex-direction: column;
-    margin: 2px;
-    padding:2px;
-
-}
-
-.btn {
-    color: #ACD8EC !important;
-    font-size: 26px;
-    border:0px;
-}
-
-.icon{
-    font-size: 20px;
-}
-
-
-/****** END FOOTER ******/
-
-
-
-
-
-
-
+/********** END LOGIN***********/
 
 
 
