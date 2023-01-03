@@ -10,26 +10,30 @@
 }
 /* 
  *, ::after, ::before {
+   
 
 } */
 
+html{
+    height: 100vh;
+}
 
 body {
-    background-color: #43555C !important;
-    color: white !important;
-    margin: 80px 20px 80px 20px !important;
-    font-family: Poppins;
     display: flex ;
-    flex-wrap: wrap;
     flex-direction: column ;
     min-height:100%   ;
+    background-color: #43555C !important;
+    color: white !important;
+    font-family: Poppins;
+    margin-top: 80px !important;
+    /* margin: 80px 20px 80px 20px !important; */
+    /* flex-wrap: wrap; */
+    
     
 }
 
-.html {
-    min-height: 100%;
 
-}
+
 
 .btn {
     color: #ACD8EC !important;

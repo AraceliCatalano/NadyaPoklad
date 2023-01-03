@@ -1,14 +1,15 @@
 
 /*******FOOTER********/
-.footer{
 
-    margin-top: calc(100% - 10%);
+footer{
+   background-color: #2F434A;
+   margin-top: auto !important;
 }
 
-.footerbrand{
+.footerBrand{
     display: flex;
+   
     justify-content: center;
-    background-color: #2F434A !important; 
     color: white !important;
     font-family: Marcellus;
     font-size: 36px !important;
@@ -18,17 +19,24 @@
 
 .footerbg {
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    background-color: #2F434A !important; 
+    text-align: center;
     color: white !important;
     font-family: Marcellus;
-    font-size: 20px !important;
-    width: 100%;
-    
-    
+    max-width: var(--footerbg-width);
+        
 }
 
-
+.icon{
+    font-size: 25px;
+    padding:1px;
+    margin:0;
+}
+.icons{
+    margin:0;
+    padding:0;
+}
 .footerbg p {
     font-size: 14px;
     text-align: center;
@@ -48,14 +56,14 @@
 .btn-footer {
     color: #ACD8EC !important;
     font-size: 26px;
-    background-color: #2F434A !important;
+    text-decoration: none;
+   
+    padding:1px;
+    margin:0px;
     
 }
 
-.icon{
-    font-size: 25px;
-    padding:5px;
-}
+
 
 
 /****** END FOOTER ******/
