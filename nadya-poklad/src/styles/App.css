@@ -8,10 +8,10 @@
     user-select: none;
     
 }
-
+/* 
  *, ::after, ::before {
 
-}
+} */
 
 
 body {
@@ -26,8 +26,8 @@ body {
     
 }
 
-html{
-    min-height: 90%;
+.html {
+    min-height: 100%;
 
 }
 
