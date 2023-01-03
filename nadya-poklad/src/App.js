@@ -10,9 +10,9 @@ function App() {
   return (
     <>
         <Header />
-   <Generic>
-         <Home />
-   </Generic>
+          <Generic>
+                <Home />
+          </Generic>
         <Footer />
    
     </>
