@@ -25,7 +25,6 @@ export default function Footer() {
                   </Link>
                 </Col>
              </Row>
-                  
                 <p>Made by Araceli Catalano & Alba Morán </p>
                 <p>© Nadya Poklad</p>
           </Navbar.Text>

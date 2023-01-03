@@ -3,7 +3,11 @@
 
 footer{
    background-color: #2F434A;
-   margin-top: auto !important;
+   align-self:flex-end;
+   width:100%;
+   height: 170px;
+   text-align: center;
+   margin-top: calc(100% - 170px) !important;
 }
 
 .footerBrand{

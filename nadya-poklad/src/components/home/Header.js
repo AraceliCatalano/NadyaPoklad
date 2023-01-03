@@ -9,7 +9,7 @@ export default function Header() {
         <>
         <div className="header">
           
-            <Navbar expand="md" fixed="top" className="header" >
+          <Navbar expand="md" fixed="top" className="header" >
               <Container>
                 <Navbar.Brand className=""><Link to="/" className="title"> Nadya Poklad </Link> </Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" align="end"/>
