@@ -1,6 +1,7 @@
 @import url(Contact.css);
 @import url(Footer.css);
 @import url(SectionItem.css);
+@import url(Home.css);
 
 
 *{
@@ -35,10 +36,7 @@ body {
     
     
 }
-*{
-    margin: 0;
-    box-sizing: border-box;
-}
+
 
 
 
@@ -152,6 +150,8 @@ span.navbar-toggler-icon {
 
 }
 /****** END HEADER ******/
+
+
 
 /**********LOGIN***********/
 

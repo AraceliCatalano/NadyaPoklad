@@ -1,0 +1,13 @@
+.responsive-Row{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: space-around;
+    align-items: flex-start;
+}
+.home-h4 {
+    font-family: Marcellus;
+    font-size: 25px;
+    color: whitesmoke;
+    text-shadow: 2px 2px 4px #000;
+}
