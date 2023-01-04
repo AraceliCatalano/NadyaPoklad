@@ -1,0 +1,39 @@
+.box{
+    width: 250px;
+    height: 200px;
+    position: relative;
+    background-color: #2f434a !important;
+
+}
+
+.box-picture{
+
+    max-width: 250px;
+    height: 170px;
+
+}
+.section{
+    position: relative !important;
+    width: 100%;
+
+}
+
+.title-section-bg{
+
+    background-color: #2f434a !important;
+    opacity: 75%;
+    width: 250px !important;
+    position: absolute !important;
+    bottom: 15px !important;
+    padding: 10px !important;
+
+}
+.title-section{
+    font-family: Marcellus;
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom:0;
+    cursor: pointer;
+
+
+}

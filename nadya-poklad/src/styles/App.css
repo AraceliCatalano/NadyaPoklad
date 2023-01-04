@@ -1,5 +1,7 @@
 @import url(Contact.css);
 @import url(Footer.css);
+@import url(SectionItem.css);
+
 
 *{
     margin: 0;
@@ -23,7 +25,7 @@ body {
     flex-direction: column ;
     min-height:50vh;
     flex-wrap: wrap; 
-    padding:0;
+    padding:10px;
     margin-top: 80px !important;
 
     background-color: #43555C !important;
