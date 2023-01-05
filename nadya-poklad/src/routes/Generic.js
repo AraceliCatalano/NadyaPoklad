@@ -10,16 +10,21 @@ import MusicalEventOrganizaer from '../components/works/MusicalEventOrganizer'
 import Engage from '../components/engage/Engage';
 import UpcomingEvents from '../components/upcomingEvents/UpcomingEvents';
 import Contact from '../components/contact/Contact';
-import LoginAdmin from '../components/loginAdmin/LoginAdmin';
-import Dashboard from '../components/loginAdmin/Dashboard';
 import NotFound from '../components/NotFound';
 
+// Imports for Login with Firebase
+import { UserAuthContextProvider } from '../context/UserAuthContext';
+import LoginAdmin from '../components/loginAdmin/LoginAdmin';
+import ForgotPassword from '../components/loginAdmin/ForgotPassword'
+import ProtectedRoute from './ProtectedRoute';
+import Dashboard from '../components/loginAdmin/Dashboard';
 
 function Generic() {
   return (
 
    <>  
-   
+    <UserAuthContextProvider>
+
       <Routes>
             <Route path="/" element={<Home />} />    
             <Route exact path="/theartist" element={<TheArtist />} /> 
@@ -31,11 +36,18 @@ function Generic() {
             <Route exact path="/upcoming_events" element={<UpcomingEvents />} />    
             <Route exact path="/engage" element={<Engage />} />    
             <Route exact path="/contact" element={<Contact />} />    
-            <Route exact path="/login_admin" element={<LoginAdmin />} /> 
-            <Route exact path="/admin" element={<Dashboard />} /> 
+            <Route exact path="/login_admin" element={<LoginAdmin />} />
+            <Route 
+                  exact path="/admin" 
+                  element={
+                    <ProtectedRoute> 
+                      <Dashboard />
+                    </ProtectedRoute>} /> 
+            <Route exact path="/resetPassword" element={<ForgotPassword />} />  
             <Route path="*" element={<NotFound />} />  
       </Routes>        
     
+    </UserAuthContextProvider>
 
    </>   
   );
