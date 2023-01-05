@@ -4,6 +4,7 @@ function Home () {
        <> 
        
         Próximamente HOME
+        <p>{process.env.REACT_APP_PRUEBA}</p>
 
        </>
     )

@@ -6,14 +6,18 @@ import Footer from './components/home/Footer';
 import Home from './components/home/Home';
 
 
+
 function App() {
   return (
     <>
+    
+
         <Header />
           <Generic>
-                <Home />
+                <Home />      
           </Generic>
         <Footer />
+   
    
     </>
   );

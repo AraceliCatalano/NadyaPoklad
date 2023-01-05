@@ -11,6 +11,7 @@ import Engage from '../components/engage/Engage';
 import UpcomingEvents from '../components/upcomingEvents/UpcomingEvents';
 import Contact from '../components/contact/Contact';
 import LoginAdmin from '../components/loginAdmin/LoginAdmin';
+import Dashboard from '../components/loginAdmin/Dashboard';
 import NotFound from '../components/NotFound';
 
 
@@ -31,6 +32,7 @@ function Generic() {
             <Route exact path="/engage" element={<Engage />} />    
             <Route exact path="/contact" element={<Contact />} />    
             <Route exact path="/login_admin" element={<LoginAdmin />} /> 
+            <Route exact path="/admin" element={<Dashboard />} /> 
             <Route path="*" element={<NotFound />} />  
       </Routes>        
     

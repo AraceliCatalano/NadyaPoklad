@@ -1,0 +1,14 @@
+.image{
+    min-height:200px;
+    min-width: 250px;
+    max-width: 500px;
+    width:90%; 
+    margin: 10px;
+}
+
+.text {
+    font-family: "Poppins" !important;
+    font-size: 20px;
+    color: white !important;
+   text-align: justify !important;
+}
