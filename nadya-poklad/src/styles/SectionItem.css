@@ -12,27 +12,28 @@
     box-shadow: 5px 5px 10px 0px rgba(172, 216, 236, 0.65) 
 }
 
+
+.title-section-bg{
+
+    width: 230px !important;
+    background-color: #2f434a !important;
+    opacity: 75%;
+    position: absolute !important;
+    bottom: 15px !important;
+    padding: 10px !important;
+    
+}
+
 .section{
+    display: flex;
     position: relative !important;
     
 
 }
-
-.title-section-bg{
-
-    background-color: #2f434a !important;
-    opacity: 75%;
-    width: 230px !important;
-    position: absolute !important;
-    bottom: 15px !important;
-    padding: 10px !important;
-   
-}
-
-.title-section{
+/* .title-section{
     font-family: Marcellus;
-    font-size: 20px;
-    font-weight: 500;
+    font-size: 25px;
+    font-weight: 400;
     margin-bottom:0;
     cursor: pointer;
-}
+} */

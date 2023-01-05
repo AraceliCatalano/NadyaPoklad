@@ -8,13 +8,13 @@ export default function SectionItem(props) {
    
    <div className="section">
 
-        <div className="box">
+        <div className="">
           <Image src={props.image} alt={props.image} className="box-picture" />
         </div>
 
-        <Link as="button"  className=" title-section-bg link " position-absolute bottom-2 start-0  >
-          <a href={props.url} className="link link-header">  {props.name}  </a>
-        </Link>
+        <div as="button"  className=" title-section-bg link " position-absolute="true" href={props.url}>
+          <Link to={props.url} as="link" className="link link-header">  {props.name}  </Link>
+        </div>
       
 
     </div>
