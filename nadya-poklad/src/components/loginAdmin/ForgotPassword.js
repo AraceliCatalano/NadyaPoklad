@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from "react-router-dom";
 import { Button, Form, FormGroup, Alert, Container } from 'react-bootstrap';
 import { useUserAuth } from '../../context/UserAuthContext';
+import '../../styles/App.css'
 
 const ForgotPassword = () => {
     const [email, setEmail] = useState("");
@@ -32,7 +33,7 @@ const ForgotPassword = () => {
                     <Button className="btn" type="submit">Reset</Button>   
                 </Form>
             <hr/>    
-            <Link to="/login_admin">Back to Site Management.</Link>
+            <Link to="/login_admin" className="link-text">Back to Site Management</Link>
             </Container>
 
         </>

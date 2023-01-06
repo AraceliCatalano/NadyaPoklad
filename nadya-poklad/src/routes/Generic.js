@@ -24,7 +24,6 @@ function Generic() {
 
    <>  
     <UserAuthContextProvider>
-
       <Routes>
             <Route path="/" element={<Home />} />    
             <Route exact path="/theartist" element={<TheArtist />} /> 
@@ -38,7 +37,7 @@ function Generic() {
             <Route exact path="/contact" element={<Contact />} />    
             <Route exact path="/login_admin" element={<LoginAdmin />} />
             <Route 
-                  exact path="/admin" 
+                  exact path="/dashboard" 
                   element={
                     <ProtectedRoute> 
                       <Dashboard />
@@ -46,7 +45,6 @@ function Generic() {
             <Route exact path="/resetPassword" element={<ForgotPassword />} />  
             <Route path="*" element={<NotFound />} />  
       </Routes>        
-    
     </UserAuthContextProvider>
 
    </>   
