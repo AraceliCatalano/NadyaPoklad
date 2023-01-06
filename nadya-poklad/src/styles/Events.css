@@ -1,0 +1,16 @@
+.event-Item {
+    min-width: 280px;
+    min-height: 250px;
+    max-width: 700px;
+
+}
+
+.accordion-title-bg{
+    min-width: 280px !important;
+    background-color: #2f434a !important;
+    opacity: 75%;
+    position: absolute !important;
+    bottom: 15px !important;
+    padding: 10px !important;
+    
+}
