@@ -1,6 +1,37 @@
+
+.contact-title {
+    font-family: Marcellus;
+    margin: 0px auto 15px 25px;
+}
+.contact-text{
+    margin:  0px auto 40px 25px;
+    font-size: 20px;
+    font-weight: 200;
+    color:white;
+    text-align: start;
+
+}
+
+.cardText {
+    display:block;
+    flex-direction: column;
+    max-width: 1200px;
+    font-size: 20px;
+    font-weight: 200;
+    color:white;
+    text-align: start;
+    margin-bottom: 5px !important;
+   
+  
+}
+
+
 .cardImage{
     min-height:200px;
-    width:90%;
+    width:100%;
+    margin: 0;
+    padding: 0;
+    margin:auto;
     
 }
 
@@ -8,40 +39,32 @@
     background-color: #2F434A !important;
     height: 70px;
     flex-wrap: wrap;
-    opacity: 40%;
+    opacity: 75%;
     text-align: center;
       
 }
 
 .cardBrandH3 {
-    position: relative;
-    margin-top: 15%;
+  
+    height: 70px;
+    margin: 20% 0%;
     padding-top: 5px;
     font-size: 36px;
     font-family: Marcellus;
     color: white !important;
-
+ 
 }
+
 
 .ImgOverlay {
     background-color: #2F434A !important;
     color: white !important;
     align-items: flex-start;
     max-width: 1200px;
-    }
-
-.cardText {
-    margin:5px;
-    padding: 5px;
-    max-width: 1200px;
-    font-size: 16px;
-    color:white;
-    text-align: center;
-    margin: auto;
-    margin-bottom: 1px !important;
-  
+    padding: 0;
+    margin:auto;
     
-}
+    }
 
 
 .cardText i {
