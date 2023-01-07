@@ -1,0 +1,25 @@
+.side-menu {
+    background-color: #2f434a;
+    color: #c2ced6;
+    font-weight: 500;
+}
+
+.side-row-title {
+    margin: 10px 0 5px 0;
+    padding-top: 10px;
+}
+
+.side-row {
+    margin: 5px 0 5px 0;
+    padding: 5px 0 5px 0;
+
+}
+
+.side-row:hover {
+    background-color: #41818d;
+    padding: 10px 0 10px 0;
+}
+
+.main-menu {
+    background-color: black;
+}

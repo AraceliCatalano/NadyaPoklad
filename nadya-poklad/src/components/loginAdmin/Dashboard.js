@@ -1,9 +1,11 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 import '../../styles/App.css'
 import { Button, Container, Row, Col} from 'react-bootstrap';
 import { useNavigate } from "react-router";
 import { useUserAuth } from '../../context/UserAuthContext';
-
+import ArtistItems from './ArtistItems';
+import AddArtistItem from './AddArtistItem';
 
 
 export default function Dashboard() {
@@ -22,14 +24,15 @@ export default function Dashboard() {
 
   return (
     <>
-    <h2 className='title'>Site Management</h2>
+    
     <Container fluid>
       <Row>
         <Col sm={10}>
-            Welcome to your admin page.
-            <Row >
-              <p style={{marginLeft: 0}}> Your are logged in with email: {user && user.email}</p>    
-            </Row>
+          <Row >
+            <h2 className='title'>Site Management</h2>
+            <p style={{marginLeft: 0}}> Your are logged in with the email: {user && user.email}</p>    
+            
+          </Row>
         </Col>
         
         <Col sm={2}>
@@ -37,6 +40,31 @@ export default function Dashboard() {
         </Col>
     </Row>
     </Container>
+
+    <Row>
+      <Col sm="3" className="side-menu">
+        <Row className='side-row-title'> <h3 className="title">Site sections</h3></Row>
+        <Row className='side-row'> <Link to="/dashboard" className="link-text">The artist</Link></Row>
+        <Row className='side-row'> <Link to="/dashboard" className="link-text">Pianist</Link></Row>
+        <Row className='side-row'> <Link to="/dashboard" className="link-text">Composer</Link></Row>
+        <Row className='side-row'> <Link to="/dashboard" className="link-text">Teacher</Link></Row>
+        <Row className='side-row'> <Link to="/dashboard" className="link-text">Musical event organizer</Link></Row>
+        <Row className='side-row'> <Link to="/dashboard" className="link-text">Upcoming events</Link></Row>
+        <Row className='side-row'> <Link to="/dashboard" className="link-text">Contact</Link></Row>
+      </Col>
+
+      <Col sm="9" className="main-menu">
+        <Row>
+          <h4>Create new content for The Artist section</h4>
+            <AddArtistItem />
+        </Row>
+        <Row>
+          <p>Current posts showing:</p>
+          <ArtistItems />
+          
+        </Row>
+      </Col>
+    </Row>
     </>
   )
 }

@@ -1,8 +1,6 @@
 .image{
-    min-height:200px;
-    min-width: 250px;
-    max-width: 500px;
-    width:90%; 
+    max-width: 200px;
+    max-height: 350px;
     margin: 10px;
 }
 
@@ -12,3 +10,17 @@
     color: white !important;
    text-align: justify !important;
 }
+
+.artist-content-container {
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: groove 1px #ACD8EC;
+}
+
+.artist-content-col  {
+    justify-content: center !important;
+   align-self: auto !important;
+   
+ 
+}
+

@@ -1,7 +1,7 @@
 @import url(Contact.css);
 @import url(Footer.css);
 @import url(TheArtist.css);
-
+@import url(Dashboard.css);
 *{
     margin: 0;
     box-sizing: border-box;
@@ -165,7 +165,6 @@ span.navbar-toggler-icon {
 .link-text {
     color: #ACD8EC;
     text-decoration: none;
-    
 }
 
 .link-text:hover {
@@ -175,7 +174,25 @@ span.navbar-toggler-icon {
 }
 /****** END RESET PASWORD ******/
 
+/****** HOME ******/
+.artist-home-container { 
+    background-image: url(https://firebasestorage.googleapis.com/v0/b/nadyapokladsite.appspot.com/o/General%2Fnadya1_transparency.jpg?alt=media&token=023e4835-281b-4e8c-9418-aed2896cba17);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    opacity: 0.9;
+}
 
+.artist-home-container p { 
+    margin: 30px 20px 20px 20px;
+    align-self: center;
+    color: #000000;
+    font-weight: 600;
+
+}
+
+
+/****** END HOME ******/
 
 
 @media (min-width: 768px) {
