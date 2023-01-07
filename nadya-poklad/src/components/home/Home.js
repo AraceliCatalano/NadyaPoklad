@@ -14,13 +14,13 @@ function Home () {
                 <Row>
                     <h3 className='title'> The Artist </h3>
                 </Row>
-                <Container className="artist-home-container">
+                <Container className="artist-home-container" >
                 <Row >
                     <Col sm className="artist-content-col">
                         <Image src={Nadya1} fluid className='image'/>
                     </Col>
-                    <Col sm>
-                        <p> Ukrainian composer. Pianist. Teacher of piano, composition, and musical theoretical disciplines. Laureate of international and all-ukranian competitions for young composers. </p>
+                    <Col sm >
+                        <p className="artist-home-text"> Ukrainian composer. Pianist. Teacher of piano, composition, and musical theoretical disciplines. Laureate of international and all-ukranian competitions for young composers. </p>
                     </Col>
                 </Row>
         </Container>

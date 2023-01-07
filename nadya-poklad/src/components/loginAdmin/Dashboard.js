@@ -4,8 +4,7 @@ import '../../styles/App.css'
 import { Button, Container, Row, Col} from 'react-bootstrap';
 import { useNavigate } from "react-router";
 import { useUserAuth } from '../../context/UserAuthContext';
-import ArtistItems from './ArtistItems';
-import AddArtistItem from './AddArtistItem';
+
 
 
 export default function Dashboard() {
@@ -56,11 +55,11 @@ export default function Dashboard() {
       <Col sm="9" className="main-menu">
         <Row>
           <h4>Create new content for The Artist section</h4>
-            <AddArtistItem />
+    
         </Row>
         <Row>
           <p>Current posts showing:</p>
-          <ArtistItems />
+          
           
         </Row>
       </Col>

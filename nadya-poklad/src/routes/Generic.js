@@ -18,6 +18,7 @@ import LoginAdmin from '../components/loginAdmin/LoginAdmin';
 import ForgotPassword from '../components/loginAdmin/ForgotPassword'
 import ProtectedRoute from './ProtectedRoute';
 import Dashboard from '../components/loginAdmin/Dashboard';
+import ArtistAdmin from '../components/loginAdmin/ArtistAdmin';
 
 function Generic() {
   return (
@@ -34,7 +35,8 @@ function Generic() {
             <Route exact path="/works/musical_event_organizer" element={<MusicalEventOrganizaer />} />    
             <Route exact path="/upcoming_events" element={<UpcomingEvents />} />    
             <Route exact path="/engage" element={<Engage />} />    
-            <Route exact path="/contact" element={<Contact />} />    
+            <Route exact path="/contact" element={<Contact />} />       
+            <Route exact path="/artist-admin" element={ <ArtistAdmin />} />  
             <Route exact path="/login_admin" element={<LoginAdmin />} />
             <Route 
                   exact path="/dashboard" 

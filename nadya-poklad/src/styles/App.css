@@ -180,15 +180,19 @@ span.navbar-toggler-icon {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    opacity: 0.9;
+    opacity: 40%;
+    position:relative
+
 }
 
-.artist-home-container p { 
+
+.artist-home-text {
+    position: absolute;
     margin: 30px 20px 20px 20px;
     align-self: center;
     color: #000000;
     font-weight: 600;
-
+    opacity: 100% !important;
 }
 
 
