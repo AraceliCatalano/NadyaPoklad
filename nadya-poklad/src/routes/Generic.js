@@ -18,13 +18,13 @@ import LoginAdmin from '../components/loginAdmin/LoginAdmin';
 import ForgotPassword from '../components/loginAdmin/ForgotPassword'
 import ProtectedRoute from './ProtectedRoute';
 import Dashboard from '../components/dashboard/Dashboard';
-import ArtistAdmin from '../components/dashboard/ArtistAdmin';
 import PianistAdmin from '../components/dashboard/PianistAdmin';
 import ComposerAdmin from '../components/dashboard/ComposerAdmin';
 import MusicEventOrganizerAdmin from '../components/dashboard/MusicEventOrganizerAdmin';
-import ContactAdmin from '../components/dashboard/ContactAdmin';
+import ContactAdmin from '../components/dashboard/contactAdmin/ContactAdmin';
 import TeacherAdmin from '../components/dashboard/TeacherAdmin';
 import UpcomingEventsAdmin from '../components/dashboard/UpcomingEventsAdmin';
+import ArtistAdmin from '../components/dashboard/artistAdmin/ArtistAdmin';
 
 function Generic() {
   return (
@@ -53,6 +53,7 @@ function Generic() {
             <Route exact path="/dashboard/teacher" element={ <ProtectedRoute> <TeacherAdmin /> </ProtectedRoute>} /> 
             <Route exact path="/dashboard/upcoming-events" element={ <ProtectedRoute> <UpcomingEventsAdmin /> </ProtectedRoute>} /> 
             <Route exact path="/resetPassword" element={<ForgotPassword />} />  
+            <Route exact path="/test-artist" element={<ArtistAdmin />} /> 
             <Route path="*" element={<NotFound />} />  
       </Routes>        
     </UserAuthContextProvider>
