@@ -1,33 +1,62 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { collection, getDocs, query, where } from 'firebase/firestore';
+import {db} from '../../firebase-config';
 import {  Container, Image, Row, Col } from 'react-bootstrap';
-import '../../styles/TheArtist.css';
-import Nadya1 from './nadya1.jpg';
-import Nadya2 from './nadya2.jpg';
-import Nadya3 from './nadya3.jpg'
+import '../../styles/App.css';
+
 
 export default function TheArtist() {
+
+  const [artistPosts, setArtistPosts ] = useState([]);
+  const [artistPostImage, setArtistPostsImage ] = useState([]);
+
+  useEffect(() => {         
+    const artistPostRef = collection(db , "TheArtist");  
+    const queryArtistPost = query(artistPostRef, where('orderDisplay', '==', 0 ));
+    getDocs(queryArtistPost) 
+    .then(res => setArtistPosts(res.docs.map(doc => ({ id: doc.id, ...doc.data() }))));
+    console.log(artistPosts)   
+  }, [])
+
+  useEffect(() => {         
+    const artistPostImageRef = collection(db , "TheArtist");  
+    const queryArtistPostI = query(artistPostImageRef, where('orderDisplay', '!=', 0 ));
+    getDocs(queryArtistPostI) 
+    .then(res => setArtistPostsImage(res.docs.map(doc => ({ id: doc.id, ...doc.data() }))));
+    console.log(artistPostImage)   
+  }, []);  
+  
+
   return (
     <>
     <Container fluid="sm">
       <Row>
       <h2 className='title'> The Artist </h2>
       </Row>
-      <Col>
-      Ukrainian composer. Pianist. Teacher of piano, composition, and musical theoretical disciplines. Laureate of international and all-ukranian competitions for young composers.
-      </Col>
-      <Col>
-      <Image src={Nadya1} fluid className='image'/>
-      <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
-      <Image src={Nadya2} fluid className='image'/>
-      <p>
-      Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
-      </p>
-      <Image src={Nadya3} fluid className='image'/>
-      <p>
-      Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
-      </p>
-      </Col>
+    </Container>
+
+      <Container >
+           <p>
+          {artistPosts.map((post) =>
+                <Row sm key={post.id}>
+                 <p>{post.description}</p>
+                </Row>
+                )}
+          </p> 
       </Container>
+
+      <Container >
+      {artistPostImage.map((post) =>
+        <Row sm key={post.id} className="artist-content-row">
+          <Col sm className="artist-content-col">
+            <Image src={post.imageURL} fluid className='image'/>
+          </Col>
+          <Col sm>
+            <p>{post.description}</p>
+          </Col>
+        </Row>
+        )}
+      </Container>   
     </>
   )
 }

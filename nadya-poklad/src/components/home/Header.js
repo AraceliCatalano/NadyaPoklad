@@ -10,7 +10,7 @@ export default function Header() {
     <>
       <OffcanvasHeader>
         {[false, 'md'].map((expand) => (
-          <Navbar key={expand} expand={expand} className="mb-3 header" fixed="top">
+          <Navbar key={expand} expand={expand} className="mb-0 header" fixed="top">
             <Container fluid>
               <Navbar.Brand><Link to="/" className="title"> Nadya Poklad </Link> </Navbar.Brand>
               <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />

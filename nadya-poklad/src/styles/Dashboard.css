@@ -1,0 +1,57 @@
+.main-menu {
+    background-color: #2f434a;
+}
+
+.form-bottom {
+    align-items: center;
+}
+
+.post-header {
+    padding: 10px 0 10px 0;;
+}
+
+
+/**** SIDEBAR ****/
+
+.side-menu {
+    background-color: #2f434a;
+    color: #c2ced6;
+    font-weight: 500;
+    border-right: #c2ced6 1px solid;
+   
+   
+}
+
+.side-row-title {
+    margin: 10px 0 5px 0;
+    padding-top: 10px;
+}
+
+.side-row {
+    margin: 5px 0 5px 0;
+    padding: 5px 0 5px 0;
+
+}
+
+.side-row:hover {
+    background-color: #41818d;
+    padding: 10px 0 10px 0;
+}
+
+/**** END SIDEBAR ****/
+
+
+/****** CONTACT *****/
+
+.contact-form, .contact-list-header {
+    display: flex;
+    flex-wrap: nowrap ;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.contact-form-container {
+    border-bottom: 1px solid #c2ced6;
+}
+
+/******  END CONTACT *****/
