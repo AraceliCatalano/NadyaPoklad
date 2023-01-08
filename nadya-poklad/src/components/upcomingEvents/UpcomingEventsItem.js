@@ -20,7 +20,22 @@ export default function UpcomingEventsItem(props) {
  <div ref={ref} >
     <div  position-relative="true" className="section" >
         <Image src={props.image} alt={props.image} className="box-picture event-Item" />
-        <Button onMouseEnter={handleClick} onMouseLeave={handleClick} position-absolute="true" className=" accordion-title-bg"> {props.date} - {props.event}</Button>
+        
+      
+
+        <Accordion defaultActiveKey="0" position-absolute="true" className=" accordion-title-bg"   >
+          <Accordion.Item eventKey="1" >
+            <Accordion.Header > {props.date} - {props.event} 
+            
+            </Accordion.Header>
+
+            <Accordion.Body >
+              {props.description}
+              
+            </Accordion.Body>
+          </Accordion.Item>
+        </Accordion>
+        {/* <Button onMouseEnter={handleClick} onMouseLeave={handleClick} position-absolute="true" className=" accordion-title-bg"> {props.date} - {props.event}</Button>
         <Overlay
           show={show}
           target={target}
@@ -36,25 +51,11 @@ export default function UpcomingEventsItem(props) {
 
           </Popover>
 
-        </Overlay>
+        </Overlay> */}
         </div>
      </div>
 
-{/* 
-      
 
-        <Accordion defaultActiveKey="0" position-absolute="true" className=" accordion-title-bg"   >
-          <Accordion.Item eventKey="1" >
-            <Accordion.Header > {props.date} - {props.event} 
-            
-            </Accordion.Header>
-
-            <Accordion.Body >
-              {props.description}
-              
-            </Accordion.Body>
-          </Accordion.Item>
-        </Accordion> */}
  </>
   )
 }
