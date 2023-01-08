@@ -1,32 +1,54 @@
 import React from 'react';
-import {  Container, Image, Row, Col } from 'react-bootstrap';
+import { Container, Image, Row, Col } from 'react-bootstrap';
 import '../../styles/TheArtist.css';
 import Nadya1 from '../theArtist/nadya1.jpg';
 
 
-function Home () {
+function Home() {
 
     return (
-       <>      
-        <Container fluid="sm" >
-            <Row>
-             <Col sm="8">
+        <>
+            <Container className=''>
                 <Row>
                     <h3 className='title'> The Artist </h3>
                 </Row>
                 <Container className="artist-home-container" >
-                <Row >
-                    <Col sm className="artist-content-col">
-                        <Image src={Nadya1} fluid className='image'/>
-                    </Col>
-                    <Col sm >
-                        <p className="artist-home-text"> Ukrainian composer. Pianist. Teacher of piano, composition, and musical theoretical disciplines. Laureate of international and all-ukranian competitions for young composers. </p>
-                    </Col>
-                </Row>
-        </Container>
+                    <Row >
+                        <Col sm className="artist-content-col">
+                            <Image src={Nadya1} fluid className='image' />
+                        </Col>
+                        <Col sm >
+                            <p className="artist-home-text"> Ukrainian composer. Pianist. Teacher of piano, composition, and musical theoretical disciplines. Laureate of international and all-ukranian competitions for young composers. </p>
+                        </Col>
+                    </Row>
+                    <Row className=''>
+                        <hr />
+
+                        <Col className='responsive-Row ' >
+                            <SectionItem
+                                url='./works/composer'
+                                image={imageComposer}
+                                name='Composer'
+                            />
+                        </Col>
+                        <Col className='responsive-Row '>
+                            <SectionItem
+                                url='./works/pianist'
+                                image={imagePianist}
+                                name='Pianist'
+                            />
+                        </Col>
+                        <Col className='responsive-Row '>
+                            <SectionItem
+                                url='./works/teacher'
+                                image={imageTeacher}
+                                name='Teacher'
+                            />
+                        </Col>
+                    </Row>
 
 
-                </Col>
+                </Container>
 
                 <Col sm="4">
                     <Row>
@@ -39,9 +61,9 @@ function Home () {
                         EVENT AREA
                     </Row>
                 </Col>
-            </Row>
+        
 
-            
+
         </Container>
        </>
     )
