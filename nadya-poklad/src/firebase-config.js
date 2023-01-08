@@ -2,8 +2,8 @@
 import { initializeApp } from "firebase/app";
 //import { getAnalytics } from "firebase/analytics";
 import { getAuth } from "firebase/auth";
-//import { getStorage } from "firebase/storage";
-//import { getStorage, ref, uploadBytes, getDownloadURL, getBytes } from "firebase/storage";
+import { getStorage } from "firebase/storage";
+
 //Functions for CRUD
 import { getFirestore  } from 'firebase/firestore';
 //import { getFirestore, collection, addDoc, getDocs, doc, getDoc, query, where, setDoc, deleteDoc } from 'firebase/firestore';
@@ -24,7 +24,7 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 export const db = getFirestore(app);
-// const storage = getStorage(app); 
+export const storage = getStorage(app); 
 export const auth = getAuth(app); 
 //export const analytics = getAnalytics(app);
 export default app;

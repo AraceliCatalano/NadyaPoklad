@@ -1,7 +1,26 @@
+.main-menu {
+    background-color: #2f434a;
+}
+
+.form-bottom {
+    align-items: center;
+}
+
+.post-header {
+    background-color: #43555C !important;
+    padding: 10px 0 10px 0;;
+}
+
+
+/**** SIDEBAR ****/
+
 .side-menu {
     background-color: #2f434a;
     color: #c2ced6;
     font-weight: 500;
+    border-right: #c2ced6 1px solid;
+   
+   
 }
 
 .side-row-title {
@@ -20,6 +39,4 @@
     padding: 10px 0 10px 0;
 }
 
-.main-menu {
-    background-color: black;
-}
+/**** END SIDEBAR ****/
