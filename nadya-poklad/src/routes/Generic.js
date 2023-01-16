@@ -23,7 +23,7 @@ import ComposerAdmin from '../components/dashboard/ComposerAdmin';
 import MusicEventOrganizerAdmin from '../components/dashboard/MusicEventOrganizerAdmin';
 import ContactAdmin from '../components/dashboard/contactAdmin/ContactAdmin';
 import TeacherAdmin from '../components/dashboard/TeacherAdmin';
-import UpcomingEventsAdmin from '../components/dashboard/UpcomingEventsAdmin';
+import UpcomingEventsAdmin from '../components/dashboard/upcomingEvenstAdmin/UpcomingEventsAdmin';
 import ArtistAdmin from '../components/dashboard/artistAdmin/ArtistAdmin';
 
 function Generic() {

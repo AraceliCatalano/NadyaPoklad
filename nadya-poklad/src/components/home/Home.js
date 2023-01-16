@@ -2,13 +2,16 @@ import React from 'react';
 import {  Container, Image, Row, Col } from 'react-bootstrap';
 import '../../styles/TheArtist.css';
 import Nadya1 from '../theArtist/nadya1.jpg';
+import SectionItem from './SectionItem'
+import imageComposer from '../../Assests/images/Composer.jpg'
+import imagePianist from  '../../Assests/images/Pianist.jpg'
+import imageTeacher from '../../Assests/images/Teacher.jpg'
 
 
 function Home () {
 
     return (
-        <>
-            <Container className=''>
+       
        <>      
         <Container fluid="sm" >
             <Row>
@@ -25,10 +28,16 @@ function Home () {
                         <p className="artist-home-text"> Ukrainian composer. Pianist. Teacher of piano, composition, and musical theoretical disciplines. Laureate of international and all-ukranian competitions for young composers. </p>
                     </Col>
                 </Row>
-                <Row className=''>
-                    <hr />
+                </Container>
+             </Col>
+            </Row>
+        </Container>
+        
                     
-                    <Col className='responsive-Row ' >
+                    
+        <Container>
+            <Row>
+                    <Col  className='responsive-Row ' >
                         <SectionItem
                             url='./works/composer'
                             image={imageComposer}
@@ -52,9 +61,8 @@ function Home () {
                 </Row>
         </Container>
 
-
-                </Col>
-
+        <Container>
+            <Row>
                 <Col sm="4">
                     <Row>
                         <h3 className='title'>Upcoming Events</h3>
@@ -67,8 +75,7 @@ function Home () {
                     </Row>
                 </Col>
             </Row>
-
-            
+   
         </Container>
        </>
     )
