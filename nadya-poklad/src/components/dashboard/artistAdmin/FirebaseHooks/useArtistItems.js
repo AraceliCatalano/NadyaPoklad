@@ -18,7 +18,7 @@ import {
   listAll,
 } from "firebase/storage";
 
-export default function useGetMenuItems() {
+export default function useGetArtistItems() {
   const [data, setData] = useState([]);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -26,7 +26,7 @@ export default function useGetMenuItems() {
 
   useEffect(() => {
     setLoading(true);
-    const q = query(collection(db, "MenuItems")); //, where("userId", "==", userId)
+    const q = query(collection(db, "TheArtist")); //, where("userId", "==", userId)
     console.log("getting data");
     getDocs(q)
       .then((data) => {
@@ -58,7 +58,7 @@ export default function useGetMenuItems() {
     const currentTime = Date.now();
     const fileName = `${currentTime}-${imageFile.name}`;
     item.imageFileName = fileName;
-    const storageRef = ref(storage, "MenuItems/" + fileName);
+    const storageRef = ref(storage, "TheArtist/" + fileName);
     const uploadTask = uploadBytesResumable(storageRef, imageFile);
     uploadTask.on(
       "state_changed",
@@ -78,7 +78,7 @@ export default function useGetMenuItems() {
   };
 
   const addItemToFirestore = async (item) => {
-    const docRef = await addDoc(collection(db, "MenuItems"), item)
+    const docRef = await addDoc(collection(db, "TheArtist"), item)
       .then((docRef) => {
         item.id = docRef.id;
         setData((prevState) => [...prevState, item]);
@@ -91,7 +91,7 @@ export default function useGetMenuItems() {
   };
 
   const checkFileCountInStorage = () => {
-    const listRef = ref(storage, "MenuItems");
+    const listRef = ref(storage, "TheArtist");
     let maxxed = false;
     listAll(listRef)
       .then((response) => {
@@ -135,7 +135,7 @@ export default function useGetMenuItems() {
 
   const deleteDocFromFirestore = async (itemId) => {
     let deleted = false;
-    const itemDoc = doc(db, "MenuItems", itemId);
+    const itemDoc = doc(db, "TheArtist", itemId);
     await deleteDoc(itemDoc)
       .then(() => {
         deleted = true;
@@ -146,7 +146,7 @@ export default function useGetMenuItems() {
 
   const deleteObjectFromStorage = async (imageFileName) => {
     let deleted = false;
-    const fileRef = ref(storage, "MenuItems/" + imageFileName);
+    const fileRef = ref(storage, "TheArtist/" + imageFileName);
     await deleteObject(fileRef)
       .then(() => {
         deleted = true;

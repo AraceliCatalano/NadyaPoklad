@@ -7,20 +7,14 @@ import '../../styles/App.css';
 
 export default function TheArtist() {
 
-  const [artistPosts, setArtistPosts ] = useState([]);
+  
   const [artistPostImage, setArtistPostsImage ] = useState([]);
+  
 
-  useEffect(() => {         
-    const artistPostRef = collection(db , "TheArtist");  
-    const queryArtistPost = query(artistPostRef, where('orderDisplay', '==', 0 ));
-    getDocs(queryArtistPost) 
-    .then(res => setArtistPosts(res.docs.map(doc => ({ id: doc.id, ...doc.data() }))));
-    console.log(artistPosts)   
-  }, [])
 
   useEffect(() => {         
     const artistPostImageRef = collection(db , "TheArtist");  
-    const queryArtistPostI = query(artistPostImageRef, where('orderDisplay', '!=', 0 ));
+    const queryArtistPostI = query(artistPostImageRef, where('active', '==', true ));
     getDocs(queryArtistPostI) 
     .then(res => setArtistPostsImage(res.docs.map(doc => ({ id: doc.id, ...doc.data() }))));
     console.log(artistPostImage)   
@@ -37,19 +31,15 @@ export default function TheArtist() {
 
       <Container >
            <p>
-          {artistPosts.map((post) =>
-                <Row sm key={post.id}>
-                 <p>{post.description}</p>
-                </Row>
-                )}
+           Ukrainian composer. Pianist. Teacher of piano, composition, and musical theoretical disciplines. Laureate of international and all-ukranian competitions for young composers.
           </p> 
       </Container>
 
       <Container >
       {artistPostImage.map((post) =>
-        <Row sm key={post.id} className="artist-content-row">
+        <Row sm key={post.id} className="artist-content-row" style={{ flexDirection: post.orderDisplay % 2 ? 'row' : 'row-reverse' }}>
           <Col sm className="artist-content-col">
-            <Image src={post.imageURL} fluid className='image'/>
+            <Image src={post.image} fluid className='image'/>
           </Col>
           <Col sm>
             <p>{post.description}</p>

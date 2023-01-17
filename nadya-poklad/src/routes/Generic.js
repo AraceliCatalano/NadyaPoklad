@@ -11,8 +11,6 @@ import Engage from '../components/engage/Engage';
 import UpcomingEvents from '../components/upcomingEvents/UpcomingEvents';
 import Contact from '../components/contact/Contact';
 import NotFound from '../components/NotFound';
-// TEST
-import TESTADMIN from '../components/dashboard/TESTADMIN/TESTADMIN';
 
 
 // Imports for Login with Firebase
@@ -28,6 +26,8 @@ import ContactAdmin from '../components/dashboard/contactAdmin/ContactAdmin';
 import TeacherAdmin from '../components/dashboard/TeacherAdmin';
 import UpcomingEventsAdmin from '../components/dashboard/UpcomingEventsAdmin';
 import ArtistAdmin from '../components/dashboard/artistAdmin/ArtistAdmin';
+
+
 
 function Generic() {
   return (
@@ -45,10 +45,9 @@ function Generic() {
             <Route exact path="/upcoming_events" element={<UpcomingEvents />} />    
             <Route exact path="/engage" element={<Engage />} />    
             <Route exact path="/contact" element={<Contact />} />       
-            <Route exact path="/artist-admin" element={ <ArtistAdmin />} />  
             <Route exact path="/login_admin" element={<LoginAdmin />} />
             <Route exact path="/dashboard" element={<ProtectedRoute> <Dashboard /> </ProtectedRoute>} /> 
-            <Route exact path="/dashboard/artist" element={ <ProtectedRoute> <ArtistAdmin /> </ProtectedRoute>} /> 
+            <Route exact path="/dashboard/artist" element={ <ArtistAdmin />} />  
             <Route exact path="/dashboard/pianist" element={<ProtectedRoute> <PianistAdmin />  </ProtectedRoute>} />
             <Route exact path="/dashboard/composer" element={ <ProtectedRoute> <ComposerAdmin /> </ProtectedRoute>} /> 
             <Route exact path="/dashboard/music-event-organizer" element={<ProtectedRoute> <MusicEventOrganizerAdmin />  </ProtectedRoute>} />
@@ -56,7 +55,7 @@ function Generic() {
             <Route exact path="/dashboard/teacher" element={ <ProtectedRoute> <TeacherAdmin /> </ProtectedRoute>} /> 
             <Route exact path="/dashboard/upcoming-events" element={ <ProtectedRoute> <UpcomingEventsAdmin /> </ProtectedRoute>} /> 
             <Route exact path="/resetPassword" element={<ForgotPassword />} />  
-            <Route exact path="/test-admin" element={<TESTADMIN />} /> 
+        
             <Route path="*" element={<NotFound />} />  
       </Routes>        
     </UserAuthContextProvider>

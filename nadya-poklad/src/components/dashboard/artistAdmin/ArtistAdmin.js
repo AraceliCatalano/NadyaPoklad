@@ -1,9 +1,9 @@
 import React from 'react';
 import { Container, Col, Row } from "react-bootstrap";
-import ArtistItems from './ArtistItems';
-import AddArtist from './AddArtist';
+
 import '../../../styles/App.css';
 import SideBar from '../SideBar';
+import MenuItems from './MenuItems';
 
 export default function ArtistAdmin() {
   return (
@@ -16,10 +16,10 @@ export default function ArtistAdmin() {
                <h4 className="title mt-3">Artist page: content administration </h4>
               </Row>
               <Row>
-                <AddArtist />
+               <MenuItems />
               </Row>
               <Row>
-                <ArtistItems />
+               
               </Row>
           </Container>
           </Col>

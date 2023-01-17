@@ -1,26 +1,17 @@
 /**
- * Add menu item to Firestore database
+ * Add Artist Post item to Firestore database
  */
 
-import React, { useState, useEffect, useContext } from "react";
+import { useState, useEffect } from "react";
+import { Container, Row, Col, Button, Spinner, Form, Image } from "react-bootstrap";
+
+import ErrorMessage from "./Messages/ErrorMessage";
 import "./MenuItemsPage.css";
 import '../../../styles/App.css';
 
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import Button from "react-bootstrap/Button";
-import Form from "react-bootstrap/Form";
-import Spinner from "react-bootstrap/Spinner";
-import Image from "react-bootstrap/Image";
-
-import ErrorMessage from "./ErrorMessage";
-//import { UserContext } from "../Helper/Context";
-
 export default function AddMenuItem({ menuItems }) {
- // const { user } = useContext(UserContext);
-  const [name, setName] = useState("");
-  const [price, setPrice] = useState(0);
+  const [description, setDescription] = useState("");
+  const [orderDisplay, setOrderDisplay] = useState(0);
   const [active, setActive] = useState(true);
   const [imageFile, setImageFile] = useState(null);
   const [inputKey, setInputKey] = useState("");
@@ -38,8 +29,8 @@ export default function AddMenuItem({ menuItems }) {
   }, [menuItems.loading])
 
   const clearInputStates = () => {
-    setName("");
-    setPrice(0);
+    setDescription("");
+    setOrderDisplay(0);
     setImageFile(null);
     setInputKey(Date.now());
     setError(null);
@@ -48,12 +39,11 @@ export default function AddMenuItem({ menuItems }) {
   const submitForm = (e) => {
     e.preventDefault();
     const item = {
-      name: name,
-      price: price,
+      description: description,
+      orderDisplay: orderDisplay,
       image: null,
       imageFileName: null,
       active: active,
-      //userId: user.id,
     };
     if (!formError) {
       const addedMenuItem = menuItems.addItem(item, imageFile);
@@ -85,25 +75,25 @@ export default function AddMenuItem({ menuItems }) {
     >
       <Row>
         <Col className="menu-add-input-container">
-          <Form.Label>Product name</Form.Label>
+          <Form.Label>Description</Form.Label>
           <Form.Control
-            name="product-name"
+            name="artist-description"
             className="menu-add-form-input"
             type="text"
-            placeholder="Enter name for product"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
+            placeholder="Enter the text that will appear next to the image"
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
             required
           />
-          <Form.Label>Price</Form.Label>
+          <Form.Label>Order Display</Form.Label>
           <Form.Control
             className="menu-add-form-input"
             type="number"
             step="0.01"
             min="0"
-            placeholder="Enter price for product"
-            value={price}
-            onChange={(e) => setPrice(e.target.value)}
+            placeholder="Enter the order display"
+            value={orderDisplay}
+            onChange={(e) => setOrderDisplay(e.target.value)}
             required
           />
           <Form.Label>Image</Form.Label>
@@ -147,7 +137,7 @@ export default function AddMenuItem({ menuItems }) {
             type="submit"
             data-testid="submit-button"
           >
-            Save new item
+            Save new post
           </Button>
           {loading ? (
             <Spinner

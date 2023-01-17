@@ -3,9 +3,9 @@ import { Container, Row, Col, Button } from "react-bootstrap";
 
 import AddMenuItemForm from "./AddMenuItemForm";
 import MenuItemCard from "./MenuItemCard";
-import ErrorMessage from "./ErrorMessage";
-import MessageBox from "./MessageBox";
-import useMenuItems from "./FirebaseHooks/useMenuItems";
+import ErrorMessage from "./Messages/ErrorMessage";
+import MessageBox from "./Messages/MessageBox";
+import useMenuItems from "./FirebaseHooks/useArtistItems";
 
 export default function MenuItems() {
   const [loading, setLoading] = useState(false);
@@ -57,9 +57,13 @@ export default function MenuItems() {
           <AddMenuItemForm menuItems={menuItems} />
         ) : null}
       </Row>
-      <Row className="container-menu-item-cards">
+    
+      <Row className="container-menu-item-cards mt-2">
         {error !== null && <ErrorMessage message={error} />}
         {successfull !== null &&  <MessageBox message={successfull} /> }
+
+        <h5 className="title posts-title">List of posts in The Artist section</h5>
+       
         {loading ? (
           <p>Loading...</p>
         ) : (
