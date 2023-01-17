@@ -60,7 +60,7 @@ export default function AddArtist() {
           setProgress(0);
         })
         .catch((err) => {
-          toast("Error adding article. Try again.", {type: "error"});
+          toast("Error adding post. Try again.", {type: "error"});
         })
       })
     }
@@ -98,7 +98,6 @@ export default function AddArtist() {
           className="form-control" 
           type="file" 
           accept="image/*"
-          
           onChange={(e)=>handleImageChange(e)}
           />
         {/* Progress */}

@@ -11,6 +11,9 @@ import Engage from '../components/engage/Engage';
 import UpcomingEvents from '../components/upcomingEvents/UpcomingEvents';
 import Contact from '../components/contact/Contact';
 import NotFound from '../components/NotFound';
+// TEST
+import TESTADMIN from '../components/dashboard/TESTADMIN/TESTADMIN';
+
 
 // Imports for Login with Firebase
 import { UserAuthContextProvider } from '../context/UserAuthContext';
@@ -53,7 +56,7 @@ function Generic() {
             <Route exact path="/dashboard/teacher" element={ <ProtectedRoute> <TeacherAdmin /> </ProtectedRoute>} /> 
             <Route exact path="/dashboard/upcoming-events" element={ <ProtectedRoute> <UpcomingEventsAdmin /> </ProtectedRoute>} /> 
             <Route exact path="/resetPassword" element={<ForgotPassword />} />  
-            <Route exact path="/test-artist" element={<ArtistAdmin />} /> 
+            <Route exact path="/test-admin" element={<TESTADMIN />} /> 
             <Route path="*" element={<NotFound />} />  
       </Routes>        
     </UserAuthContextProvider>

@@ -6,7 +6,7 @@ import '../../../styles/App.css';
 import SideBar from '../SideBar';
 
 export default function ContactAdmin() {
-  //[For Alba and future Ara] "getArtistPostId" is the prop passed to ArtistItems 
+  //[For Alba and future Ara] "getContactPostId" is the prop passed to contactItems 
   const [contactPostId, setContactPostId] = useState("");
 
   const getContactPostIdHandler = (id) => {
