@@ -8,7 +8,7 @@ import Pianist from '../components/works/Pianist';
 import Teacher from '../components/works/Teacher'
 import MusicalEventOrganizaer from '../components/works/MusicalEventOrganizer'
 import Engage from '../components/engage/Engage';
-import UpcomingEvents from '../components/upcomingEvents/UpcomingEvents';
+import UpcomingEventsList from '../components/upcomingEvents/UpcomingEventsList';
 import Contact from '../components/contact/Contact';
 import NotFound from '../components/NotFound';
 
@@ -43,7 +43,7 @@ function Generic() {
             <Route exact path="/works/composer" element={<Composer />} />    
             <Route exact path="/works/teacher" element={<Teacher />} />    
             <Route exact path="/works/musical_event_organizer" element={<MusicalEventOrganizaer />} />    
-            <Route exact path="/upcoming_events" element={<UpcomingEvents />} />    
+            <Route exact path="/upcoming_events" element={<UpcomingEventsList />} />    
             <Route exact path="/engage" element={<Engage />} />    
             <Route exact path="/contact" element={<Contact />} />       
             <Route exact path="/login_admin" element={<LoginAdmin />} />
