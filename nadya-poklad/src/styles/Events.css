@@ -1,16 +1,51 @@
-.event-Item {
+/* .event-Item {
+    display: flex;
     min-width: 280px;
     min-height: 250px;
     max-width: 700px;
 
-}
+} */
 
 .accordion-title-bg{
-    min-width: 280px !important;
-    background-color: #2f434a !important;
-    opacity: 75%;
+    max-width:content;
+    font-size: 14px !important;
+    color: white;
+    background-color: #ACD8EC !important;
     position: absolute !important;
-    bottom: 15px !important;
-    padding: 10px !important;
+    bottom: 45px !important;
+    padding: 0px !important;
+    margin: auto;
     
+}
+.event-image{
+    width:90%;
+    max-height: 180px;
+    margin:auto;
+    align-items: center;
+
+
+}
+.event-card{
+    background-color: #2f434a !important;
+    justify-content: center;  
+    opacity: 90%; 
+    border-radius: 10px; 
+    margin-left: 10px;
+    margin-bottom:15px !important;
+    /* border: opacity 5%; */
+    
+}
+.accordion-button {
+    position: absolute !important;
+    bottom: -10px !important;
+    padding: 10px !important;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    font-size: 12px !important;
+    background-color: #ACD8EC !important;
+    font-weight: 500;
+    opacity: 95%;
+    text-align: left;
+    transition: var(--bs-accordion-transition);
 }
