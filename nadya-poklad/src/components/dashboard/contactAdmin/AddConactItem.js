@@ -13,7 +13,8 @@ const AddConactItem = ({ id, setContactPostId }) => {
     if (contact === "") {
       setMessage({ error: true, msg: "Complete the contact field" });
       return;
-    }
+    };
+
     const newContactPost = {
       contact
     };

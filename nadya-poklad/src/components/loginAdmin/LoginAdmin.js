@@ -18,7 +18,8 @@ export default function LoginAdmin() {
         e.preventDefault();
         setError("");
         try {
-            await logIn(email, password);
+          await logIn(email, password);
+
             navigate("/dashboard");
         } catch (err) {
             setError(err.message);

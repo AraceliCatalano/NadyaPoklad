@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 import '../../styles/App.css'
-import { Accordion, Image, Overlay, Popover, Button } from 'react-bootstrap';
+import { Accordion, Image } from 'react-bootstrap';
 
 
 
