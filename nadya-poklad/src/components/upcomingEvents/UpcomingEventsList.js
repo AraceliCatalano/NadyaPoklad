@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { collection, getDocs, query, where } from 'firebase/firestore';
 import {db} from '../../firebase-config';
-import {  Container } from 'react-bootstrap';
+import {  Container , Row, Col, Collapse} from 'react-bootstrap';
 import '../../styles/App.css';
 import UpcomingEventsItem from './UpcomingEventsItem';
 
@@ -22,18 +22,22 @@ export default function UpcomingEvents() {
 
   return (
  <>
- <Container className='' col-md-6 col-lg-3 col-sm-12>
+ <Container className=''container fluid>
+  <Row>
+
     {UpcomingEventsPost.map((post) =>
+   <Col xs={12} md={6} lg={3}>
+    <UpcomingEventsItem 
+    date={post.date}
+    image={post.image}
+    event={post.title}
+    description= {post.description}
+    />
     
-        <UpcomingEventsItem 
-              date={post.date}
-              image={post.image}
-              event={post.title}
-              description= {post.description}
-        />
-        
     
+    </Col> 
     )}
+    </Row>
     
   </Container>
 
