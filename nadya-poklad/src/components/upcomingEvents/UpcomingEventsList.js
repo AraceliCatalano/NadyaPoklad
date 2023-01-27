@@ -32,6 +32,11 @@ export default function UpcomingEvents() {
     image={post.image}
     event={post.title}
     description= {post.description}
+    eventType={post.eventType}
+    linkToBuy={post.linkToBuy}
+    linkToEvent={post.linkToEvent}
+    buyTickets={post.buyTickets}
+    tickets={post.tickets}
     />
     
     
