@@ -4,9 +4,9 @@
 @import url(Dashboard.css);
 @import url(SectionItem.css);
 @import url(Home.css);
-@import url(Events.css);
-
-
+/* @import url(Events.css); */
+@import url(ButtonGeneric.css);
+@import url(UpcomingEvent.css);
 *{
     margin: 0;
     box-sizing: border-box;
@@ -69,6 +69,11 @@ body {
     text-decoration: none !important;
     color: white !important;
     cursor: pointer;
+    margin-left: 20px;
+}
+.subtitle {
+    margin-left: 20px;
+
 }
 
 

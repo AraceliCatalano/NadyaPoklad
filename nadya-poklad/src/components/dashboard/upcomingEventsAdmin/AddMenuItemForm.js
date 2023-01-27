@@ -17,6 +17,7 @@ export default function AddMenuItem({ menuItems }) {
   const [eventType, setEventType] = useState('');
   const[ linkToBuy, setlinkToBuy]=useState('')
   const[ linkToEvent, setlinkToEvent]=useState('')
+  const[ eventLocation, setEventLocation]=useState('')
 
   // const [active, setActive] = useState(true);
   const [imageFile, setImageFile] = useState(null);
@@ -31,7 +32,7 @@ export default function AddMenuItem({ menuItems }) {
   }, [menuItems.error]);
 
   useEffect(() => {
-    setLoading(menuItems.laoding);
+    setLoading(menuItems.loading);
   }, [menuItems.loading])
 
   const clearInputStates = () => {
@@ -39,6 +40,10 @@ export default function AddMenuItem({ menuItems }) {
     setTitle('');
     setDescription("");
     setOrderDisplay(0);
+    setlinkToBuy("");
+    setlinkToEvent("");
+    setEventType("");
+    setEventLocation("");
     setImageFile(null);
     setInputKey(Date.now());
     setError(null);
@@ -52,7 +57,11 @@ export default function AddMenuItem({ menuItems }) {
       orderDisplay: orderDisplay,
       image: null,
       imageFileName: null,
-      date:"",
+      date:date,
+      linkToBuy: linkToBuy,
+      linkToEvent: linkToEvent,
+      eventType:eventType,
+      eventLocation:eventLocation
       // active: active,
     };
     if (!formError) {
@@ -116,7 +125,7 @@ export default function AddMenuItem({ menuItems }) {
             onChange={(e) => setDescription(e.target.value)}
             required
           />
-          <Form.Label>Free / Paid Event</Form.Label>
+          <Form.Label>Free Show / Paid Event</Form.Label>
           <Form.Control
             name="upcomingEvents-eventType"
             className="menu-add-form-input"
@@ -146,6 +155,17 @@ export default function AddMenuItem({ menuItems }) {
             onChange={(e) => setlinkToBuy(e.target.value)}
             required
           />
+          <Form.Label>Event Location</Form.Label>
+          <Form.Control
+            name="upcomingEvents-eventLocationy"
+            className="menu-add-form-input"
+            type="text"
+            placeholder="Enter the adress/location of Event"
+            value={eventLocation}
+            onChange={(e) => setEventLocation(e.target.value)}
+            required
+          />
+
           <Form.Label>Order Display</Form.Label>
           <Form.Control
             className="menu-add-form-input"

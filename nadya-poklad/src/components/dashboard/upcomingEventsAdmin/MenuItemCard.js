@@ -17,11 +17,13 @@ export default function MenuItemCard({ item, deleteItem, setError, setSuccessful
   const [active, setActive] = useState(item.active);
   const [itemId, setItemId] = useState(item.id);
   const [cardClass, setCardClass] = useState("");
-
   const [update, setUpdate] = useState(false);
+  const [eventLocation, setEventLocation] = useState(item.eventLocation);
   const [updatedDescription, setUpdatedDescription] = useState(item.description);
   const [title, setTitle] = useState(item.title);
   const [updatedTitle, setUpdatedTitle] = useState(item.title)
+  const [updatedEventLocation, setUpdatedEventLocation] = useState(item.eventLocation)
+
 
 
 
@@ -80,8 +82,8 @@ export default function MenuItemCard({ item, deleteItem, setError, setSuccessful
   };
 
   const handleUpdate = async () => {
-    const isEmptyValues = updatedDescription === "" && updatedOrderDisplay === "" && updatedTitle === "";
-    const isItemsChanged = description !== updatedDescription || orderDisplay !== setUpdatedOrderDisplay || title !== updatedTitle;
+    const isEmptyValues = updatedDescription === "" && updatedOrderDisplay === "" && updatedTitle === "" && updatedEventLocation === "";
+    const isItemsChanged = description !== updatedDescription || orderDisplay !== setUpdatedOrderDisplay || title !== updatedTitle || eventLocation!== updatedEventLocation;
 
     if (updatedImage !== null) {
       handleImageUpdate();
@@ -89,11 +91,12 @@ export default function MenuItemCard({ item, deleteItem, setError, setSuccessful
     }
 
     if (isItemsChanged && !isEmptyValues) {
-      await updateDoc(itemDocRef, { description: updatedDescription, orderDisplay: updatedOrderDisplay, title: updatedTitle })
+      await updateDoc(itemDocRef, { description: updatedDescription, orderDisplay: updatedOrderDisplay, title: updatedTitle , eventLocation: updatedEventLocation})
         .then(() => {
           setDescription(updatedDescription);
           setOrderDisplay(updatedOrderDisplay);
           setTitle(updatedTitle);
+          setUpdatedEventLocation(updatedEventLocation);
 
           setSuccessfull("Item updated succesfully!");
         })
@@ -143,6 +146,8 @@ export default function MenuItemCard({ item, deleteItem, setError, setSuccessful
         </Row>
 
         </Col>
+  <Row>
+    
         <Col xs={6}>
           <Card.Body className="menu-item-card-body">
             <Form.Label>Description:</Form.Label>
@@ -169,6 +174,46 @@ export default function MenuItemCard({ item, deleteItem, setError, setSuccessful
                 description
               )}
             </Card.Text>
+          </Card.Body>
+        </Col>
+  </Row>
+  <Row>
+
+  
+        <Col xs={6}>
+          <Card.Body className="menu-item-card-body">
+            <Form.Label>Location:</Form.Label>
+            {update === true && (
+              <Form.Control
+              type="text"
+              defaultValue={eventLocation}
+              placeholder="Enter the text that will appear next to the image"
+              onChange={(e) => setUpdatedEventLocation(e.target.value)}
+              size="sm"
+              />
+            )}
+            <Card.Text rows={3}>
+              {update ? (
+                <Form.Control
+                  type="text"
+                  defaultValue={eventLocation}
+                  placeholder="Enter the text that will appear next to the image"
+                  onChange={(e) => setUpdatedDescription(e.target.value)}
+                  size="sm"
+
+                />
+              ) : (
+                eventLocation
+              )}
+            </Card.Text>
+
+
+
+
+
+
+
+
 
             <Col className="menu-item-card-row">
               <Col>
@@ -205,6 +250,10 @@ export default function MenuItemCard({ item, deleteItem, setError, setSuccessful
 
           </Card.Body>
         </Col>
+        
+  </Row>    
+        
+        
         <Col >
           <Row>
 
