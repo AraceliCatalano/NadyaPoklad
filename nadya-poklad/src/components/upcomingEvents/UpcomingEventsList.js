@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { collection, getDocs, query } from 'firebase/firestore';
 import { db } from '../../firebase-config';
-import { Container, Row, Col } from 'react-bootstrap';
+import { Container, Row, Col, CardGroup } from 'react-bootstrap';
 import '../../styles/App.css';
 import UpcomingEventsItem from './UpcomingEventsItem';
 import { ButtonGeneric } from '../ButtonGeneric';
@@ -32,12 +32,14 @@ export default function UpcomingEvents() {
       <Container className='container-list' >
       
         {/* UpcomingEventsPost.length === 0 ? " No Events at Moment " : */}
+        <CardGroup>
 
-          <Row className='container-list' mb-3>
+
+          <Row className='container-list g-4' mb-3 xs={1} sm={2} md={3} >
 
             { UpcomingEventsPost.map((post) =>
 
-              <Col xs={12} sm={6} md={4} lg={4} mb-5>
+              <Col >
                 <UpcomingEventsItem
                   date={post.date}
                   image={post.image}
@@ -57,6 +59,7 @@ export default function UpcomingEvents() {
               </Col>
             )}
           </Row>
+        </CardGroup>
         
       </Container>
 
