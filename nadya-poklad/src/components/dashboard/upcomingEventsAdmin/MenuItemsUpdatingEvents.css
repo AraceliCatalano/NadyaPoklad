@@ -3,16 +3,15 @@
   AddMenuItem.js
 */
 
-
-
-
 .form-label {
-  font-size: 1.3rem;
+  font-size: 1rem;
 }
 
-.menu-add-form-input {
+
+.menu-add-form-input-description {
     margin-bottom: 10px;
     max-width: 500px;
+   
   }
 
 .container-menu-item-cards {
@@ -50,8 +49,6 @@
 .menu-form-spinner {
   margin: 5px 15px;
 }
-
-
 
 @media only screen and (max-width: 576px) {
   .menu-add-form .row {

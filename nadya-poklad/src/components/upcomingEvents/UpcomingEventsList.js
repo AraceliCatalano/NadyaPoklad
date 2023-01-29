@@ -6,6 +6,7 @@ import '../../styles/App.css';
 import UpcomingEventsItem from './UpcomingEventsItem';
 import { ButtonGeneric } from '../ButtonGeneric';
 
+
 export default function UpcomingEvents() {
 
   const [UpcomingEventsPost, setUpcomingEventsPost] = useState([]);
@@ -24,7 +25,7 @@ export default function UpcomingEvents() {
 
   return (
     <>
-    <h2 className='title'> Upcoming Events</h2>
+      <h2 className='event-title'> Upcoming Events</h2>
       <p className='subtitle'> Schedule of next Performances during 2023. I would like to enjoy it with you! </p>
       <hr/>
 
@@ -39,7 +40,7 @@ export default function UpcomingEvents() {
 
             { UpcomingEventsPost.map((post) =>
 
-              <Col >
+              <Col key={post.id} >
                 <UpcomingEventsItem
                   date={post.date}
                   image={post.image}
@@ -47,21 +48,26 @@ export default function UpcomingEvents() {
                   description={post.description}
                   eventType={post.eventType}
                   eventLocation={post.eventLocation}
-                  linkToBuy={
-                    post.eventType === "Free Show" ?  
-                          <ButtonGeneric style={{display:'none'}}/ > :
-                          <a target={"_blank"} rel="noopener noreferrer" href={post.linkToBuy} style={{display: 'block'} }> Buy Tickets </a>
-                           }
                   linkToEvent={<a target="_blank" rel="noopener noreferrer" href={post.linkToEvent}> Go to Event </a>}
-                                 
+                  
+                  linkToBuy={post.eventType !== "Free Show" ?  
+                  <a target={('_blank')} rel="noopener noreferrer" href={post.linkToBuy} style={{display: 'block'} }> Buy Tickets </a>
+                  :
+                  <div style={{display:'none', cursor:'not-allowed', border:'0px'}}></div>
+                }
+                   
+                                      
                 />
 
               </Col>
             )}
           </Row>
-        </CardGroup>
-        
-      </Container>
+
+
+</CardGroup>
+
+</Container>
+      
 
     </>
 )
