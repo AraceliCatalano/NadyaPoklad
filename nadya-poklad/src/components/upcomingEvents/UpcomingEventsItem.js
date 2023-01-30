@@ -1,50 +1,46 @@
 import React from 'react';
 import '../../styles/App.css'
-import {  Accordion,  Figure,  Card } from 'react-bootstrap';
+import { Figure,  Card, ListGroup,  } from 'react-bootstrap';
+
+import { ButtonGeneric } from '../ButtonGeneric';
 
 
 export default function UpcomingEventsItem(props) {
- 
-
-
 
   return (
     <>
-      
-
-      <Card className=" event-card  box-picture" style={{ userSelect: "none" }} key={props.id}>
-    
-      <small style={{ backgroundColor: '#2f434a', color: "white" , marginLeft:'5px'}} > {props.date}  </small> 
-          <Figure>
-              <Figure.Image
-                width={280}
-                height={180}
-                alt="171x180"
-                src={props.image}
-                className='box-picture' />
+      <Card className=" event-card  event-box-picture " style={{ userSelect: "none" }} key={props.id}>
+        <span className='event-span' > {props.date}  </span>
+        <Card.Header className='event-card-title'>
+          <strong>  {props.title} </strong>
+        </Card.Header>
+        <Figure>
+          <Figure.Image
+            width={300}
+            height={170}
+            alt="171x180"
+            src={props.image}
+            className='event-box-picture event-img-fluid' />
         </Figure>
-      
-      <Card.Body >
 
-        <Card.Text position-relative="true" className="section">
-            <Accordion defaultActiveKey="1" >
-      
-              <Accordion.Item
-                eventKey="0"
-                style={{ backgroundColor: '#2f434a', color: "white" }} >
-                <Accordion.Header  >
-                {props.event} 
-                </Accordion.Header>
-             
-                <Accordion.Body style={{ fontSize:'12px', marginBottom: '50px'}} >{props.description}</Accordion.Body>
-              </Accordion.Item>
-        
-            </Accordion>
-     </Card.Text>
-      </Card.Body>
-    </Card>
+        <Card.Body className='event-card-body' >
+          <ListGroup className="event-list-group-flush">
+             <ListGroup.Item className="event-list-group-item">{props.eventType}</ListGroup.Item>
+          </ListGroup>
+          <Card.Text position-relative="true" className="section-upcomingEvents">
+            {props.description}
+          </Card.Text>
+          <ListGroup >
+              <ListGroup.Item className="event-list-group-location">{props.eventLocation}</ListGroup.Item>
+          </ListGroup>
+        </Card.Body>
+          <Card.Body style={{margin:'auto'}}>
+            <ButtonGeneric text={props.linkToBuy}  />
+            <ButtonGeneric text={ <a target="_blank" rel="noopener noreferrer" href={props.linkToEvent} > Go Event </a>}/>
+          </Card.Body>
+      </Card>
 
-  </>
+    </>
 
 
 

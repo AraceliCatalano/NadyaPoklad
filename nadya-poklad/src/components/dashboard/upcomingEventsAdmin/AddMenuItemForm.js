@@ -14,7 +14,12 @@ export default function AddMenuItem({ menuItems }) {
   const [description, setDescription] = useState("");
   const [orderDisplay, setOrderDisplay] = useState(0);
   const [date, setDate]= useState("");
-  const [active, setActive] = useState(true);
+  const [eventType, setEventType] = useState('');
+  const[ linkToBuy, setlinkToBuy]=useState('')
+  const[ linkToEvent, setlinkToEvent]=useState('')
+  const[ eventLocation, setEventLocation]=useState('')
+
+  // const [active, setActive] = useState(true);
   const [imageFile, setImageFile] = useState(null);
   const [inputKey, setInputKey] = useState("");
   const [error, setError] = useState(null);
@@ -27,7 +32,7 @@ export default function AddMenuItem({ menuItems }) {
   }, [menuItems.error]);
 
   useEffect(() => {
-    setLoading(menuItems.laoding);
+    setLoading(menuItems.loading);
   }, [menuItems.loading])
 
   const clearInputStates = () => {
@@ -35,6 +40,10 @@ export default function AddMenuItem({ menuItems }) {
     setTitle('');
     setDescription("");
     setOrderDisplay(0);
+    setlinkToBuy("");
+    setlinkToEvent("");
+    setEventType("");
+    setEventLocation("");
     setImageFile(null);
     setInputKey(Date.now());
     setError(null);
@@ -48,8 +57,12 @@ export default function AddMenuItem({ menuItems }) {
       orderDisplay: orderDisplay,
       image: null,
       imageFileName: null,
-      date:"",
-      active: active,
+      date:date,
+      linkToBuy: linkToBuy,
+      linkToEvent: linkToEvent,
+      eventType:eventType,
+      eventLocation:eventLocation
+      // active: active,
     };
     if (!formError) {
       const addedMenuItem = menuItems.addItem(item, imageFile);
@@ -112,6 +125,47 @@ export default function AddMenuItem({ menuItems }) {
             onChange={(e) => setDescription(e.target.value)}
             required
           />
+          <Form.Label>Free Show / Paid Event</Form.Label>
+          <Form.Control
+            name="upcomingEvents-eventType"
+            className="menu-add-form-input"
+            type="text"
+            placeholder="Enter 'Free' or 'Paid'"
+            value={eventType}
+            onChange={(e) => setEventType(e.target.value)}
+            required
+          />
+          <Form.Label>Link to Event</Form.Label>
+          <Form.Control
+            name="upcomingEvents-linkToEvent"
+            className="menu-add-form-input"
+            type="text"
+            placeholder="Enter the url to event organizer"
+            value={linkToEvent}
+            onChange={(e) => setlinkToEvent(e.target.value)}
+            required
+          />
+          <Form.Label>Link to Buy Tickets</Form.Label>
+          <Form.Control
+            name="upcomingEvents-linkToBuy"
+            className="menu-add-form-input"
+            type="text"
+            placeholder="Enter the url to buy tickets"
+            value={linkToBuy}
+            onChange={(e) => setlinkToBuy(e.target.value)}
+            required
+          />
+          <Form.Label>Event Location</Form.Label>
+          <Form.Control
+            name="upcomingEvents-eventLocationy"
+            className="menu-add-form-input"
+            type="text"
+            placeholder="Enter the adress/location of Event"
+            value={eventLocation}
+            onChange={(e) => setEventLocation(e.target.value)}
+            required
+          />
+
           <Form.Label>Order Display</Form.Label>
           <Form.Control
             className="menu-add-form-input"
@@ -123,6 +177,7 @@ export default function AddMenuItem({ menuItems }) {
             onChange={(e) => setOrderDisplay(e.target.value)}
             required
           />
+          
           <Form.Label>Image</Form.Label>
           <Form.Control
             className="menu-add-form-input"
@@ -135,13 +190,13 @@ export default function AddMenuItem({ menuItems }) {
           <Form.Control.Feedback type="invalid">
             File size is too big! Maximum size of file is 2mb.
           </Form.Control.Feedback>
-          <Form.Check
+          {/* <Form.Check
             className="menu-add-form-input"
             type="switch"
             label={active ? "Visible" : "Hidden"}
             checked={active}
             onChange={(e) => setActive(e.target.checked)}
-          />
+          /> */}
         </Col>
         <Col className="menu-item-container-image-preview">
           <Form.Label>Preview image:</Form.Label>
