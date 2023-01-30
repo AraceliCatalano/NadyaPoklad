@@ -5,7 +5,7 @@ import { doc, updateDoc } from "firebase/firestore";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { deleteFileFromStorage } from "./FirebaseHooks/Storage";
 
-import { Card, Row, Col, Form, Button } from "react-bootstrap";
+import { Card, Row, Col, Form, Button, Container } from "react-bootstrap";
 
 import '../../../styles/App.css';
 
@@ -14,9 +14,9 @@ export default function MenuItemCard({ item, deleteItem, setError, setSuccessful
   const [orderDisplay, setOrderDisplay] = useState(item.orderDisplay);
   const [image, setImage] = useState(item.image);
   const [imageFileName, setImageFileName] = useState(item.imageFileName);
-  const [active, setActive] = useState(item.active);
+  //const [active, setActive] = useState(item.active);
   const [itemId, setItemId] = useState(item.id);
-  const [cardClass, setCardClass] = useState("");
+  //const [cardClass, setCardClass] = useState("");
 
   const [update, setUpdate] = useState(false);
   const [updatedDescription, setUpdatedDescription] = useState(item.description);
@@ -24,23 +24,23 @@ export default function MenuItemCard({ item, deleteItem, setError, setSuccessful
   const [updatedImage, setUpdatedImage] = useState(null);
   const itemDocRef = doc(db, "TheArtist", itemId);
 
-  useEffect(() => {
-    toggleCardClass();
-  }, [active]);
+  // useEffect(() => {
+  //   toggleCardClass();
+  // }, [active]);
 
-  const updateItemActivityToDb = async (e) => {
-    let newActive = e.target.checked;
-    setActive(newActive);
-    const itemDocRef = doc(db, "TheArtist", itemId);
-    await updateDoc(itemDocRef, { active: newActive })
-      .then(() => { setSuccessfull("Item updated succesfully!") })
-      .catch((error) => { setError(error.message) });
-  };
+  // const updateItemActivityToDb = async (e) => {
+  //   let newActive = e.target.checked;
+  //   setActive(newActive);
+  //   const itemDocRef = doc(db, "TheArtist", itemId);
+  //   await updateDoc(itemDocRef, { active: newActive })
+  //     .then(() => { setSuccessfull("Item updated succesfully!") })
+  //     .catch((error) => { setError(error.message) });
+  // };
 
-  const toggleCardClass = () => {
-    if (active) setCardClass("menu-item-card-active");
-    else setCardClass("menu-item-card-disabled");
-  };
+  // const toggleCardClass = () => {
+  //   if (active) setCardClass("menu-item-card-active");
+  //   else setCardClass("menu-item-card-disabled");
+  // };
 
   const handleDelete = () => {
     deleteItem(itemId, imageFileName);
@@ -106,7 +106,7 @@ export default function MenuItemCard({ item, deleteItem, setError, setSuccessful
   }
 
   return (
-    <Card className={["menu-item-card", cardClass]}>
+    <Card className="menu-item-card">
       <Row>
         <Col>
           <Card.Img
@@ -161,39 +161,32 @@ export default function MenuItemCard({ item, deleteItem, setError, setSuccessful
                 )}
               </Col>
             </Col>
-            <Row className="menu-item-card-row">
-              <Col>
-                <Form.Label>Visible:</Form.Label>
-              </Col>
-              <Col>
-                <Form.Check
-                  type="switch"
-                  checked={active}
-                  onChange={(e) => updateItemActivityToDb(e)}
-                ></Form.Check>
-              </Col>
-            </Row>
+            
 
           </Card.Body>
         </Col>
         <Col >
         <Row>
+          <Container>
+            <Row className="mt-2">
+              Possible actions:
+            </Row>
+            <Button onClick={handleDelete} variant="btn" className="m-2" size="md">
+              Delete
+            </Button>
 
-          <Button onClick={handleDelete} variant="btn" className="mt-2">
-            Delete
-          </Button>
-
-          <Button
-            onClick={handleUpdate}
-            variant={update ? "btn" : "btn"}
-            className="mt-2"
-          >
-            {update ? (
-              <>Save</>
-            ) : (
-              <>Edit</>
-            )}
-          </Button>
+            <Button
+              onClick={handleUpdate}
+              variant={update ? "btn" : "btn"}
+              className="m-2" size="md"
+            >
+              {update ? (
+                <>Save</>
+              ) : (
+                <>Edit</>
+              )}
+            </Button>
+          </Container>
         </Row>
         </Col>
       </Row>

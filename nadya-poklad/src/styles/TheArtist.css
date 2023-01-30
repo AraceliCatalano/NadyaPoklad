@@ -1,14 +1,23 @@
 .image{
     max-width: 200px;
     max-height: 350px;
-    margin: 10px;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    display: flex !important;
+    justify-content: center !important;
+    border: 2px #c2ced6 groove;
 }
 
 .text {
     font-family: "Poppins" !important;
     font-size: 20px;
     color: white !important;
-   text-align: justify !important;
+    text-align: justify !important;
+    margin: auto;
+    padding: 10px;
+    display: flex !important;
+    justify-content: center !important;
 }
 
 .artist-content-row {
@@ -20,6 +29,10 @@
 .artist-content-col  {
    justify-content: center !important;
    align-self: auto !important;
+  }
+  
+.border-bottom {
+  border-bottom: solid 1px #ACD8EC;
 }
 
 /* Artist Admin */
@@ -42,8 +55,8 @@
     color:black;
   }
   
-  .menu-item-card-disabled {
-    background-color: #c2ced6 !important;
+  .menu-item-card {
+    background-color: #41818d !important;
     box-shadow: #2f434a !important;
     color:rgb(43, 41, 41);
   }

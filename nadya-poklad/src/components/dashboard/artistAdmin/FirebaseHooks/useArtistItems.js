@@ -26,7 +26,7 @@ export default function useGetArtistItems() {
 
   useEffect(() => {
     setLoading(true);
-    const q = query(collection(db, "TheArtist")); //, where("userId", "==", userId)
+    const q = query(collection(db, "TheArtist"));
     console.log("getting data");
     getDocs(q)
       .then((data) => {

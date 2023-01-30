@@ -12,7 +12,7 @@ import '../../../styles/App.css';
 export default function AddMenuItem({ menuItems }) {
   const [description, setDescription] = useState("");
   const [orderDisplay, setOrderDisplay] = useState(0);
-  const [active, setActive] = useState(true);
+  //const [active, setActive] = useState(true);
   const [imageFile, setImageFile] = useState(null);
   const [inputKey, setInputKey] = useState("");
   const [error, setError] = useState(null);
@@ -43,7 +43,6 @@ export default function AddMenuItem({ menuItems }) {
       orderDisplay: orderDisplay,
       image: null,
       imageFileName: null,
-      active: active,
     };
     if (!formError) {
       const addedMenuItem = menuItems.addItem(item, imageFile);
@@ -70,8 +69,9 @@ export default function AddMenuItem({ menuItems }) {
   return (
     <Form
       onSubmit={submitForm}
-      className="menu-add-form"
+      className="menu-add-form mt-4"
       data-testid="add-menu-item-form"
+
     >
       <Row>
         <Col className="menu-add-input-container">
@@ -108,13 +108,13 @@ export default function AddMenuItem({ menuItems }) {
           <Form.Control.Feedback type="invalid">
             File size is too big! Maximum size of file is 2mb.
           </Form.Control.Feedback>
-          <Form.Check
+          {/* <Form.Check
             className="menu-add-form-input"
             type="switch"
             label={active ? "Visible" : "Hidden"}
             checked={active}
             onChange={(e) => setActive(e.target.checked)}
-          />
+          /> */}
         </Col>
         <Col className="menu-item-container-image-preview">
           <Form.Label>Preview image:</Form.Label>
