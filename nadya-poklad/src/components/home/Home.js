@@ -11,13 +11,7 @@ function Home() {
 
     return (
         <>
-        <Container>
-
-            <VideoYouTube
-            url= {'https://www.youtube.com/embed/t_ZEavuVcZ0'}
-            title ={'Cambiemos el aspecto visual(UI) de nuestro Sublime Text 3'}
-            />
-        </Container>
+       
             <Container className=''>
 
 
