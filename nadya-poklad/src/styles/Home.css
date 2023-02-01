@@ -14,3 +14,26 @@
     text-shadow: 2px 2px 4px #000;
     margin:5px;
 }
+.artist-home-container {
+    /* background-image: linear-gradient(to right, rgba(96,152,173,0.2), rgba(65,129,141,1)) !important; */
+    margin-bottom: 20px;
+    margin-right: 20px;
+    background-color: #fff;
+
+}
+
+.artist-home-container p {
+    padding: 30px;
+    align-self: center;
+    color: white;
+    font-weight: 600;
+    font-size: medium;
+
+}
+
+.image-artist {
+    width: 270px !important;
+    height: 370px !important;
+    margin:auto;
+    padding: 10px;
+}

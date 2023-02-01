@@ -89,7 +89,7 @@ export default function AddMenuItem({ menuItems }) {
           <Form.Control
             className="menu-add-form-input"
             type="number"
-            step="0.01"
+            step="1"
             min="0"
             placeholder="Enter the order display"
             value={orderDisplay}

@@ -24,20 +24,23 @@ export default function UpcomingEvents() {
 
   return (
     <>
-    <h2 className='title'> Upcoming Events</h2>
-      <p className='subtitle'> Schedule of next Performances during 2023. I would like to enjoy it with you! </p>
-      <hr/>
+      <Container fluid="sm">
+        <Row>
+          <h2 className='title'> Upcoming Events</h2>
+          <p> Schedule of next Performances during 2023. I would like to enjoy it with you! </p>
+        </Row>
+      </Container>
 
 
       <Container className='container-list' >
-      
+
         {/* UpcomingEventsPost.length === 0 ? " No Events at Moment " : */}
         <CardGroup>
 
 
-          <Row className='container-list g-4' mb-3 xs={1} sm={2} md={3} >
+          <Row className='container-list g-4' mb-3 xs={1} sm={2} md={3} lg={4} >
 
-            { UpcomingEventsPost.map((post) =>
+            {UpcomingEventsPost.map((post) =>
 
               <Col >
                 <UpcomingEventsItem
@@ -48,21 +51,21 @@ export default function UpcomingEvents() {
                   eventType={post.eventType}
                   eventLocation={post.eventLocation}
                   linkToBuy={
-                    post.eventType === "Free Show" ?  
-                          <ButtonGeneric style={{display:'none'}}/ > :
-                          <a target={"_blank"} rel="noopener noreferrer" href={post.linkToBuy} style={{display: 'block'} }> Buy Tickets </a>
-                           }
+                    post.eventType === "Free Show" ?
+                      <ButtonGeneric style={{ display: 'none' }} /> :
+                      <a target={"_blank"} rel="noopener noreferrer" href={post.linkToBuy} style={{ display: 'block' }}> Buy Tickets </a>
+                  }
                   linkToEvent={<a target="_blank" rel="noopener noreferrer" href={post.linkToEvent}> Go to Event </a>}
-                                 
+
                 />
 
               </Col>
             )}
           </Row>
         </CardGroup>
-        
+
       </Container>
 
     </>
-)
+  )
 }
