@@ -27,7 +27,7 @@ export default function UpcomingEventsItem(props) {
           <ListGroup className="event-list-group-flush">
              <ListGroup.Item className="event-list-group-item">{props.eventType}</ListGroup.Item>
           </ListGroup>
-          <Card.Text position-relative="true" className="section-upcomingEvents">
+          <Card.Text position-relative="true" className="section-upcomingEvents mostly-customized-scrollbar">
             {props.description}
           </Card.Text>
           <ListGroup >

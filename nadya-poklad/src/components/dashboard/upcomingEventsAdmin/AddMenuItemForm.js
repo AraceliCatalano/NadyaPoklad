@@ -6,7 +6,7 @@ import { useState, useEffect } from "react";
 import { Container, Row, Col, Button, Spinner, Form, Image } from "react-bootstrap";
 
 import ErrorMessage from "./Messages/ErrorMessage";
-import "./MenuItemsPage.css";
+import "./MenuItemsUpdatingEvents.css";
 import '../../../styles/App.css';
 
 export default function AddMenuItem({ menuItems }) {
@@ -118,7 +118,7 @@ export default function AddMenuItem({ menuItems }) {
           <Form.Label>Description</Form.Label>
           <Form.Control
             name="upcomingEvents-description"
-            className="menu-add-form-input"
+            className="menu-add-form-input-description "
             type="text"
             placeholder="Enter the text that will appear next to the image"
             value={description}

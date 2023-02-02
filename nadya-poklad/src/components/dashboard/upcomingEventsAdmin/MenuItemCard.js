@@ -25,8 +25,6 @@ export default function MenuItemCard({ item, deleteItem, setError, setSuccessful
   const [updatedEventLocation, setUpdatedEventLocation] = useState(item.eventLocation)
 
 
-
-
   const [updatedOrderDisplay, setUpdatedOrderDisplay] = useState(item.orderDisplay);
   const [updatedImage, setUpdatedImage] = useState(null);
   const itemDocRef = doc(db, "UpcomingEvents", itemId);
@@ -35,14 +33,14 @@ export default function MenuItemCard({ item, deleteItem, setError, setSuccessful
     toggleCardClass();
   }, [active]);
 
-  const updateItemActivityToDb = async (e) => {
-    let newActive = e.target.checked;
-    setActive(newActive);
-    const itemDocRef = doc(db, "UpcomingEvents", itemId);
-    await updateDoc(itemDocRef, { active: newActive })
-      .then(() => { setSuccessfull("Item updated succesfully!") })
-      .catch((error) => { setError(error.message) });
-  };
+  // const updateItemActivityToDb = async (e) => {
+  //   let newActive = e.target.checked;
+  //   setActive(newActive);
+  //   const itemDocRef = doc(db, "UpcomingEvents", itemId);
+  //   await updateDoc(itemDocRef, { active: newActive })
+  //     .then(() => { setSuccessfull("Item updated succesfully!") })
+  //     .catch((error) => { setError(error.message) });
+  // };
 
   const toggleCardClass = () => {
     if (active) setCardClass("menu-item-card-active");
@@ -83,7 +81,7 @@ export default function MenuItemCard({ item, deleteItem, setError, setSuccessful
 
   const handleUpdate = async () => {
     const isEmptyValues = updatedDescription === "" && updatedOrderDisplay === "" && updatedTitle === "" && updatedEventLocation === "";
-    const isItemsChanged = description !== updatedDescription || orderDisplay !== setUpdatedOrderDisplay || title !== updatedTitle || eventLocation!== updatedEventLocation;
+    const isItemsChanged = description !== updatedDescription || orderDisplay !== setUpdatedOrderDisplay || title !== updatedTitle || eventLocation !== updatedEventLocation;
 
     if (updatedImage !== null) {
       handleImageUpdate();
@@ -91,7 +89,7 @@ export default function MenuItemCard({ item, deleteItem, setError, setSuccessful
     }
 
     if (isItemsChanged && !isEmptyValues) {
-      await updateDoc(itemDocRef, { description: updatedDescription, orderDisplay: updatedOrderDisplay, title: updatedTitle , eventLocation: updatedEventLocation})
+      await updateDoc(itemDocRef, { description: updatedDescription, orderDisplay: updatedOrderDisplay, title: updatedTitle, eventLocation: updatedEventLocation })
         .then(() => {
           setDescription(updatedDescription);
           setOrderDisplay(updatedOrderDisplay);
@@ -116,20 +114,22 @@ export default function MenuItemCard({ item, deleteItem, setError, setSuccessful
   }
 
   return (
-    <Card className={["menu-item-card", cardClass]}>
-      <Row>
-        <Col>
-          <Card.Img
-            variant="top"
-            src={image}
-            alt={title}
-            className="menu-item-card-image"
-          />
-        </Col>
-        <Col>
-        <Row>
+    <Card className={[cardClass, 'card-edition', "menu-item-card-text-event"]} >
+      <Card.Img
+        variant="top"
+        src={image}
+        alt={title}
+        className="menu-item-card-image-event"
+       
+      />
+
+
+
+
+      <Row xs={12}>
+      <Card.Body style={{ fontSize: '14px' }} className=' card-body-event mx-2'>
         <Form.Label>Title:</Form.Label>
-        <Card.Title rows={3}>
+        <Card.Title xs={12} style={{ fontSize: '14px' }} className='card-body-event mt-1 mb-'>
           {update ? (
             <Form.Control
               type="text"
@@ -137,147 +137,110 @@ export default function MenuItemCard({ item, deleteItem, setError, setSuccessful
               placeholder="Enter a new Title"
               onChange={(e) => setUpdatedTitle(e.target.value)}
               size="sm"
+             
 
             />
           ) : (
             title
           )}
         </Card.Title>
-        </Row>
+      </Card.Body>
 
-        </Col>
-  <Row>
-    
-        <Col xs={6}>
-          <Card.Body className="menu-item-card-body">
-            <Form.Label>Description:</Form.Label>
-            {update === true && (
-              <Form.Control
-                type="file"
-                onChange={(e) => handleChangeImageInput(e)}
-                id="input-update-image"
-                accept=".jpg, .jpeg, .png, .jfif"
-                size="sm"
-              />
-            )}
-            <Card.Text rows={3}>
-              {update ? (
-                <Form.Control
-                  type="text"
-                  defaultValue={description}
-                  placeholder="Enter the text that will appear next to the image"
-                  onChange={(e) => setUpdatedDescription(e.target.value)}
-                  size="sm"
-
-                />
-              ) : (
-                description
-              )}
-            </Card.Text>
-          </Card.Body>
-        </Col>
-  </Row>
-  <Row>
-
-  
-        <Col xs={6}>
-          <Card.Body className="menu-item-card-body">
-            <Form.Label>Location:</Form.Label>
-            {update === true && (
-              <Form.Control
-              type="text"
-              defaultValue={eventLocation}
-              placeholder="Enter the text that will appear next to the image"
-              onChange={(e) => setUpdatedEventLocation(e.target.value)}
-              size="sm"
-              />
-            )}
-            <Card.Text rows={3}>
-              {update ? (
-                <Form.Control
-                  type="text"
-                  defaultValue={eventLocation}
-                  placeholder="Enter the text that will appear next to the image"
-                  onChange={(e) => setUpdatedDescription(e.target.value)}
-                  size="sm"
-
-                />
-              ) : (
-                eventLocation
-              )}
-            </Card.Text>
-
-
-
-
-
-
-
-
-
-            <Col className="menu-item-card-row">
-              <Col>
-                <Form.Label>Order display:</Form.Label>
-              </Col>
-              <Col>
-
-                {update ? (
-                  <Form.Control
-                    type="number"
-                    defaultValue={orderDisplay}
-                    step="1"
-                    onChange={(e) => setUpdatedOrderDisplay(e.target.value)}
-                    size="sm"
-                  />
-                ) : (
-                  <span>{orderDisplay}</span>
-                )}
-              </Col>
-            </Col>
-
-            {/* <Row className="menu-item-card-row">
-              <Col>
-                <Form.Label>Visible:</Form.Label>
-              </Col>
-              <Col>
-                <Form.Check
-                  type="switch"
-                  checked={active}
-                  onChange={(e) => updateItemActivityToDb(e)}
-                ></Form.Check>
-              </Col>
-            </Row> */}
-
-          </Card.Body>
-        </Col>
-        
-  </Row>    
-        
-        
-        <Col >
-          <Row>
-
-          
-
-
-            <Button onClick={handleDelete} variant="btn" className="mt-2">
-              Delete
-            </Button>
-
-            <Button
-              onClick={handleUpdate}
-              variant={update ? "btn" : "btn"}
-              className="mt-2"
-            >
-              {update ? (
-                <>Save</>
-              ) : (
-                <>Edit</>
-              )}
-            </Button>
-          </Row>
-        </Col>
       </Row>
+      <Col xs={12}>
+        <Row>
+          <Card.Body style={{ fontSize: '14px' }} className=' card-body-event mx-2'>
+            <Form.Label>Order Display:</Form.Label>
+            {update ? (
+              <Form.Control
+                type="number"
+                defaultValue={orderDisplay}
+                step="1"
+                onChange={(e) => setUpdatedOrderDisplay(e.target.value)}
+                size="sm"
+                
+              />
+            ) : (
+
+              <span className='mx-3'>{orderDisplay}</span>
+            )}
+          </Card.Body>
+        </Row>
+      </Col>
+
+
+      <Col xs={12}>
+        <Card.Body style={{ fontSize: '14px' }} className='card-body-event'>
+          <Form.Label>Location:</Form.Label>
+          <Card.Text  >
+            {update ? (
+              <Form.Control
+                type="text"
+                defaultValue={eventLocation}
+                placeholder="Enter the text that will appear "
+                onChange={(e) => setUpdatedEventLocation(e.target.value)}
+                size="sm"
+
+              />
+            ) : (
+              eventLocation
+            )}
+          </Card.Text>
+        </Card.Body>
+      </Col>
+      <Col xs={12}>
+        <Card.Body style={{ fontSize: '14px' }} className='card-body-event'  >
+          <Form.Label>Image and Description:</Form.Label>
+          {update === true && (
+            <Form.Control
+              type="file"
+              onChange={(e) => handleChangeImageInput(e)}
+              id="input-update-image"
+              accept=".jpg, .jpeg, .png, .jfif"
+              size="sm"
+            />
+          )}
+        </Card.Body>
+      </Col>
+      <Col xs={12}>
+          <Card.Body style={{ fontSize: '14px' }} className='card-body-event'  >
+          <Card.Text className="menu-item-card-description-event">
+            {update ? (
+              <Form.Control
+                type="text"
+                defaultValue={description}
+                placeholder="Enter the text that will appear next to the image"
+                onChange={(e) => setUpdatedDescription(e.target.value)}
+                size="sm"
+               
+
+              />
+            ) : (
+              description
+            )}
+          </Card.Text>
+          </Card.Body>
+      </Col>
+
+
+      <Col style={{ margin: 'auto' }} >
+        <Button onClick={handleDelete} variant="btn" className="mt-2 mb-3">   Delete  </Button>
+
+        <Button
+          onClick={handleUpdate}
+          variant={update ? "btn" : "btn"}
+          className="mt-2 mx-2 mb-3"
+        >
+          {update ? (
+            <>Save</>
+          ) : (
+            <>Edit</>
+          )}
+        </Button>
+      </Col>
+     
     </Card>
+
+
   );
 }

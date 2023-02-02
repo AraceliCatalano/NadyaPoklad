@@ -6,6 +6,7 @@ import '../../styles/App.css';
 import UpcomingEventsItem from './UpcomingEventsItem';
 import { ButtonGeneric } from '../ButtonGeneric';
 
+
 export default function UpcomingEvents() {
 
   const [UpcomingEventsPost, setUpcomingEventsPost] = useState([]);
@@ -24,12 +25,9 @@ export default function UpcomingEvents() {
 
   return (
     <>
-      <Container fluid="sm">
-        <Row>
-          <h2 className='title'> Upcoming Events</h2>
-          <p> Schedule of next Performances during 2023. I would like to enjoy it with you! </p>
-        </Row>
-      </Container>
+      <h2 className='event-title'> Upcoming Events</h2>
+      <p className='subtitle'> Schedule of next Performances during 2023. I would like to enjoy it with you! </p>
+      
 
 
       <Container className='container-list' >
@@ -42,7 +40,7 @@ export default function UpcomingEvents() {
 
             {UpcomingEventsPost.map((post) =>
 
-              <Col >
+              <Col key={post.id} >
                 <UpcomingEventsItem
                   date={post.date}
                   image={post.image}
@@ -62,9 +60,12 @@ export default function UpcomingEvents() {
               </Col>
             )}
           </Row>
-        </CardGroup>
 
-      </Container>
+
+</CardGroup>
+
+</Container>
+      
 
     </>
   )

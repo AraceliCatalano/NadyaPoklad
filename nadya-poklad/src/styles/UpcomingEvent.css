@@ -1,3 +1,8 @@
+.event-title{
+    margin-left: 20px;
+    
+}
+
 .figure{
     margin-bottom: 0px ;
 }
@@ -9,7 +14,7 @@
     justify-content:flex-start;
     align-items: flex-start;
     margin-top: 15px !important;
-    
+
  
 }
 .list-group-flush .list-group {
@@ -76,7 +81,7 @@
 .section-upcomingEvents{
     font-size: 12px;
     max-height: 10rem;
-    overflow-y: hidden;
+    overflow-y: auto;
     text-align: justify;
     padding: 2px;
 
@@ -109,3 +114,48 @@
     padding-bottom: 6px;
     padding-top: 8px;
 }
+
+
+
+.card-edition{
+    
+    max-width: 450px !important;
+    min-width: 270px !important;
+    background-color: #2f434a !important;
+    color: white !important;
+    font-size: 12px !important;
+
+}
+.card-body-event{
+    padding:2px !important;
+   
+}
+.menu-item-card-image-event{
+    height: 150px;
+    object-fit: contain;
+    margin-top: 15px;
+  }
+
+.menu-item-card-text-event {
+    font-size: 12px !important;
+
+}
+
+
+.menu-item-card-description-event{
+    height: 8em;
+    overflow-y: auto;
+}
+
+
+.mostly-customized-scrollbar::-webkit-scrollbar {
+    width: 5px !important;
+    height: 4px !important;
+    background-color:rgb(47, 67, 74,.7) /* or add it to the track */
+  }
+  
+  /* Add a thumb */
+  .mostly-customized-scrollbar::-webkit-scrollbar-thumb {
+    background: rgb(47, 67, 74,.7) !important;
+  }
+
