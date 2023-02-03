@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { collection, getDocs, query } from 'firebase/firestore';
+import { collection, getDocs, query, orderBy  } from 'firebase/firestore';
 import { db } from '../../firebase-config';
 import { Container, Row, Col, CardGroup } from 'react-bootstrap';
 import '../../styles/App.css';
@@ -16,7 +16,7 @@ export default function UpcomingEvents() {
   useEffect(() => {
     const UpcomingEventsPosttImageRef = collection(db, "UpcomingEvents");
     // const queryUpcomingEventsPostI = query(UpcomingEventsPosttImageRef, where('active', '==', true ));
-    const queryUpcomingEventsPostI = query(UpcomingEventsPosttImageRef);
+    const queryUpcomingEventsPostI = query(UpcomingEventsPosttImageRef, orderBy('date', 'desc'));
     getDocs(queryUpcomingEventsPostI)
       .then(res => setUpcomingEventsPost(res.docs.map(doc => ({ id: doc.id, ...doc.data() }))));
     console.log(UpcomingEventsPost)
@@ -47,15 +47,26 @@ export default function UpcomingEvents() {
                   title={post.title}
                   description={post.description}
                   eventType={post.eventType}
+                  free={post.free}
                   eventLocation={post.eventLocation}
                   linkToBuy={
-                    post.eventType === "Free Show" ?
-                      <ButtonGeneric style={{ display: 'none' }} /> :
-                      <a target={"_blank"} rel="noopener noreferrer" href={post.linkToBuy} style={{ display: 'block' }}> Buy Tickets </a>
-                  }
-                  linkToEvent={<a target="_blank" rel="noopener noreferrer" href={post.linkToEvent}> Go to Event </a>}
+                    post.eventType === "Free" ?  <span >  {"- Free Event -"} </span>
+                    :
+                    <ButtonGeneric text=  <a target="_blank" rel="noopener noreferrer" href={post.linkToBuy}> Buy Ticket </a> />
+                     
+                   
+             
+                  }  
+                  linkToEvent={post.linkToEvent ===""
+                     ? 
+                     <button disabled="true"style={{display:'none'}}>-</button> 
+                     : 
+                    <ButtonGeneric text={<a target="_blank" rel="noopener noreferrer" href={post.linkToEvent}> Go Event </a>}/>
 
-                />
+                  }/>
+
+
+               
 
               </Col>
             )}

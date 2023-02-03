@@ -12,7 +12,6 @@ import '../../../styles/App.css';
 export default function AddMenuItem({ menuItems }) {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState("");
-  const [orderDisplay, setOrderDisplay] = useState(0);
   const [date, setDate]= useState("");
   const [eventType, setEventType] = useState('');
   const[ linkToBuy, setlinkToBuy]=useState('')
@@ -36,10 +35,10 @@ export default function AddMenuItem({ menuItems }) {
   }, [menuItems.loading])
 
   const clearInputStates = () => {
+  
     setDate('');
     setTitle('');
     setDescription("");
-    setOrderDisplay(0);
     setlinkToBuy("");
     setlinkToEvent("");
     setEventType("");
@@ -54,16 +53,16 @@ export default function AddMenuItem({ menuItems }) {
     const item = {
       title:title,
       description: description,
-      orderDisplay: orderDisplay,
       image: null,
       imageFileName: null,
       date:date,
       linkToBuy: linkToBuy,
       linkToEvent: linkToEvent,
       eventType:eventType,
-      eventLocation:eventLocation
-      // active: active,
+      eventLocation:eventLocation,
+     
     };
+ 
     if (!formError) {
       const addedMenuItem = menuItems.addItem(item, imageFile);
       if (addedMenuItem) clearInputStates();
@@ -120,7 +119,7 @@ export default function AddMenuItem({ menuItems }) {
             name="upcomingEvents-description"
             className="menu-add-form-input-description "
             type="text"
-            placeholder="Enter the text that will appear next to the image"
+            placeholder="Enter the text that will appear bellow the image"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
             required
@@ -130,7 +129,7 @@ export default function AddMenuItem({ menuItems }) {
             name="upcomingEvents-eventType"
             className="menu-add-form-input"
             type="text"
-            placeholder="Enter 'Free' or 'Paid'"
+            placeholder="Enter 'Free' or 'Pay'"
             value={eventType}
             onChange={(e) => setEventType(e.target.value)}
             required
@@ -166,18 +165,7 @@ export default function AddMenuItem({ menuItems }) {
             required
           />
 
-          <Form.Label>Order Display</Form.Label>
-          <Form.Control
-            className="menu-add-form-input"
-            type="number"
-            step="1"
-            min="0"
-            placeholder="Enter the order display"
-            value={orderDisplay}
-            onChange={(e) => setOrderDisplay(e.target.value)}
-            required
-          />
-          
+                   
           <Form.Label>Image</Form.Label>
           <Form.Control
             className="menu-add-form-input"
@@ -190,13 +178,7 @@ export default function AddMenuItem({ menuItems }) {
           <Form.Control.Feedback type="invalid">
             File size is too big! Maximum size of file is 2mb.
           </Form.Control.Feedback>
-          {/* <Form.Check
-            className="menu-add-form-input"
-            type="switch"
-            label={active ? "Visible" : "Hidden"}
-            checked={active}
-            onChange={(e) => setActive(e.target.checked)}
-          /> */}
+          
         </Col>
         <Col className="menu-item-container-image-preview">
           <Form.Label>Preview image:</Form.Label>
