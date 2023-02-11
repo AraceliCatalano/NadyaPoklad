@@ -1,9 +1,9 @@
 
 import React, { useState } from 'react';
-import '../../styles/App.css';
+import '../styles/App.css';
 import {Button , Container, Form, FormGroup, Alert} from 'react-bootstrap';
 import { Link, useNavigate } from "react-router-dom";
-import { useUserAuth } from '../../context/UserAuthContext';
+import { useUserAuth } from '../context/UserAuthContext';
 
 
 export default function LoginAdmin() {

@@ -1,8 +1,6 @@
 import React from 'react';
 import '../../styles/App.css'
-import { Figure,  Card, ListGroup,  } from 'react-bootstrap';
-
-import { ButtonGeneric } from '../ButtonGeneric';
+import { Figure, Card } from 'react-bootstrap';
 
 
 export default function UpcomingEventsItem(props) {
@@ -22,22 +20,24 @@ export default function UpcomingEventsItem(props) {
             src={props.image}
             className='event-box-picture event-img-fluid' />
         </Figure>
+          <Card.Text className="event-list-group-flush event-list-group-item">
+            <span >{props.eventType} </span>
+          </Card.Text>
 
         <Card.Body className='event-card-body' >
-          <ListGroup className="event-list-group-flush">
-             <ListGroup.Item className="event-list-group-item">{props.eventType}</ListGroup.Item>
-          </ListGroup>
-          <Card.Text position-relative="true" className="section-upcomingEvents">
+          <Card.Text position-relative="true" className="section-upcomingEvents mostly-customized-scrollbar">
             {props.description}
           </Card.Text>
-          <ListGroup >
-              <ListGroup.Item className="event-list-group-location">{props.eventLocation}</ListGroup.Item>
-          </ListGroup>
         </Card.Body>
-          <Card.Body style={{margin:'auto'}}>
-            <ButtonGeneric text={props.linkToBuy}  />
-            <ButtonGeneric text={ <a target="_blank" rel="noopener noreferrer" href={props.linkToEvent} > Go Event </a>}/>
-          </Card.Body>
+          <Card.Text className="event-list-group-location">
+            {props.eventLocation}
+          </Card.Text>
+       
+        <Card.Body className='card-end-buttons' >
+          {props.linkToBuy}
+          {props.linkToEvent}
+
+        </Card.Body>
       </Card>
 
     </>

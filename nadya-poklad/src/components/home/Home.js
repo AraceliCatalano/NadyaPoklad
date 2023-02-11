@@ -6,6 +6,7 @@ import imageEngage from '../../Assests/images/Engage.jpg'
 import imageContact from '../../Assests/images/PianoContact.jpg'
 import { Row, Col, Container } from 'react-bootstrap'
 import ArtistPreview from './ArtistPreview'
+import { VideoYouTube } from '../VideoYouTube';
 
 function Home() {
 
@@ -36,7 +37,10 @@ function Home() {
 
             </Container>
 
-            <Container className='mt-4'>
+                 
+            <Container className=''>
+
+
                 <Row>
                     <Col>
                         <h4 className='home-h4'> Works </h4>

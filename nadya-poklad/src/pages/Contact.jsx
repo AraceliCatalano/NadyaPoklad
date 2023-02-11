@@ -1,15 +1,26 @@
 import React from 'react';
-import {Card, } from 'react-bootstrap';
+import {Card, Container, Row} from 'react-bootstrap';
 import {Link } from 'react-router-dom';
-import '../../styles/Contact.css';
-import Piano from '../../Assests/images/PianoContact.jpg';
+import '../styles/Contact.css';
+import Piano from '../Assests/images/PianoContact.jpg';
 
 
 export default function Contact() {
   return (
 <>
-    <h3 className='contact-title'> Contact </h3>
-      <h5 className='contact-text'> Contact me if you are interested in awesome lessons or for performance events, as well as permission to play any compositions.</h5>
+
+<Container fluid="sm">
+        <Row>
+          <h2 className='title'> Contact </h2>
+        </Row>
+      </Container>
+
+      <Container >
+        <p>
+         Contact me if you are interested in awesome lessons or for performance events, as well as permission to play any compositions.
+        </p>
+      </Container>
+
 
     <Card  className='ImgOverlay '>
        <Card.Img src= {Piano} alt="Card image" className='cardImage'/>
