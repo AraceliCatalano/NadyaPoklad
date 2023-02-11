@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { collection, getDocs, query, orderBy  } from 'firebase/firestore';
-import { db } from '../../firebase-config';
+import { db } from '../firebase-config';
 import { Container, Row, Col, CardGroup } from 'react-bootstrap';
-import '../../styles/App.css';
-import UpcomingEventsItem from './UpcomingEventsItem';
-import { ButtonGeneric } from '../ButtonGeneric';
+import '../styles/App.css';
+import UpcomingEventsItem from '../components/upcomingEvents/UpcomingEventsItem';
+import { ButtonGeneric } from '../components/ButtonGeneric';
 
 
 export default function UpcomingEvents() {
@@ -25,9 +25,19 @@ export default function UpcomingEvents() {
 
   return (
     <>
-      <h2 className='event-title'> Upcoming Events</h2>
-      <p className='subtitle'> Schedule of next Performances during 2023. I would like to enjoy it with you! </p>
-      
+
+
+<Container fluid="sm">
+        <Row>
+          <h2 className='title'> Upcoming Events </h2>
+        </Row>
+      </Container>
+
+      <Container >
+        <p>
+        Schedule of next Performances during 2023. I would like to enjoy it with you!
+        </p>
+      </Container>
 
 
       <Container className='container-list' >
