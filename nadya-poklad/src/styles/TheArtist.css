@@ -1,0 +1,154 @@
+.image{
+    max-width: 200px;
+    max-height: 350px;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    display: flex !important;
+    justify-content: center !important;
+    border: 2px #c2ced6 groove;
+}
+
+.text {
+    font-family: "Poppins" !important;
+    font-size: 20px;
+    color: white !important;
+    text-align: justify !important;
+    margin: auto;
+    padding: 10px;
+    display: flex !important;
+    justify-content: center !important;
+}
+
+.artist-content-row {
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: groove 1px #ACD8EC;
+}
+
+.artist-content-col  {
+   justify-content: center !important;
+   align-self: auto !important;
+  }
+  
+.border-bottom {
+  border-bottom: solid 1px #ACD8EC;
+}
+
+/* Artist Admin */
+
+.menu-item-card {
+    width: 95% !important;
+    border-width: 4px;
+    margin: 15px;
+  }
+
+  .posts-title {
+    border-top: solid 1px #ACD8EC;
+    width: 100%;
+    padding-top: 15px;
+  }
+  
+  .menu-item-card-active {
+    background-color: #41818d !important;
+    box-shadow: 0px 0px 5px #c2ced6 !important; 
+    color:black;
+  }
+  
+  .menu-item-card {
+    background-color: #41818d !important;
+    box-shadow: #2f434a !important;
+    color:rgb(43, 41, 41);
+  }
+  
+  .menu-item-card-title-container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .menu-item-card-body {
+    padding: 2px;
+  }
+  
+  .menu-item-card-row {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+    align-items: center;
+
+  }
+  
+  .menu-item-card-image {
+    height: 50%;
+    object-fit: contain;
+    margin-top: 25px;
+  }
+  
+  .button-container {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .menu-item-card-spinner {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    bottom: 3px;
+    right: 3px;
+    border-width: 3px;
+  }
+  
+  #input-update-image {
+    position: relative;
+    margin-top: 3px;
+    margin-bottom: 5px;
+    opacity: 0.8;
+  }
+  
+  @media only screen and (max-width: 1200px) {
+    .menu-item-card {
+      width: 28%;
+    }
+  }
+  
+  @media only screen and (max-width: 990px) {
+    .menu-item-card {
+      width: 43%;
+    }
+  }
+  
+  @media only screen and (max-width: 767px) {
+    .menu-item-card {
+      width: 42%;
+    }
+  }
+  
+  @media only screen and (min-width: 576px) {
+    .button-container {
+      position: absolute;
+      bottom: 15px;
+    }
+  }
+  
+  @media only screen and (max-width: 576px) {
+    .menu-item-card {
+      width: 90%;
+      height: auto;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      padding: 10px;
+    }
+  
+    .menu-item-card-image {
+      max-width: 40%;
+    }
+    #input-update-image  {
+        position: absolute;
+        right: 62%;
+        top: 77%;
+        width: 35%;
+        height: 15px;
+    }
+  }
+  

@@ -1,0 +1,239 @@
+@import url(Contact.css);
+@import url(Footer.css);
+@import url(TheArtist.css);
+@import url(Dashboard.css);
+@import url(SectionItem.css);
+@import url(Home.css);
+/* @import url(Events.css); */
+@import url(ButtonGeneric.css);
+@import url(UpcomingEvent.css);
+
+
+*{
+    margin: 0;
+    box-sizing: border-box;
+    -webkit-user-select: none;
+    user-select: none;
+    
+}
+/* 
+ *, ::after, ::before {
+   
+
+} */
+
+html{
+    height: 70vh;
+}
+
+body {
+    display: flex ;
+    flex-direction: column ;
+    min-height:50vh;
+    flex-wrap: wrap; 
+    /* padding:10px; */
+    margin-top: 80px !important;
+
+    background-color: #43555C !important;
+    color: white !important;
+    font-family: Poppins;
+    /* margin: 80px 20px 80px 20px !important; */
+    
+    
+}
+
+
+
+
+
+.btn {
+    color: #ACD8EC !important;
+    font-size: 22px;
+    border:1px solid #ACD8EC !important ;
+    cursor: pointer !important
+  
+}
+.btn:hover{
+    background-color: rgb(194, 206, 214) !important;
+    color: black !important;
+}
+
+.offcanvas {
+    background-color: #2F434A !important;
+}
+
+
+
+/****** HEADER ******/
+
+.title, .link {
+    font-family: "Marcellus" !important;
+    text-decoration: none !important;
+    color: white !important;
+    cursor: pointer;
+    margin-left: 0px;
+}
+.subtitle {
+    margin-left: 20px;
+
+}
+
+
+.link-header{
+ position: relative;
+ color: white;
+ text-decoration: none;
+}
+
+.dropdown-menu {
+    --bs-dropdown-link-active-bg: #ACD8EC !important;
+}
+
+.link-header:hover{
+  color: white;
+}
+
+.link-header::before{
+  content: "";
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 2px;
+  bottom: 0;
+  top: 20px;
+  left: 0;
+  background-color: #ACD8EC;
+  transform: scaleX(0);
+  transform-origin: top left;
+  transition: transform 0.3s ease;
+}
+
+.link-header:hover::before{
+    transform: scaleX(1);
+}
+.navbar-text{
+    display: flex;
+   
+}
+.navbar-brand {
+    color: white !important;
+}
+.navbar-nav .dropdown-menu, .navbar-nav {
+    opacity: 80% !important;
+    border: 0px !important;
+}  
+.dropdown-menu {
+    background-color: #2F434A !important;
+}
+.navbar-text, .nav-link, .dropdown-item {
+   
+    padding-right: 20px !important;
+    font-family: "Marcellus" !important;
+    font-size: medium !important;
+    flex-direction: column;
+}
+
+.navbar-text:hover, .nav-link:hover, .dropdown-item:hover, .navbar-text a:hover {
+    text-decoration: none !important;
+    background-color: #2F434A !important;
+    
+}
+
+.dropdown-item:hover {
+    background-color: #000;
+}
+
+.header{
+    background-color: #2F434A;
+}
+
+span.navbar-toggler-icon {
+    color: white !important;
+    border: none !important; 
+}
+.navbar-toggler-icon:hover, .navbar-toggler:hover {
+    background-color: #2F434A !important;
+    opacity: 85% !important;
+    border: 0px !important;
+    border-radius: 0 !important;
+    color: white !important;
+}
+
+
+
+.navbar-toggler:focus {
+    box-shadow: none !important; 
+
+}
+/****** END HEADER ******/
+
+
+
+/**********LOGIN***********/
+
+.loginContainer{
+    max-width: 500px;
+}
+.login-title{
+    border-bottom:1px solid #ACD8EC !important;
+    padding-bottom: 5px ;
+    font-size: 18px !important;
+}
+/********** END LOGIN***********/
+
+
+/****** RESET PASWORD ******/
+.link-text {
+    color: #ACD8EC;
+    text-decoration: none;
+}
+
+.link-text:hover {
+    color: white;
+    font-weight:500;
+    text-decoration: none;
+}
+/****** END RESET PASWORD ******/
+
+/****** HOME ******/
+.artist-home-container { 
+    background-image: url(https://firebasestorage.googleapis.com/v0/b/nadyapokladsite.appspot.com/o/General%2Fnadya1_transparency.jpg?alt=media&token=023e4835-281b-4e8c-9418-aed2896cba17);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    opacity: 40%;
+    position:relative
+
+}
+
+
+.artist-home-text {
+    position: absolute;
+    margin: 30px 20px 20px 20px;
+    align-self: center;
+    color: #000000;
+    font-weight: 600;
+    opacity: 100% !important;
+}
+
+
+/****** END HOME ******/
+
+
+@media (min-width: 768px) {
+    .navbar-nav .dropdown-menu, .navbar-nav {
+        background-color: #2F434A !important;
+    }  
+    .navbar-text, .nav-link, .dropdown-item {
+        color: white !important;
+      
+    }
+
+    .navbar-expand-md .navbar-collapse {
+        display: flex !important;
+        flex-basis: auto;
+        justify-content: flex-end !important;
+        align-items: center !important;
+    }
+}
+

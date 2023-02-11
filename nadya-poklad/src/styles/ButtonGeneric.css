@@ -1,0 +1,22 @@
+.btn-generic {
+border:1px #ACD8EC solid;
+cursor: pointer;
+border-radius: 4px;
+margin:3px !important;
+padding:5px !important;
+margin:auto
+
+}
+.btn-generic a {
+    text-decoration: none !important;
+    color: #ACD8EC !important;
+    
+}
+
+
+.btn-generic :hover{
+    color:#2F434A !important;
+}
+.btn-generic-displayNone{
+    display: contents;
+}
