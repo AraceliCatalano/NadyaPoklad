@@ -1,11 +1,11 @@
 import React from 'react';
 import { Container, Col, Row } from "react-bootstrap";
-
 import '../../../styles/App.css';
-import SideBar from '../SideBar';
-import MenuItems from './MenuItems';
 
-export default function ArtistAdmin() {
+import SideBar from './SideBar';
+import MenuItems from '../artistAdmin/MenuItems';
+
+export  function ArtistAdmin() {
   return (
     <>
         <Row>

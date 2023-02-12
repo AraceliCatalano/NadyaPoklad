@@ -1,11 +1,11 @@
 import React from 'react'
-import '../../styles/App.css'
+import '../../../styles/App.css';
 import { Container, Row, Col} from 'react-bootstrap';
 import SideBar from './SideBar';
 
 
 
-export default function PianistAdmin() {
+export function PianistAdmin() {
 
   
 

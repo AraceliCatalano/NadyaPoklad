@@ -1,13 +1,13 @@
 import React from 'react'
-import '../../styles/App.css'
+import '../../../styles/App.css'
 import { Button, Container, Row, Col} from 'react-bootstrap';
 import { useNavigate } from "react-router";
-import { useUserAuth } from '../../context/UserAuthContext';
+import { useUserAuth } from '../../../context/UserAuthContext';
 import SideBar from './SideBar';
 
 
 
-export default function Dashboard() {
+export  function Dashboard() {
 
   const {user, logOut} = useUserAuth();
   const navigate = useNavigate();

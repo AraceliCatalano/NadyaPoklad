@@ -1,11 +1,9 @@
 import React from 'react'
-import '../../styles/App.css'
+import '../../../styles/App.css'
 import { Container, Row, Col} from 'react-bootstrap';
 import SideBar from './SideBar';
 
-
-
-export default function TeacherAdmin() {
+export  function ContactAdmin() {
 
   return (
     <>
@@ -15,8 +13,8 @@ export default function TeacherAdmin() {
           <Col sm="9" className="main-menu">
             <Container fluid>
               <Row>
-                <h4 className="title mt-3">Teacher: content administration </h4>
-             </Row>
+              <h4 className="title mt-3">Contact page: content administration </h4>
+            </Row>
           </Container>
           
           </Col>

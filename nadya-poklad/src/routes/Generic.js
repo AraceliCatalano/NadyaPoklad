@@ -13,16 +13,17 @@ import NotFound from '../components/NotFound';
 import { UserAuthContextProvider } from '../context/UserAuthContext';
 import LoginAdmin from '../pages/LoginAdmin';
 import ForgotPassword from '../pages/ForgotPassword'
-import ProtectedRoute from './ProtectedRoute';
-import Dashboard from '../components/dashboard/Dashboard';
-import PianistAdmin from '../components/dashboard/PianistAdmin';
-import ComposerAdmin from '../components/dashboard/ComposerAdmin';
-import MusicEventOrganizerAdmin from '../components/dashboard/MusicEventOrganizerAdmin';
-import ContactAdmin from '../components/dashboard/contactAdmin/ContactAdmin';
-import TeacherAdmin from '../components/dashboard/TeacherAdmin';
-import UpcomingEventsAdmin from '../components/dashboard/upcomingEventsAdmin/UpcomingEventsAdmin';
+import { DashboardAdmin } from '../components/dashboard/pagesAdmin/DashboardAdmin';
 
-import ArtistAdmin from '../components/dashboard/artistAdmin/ArtistAdmin';
+// import ProtectedRoute from './ProtectedRoute';
+// import Dashboard from '../components/dashboard/Dashboard';
+// import PianistAdmin from '../components/dashboard/PianistAdmin';
+// import ComposerAdmin from '../components/dashboard/pagesAdmin/ComposerAdmin';
+// import MusicEventOrganizerAdmin from '../components/dashboard/MusicEventOrganizerAdmin';
+// import ContactAdmin from '../components/dashboard/contactAdmin/ContactAdmin';
+// import TeacherAdmin from '../components/dashboard/TeacherAdmin';
+// import UpcomingEventsAdmin from '../components/dashboard/pagesAdmin/UpcomingEventsAdmin';
+// import ArtistAdmin from '../components/dashboard/pagesAdmin/ArtistAdmin';
 
 
 
@@ -40,8 +41,11 @@ function Generic() {
             <Route exact path="/engage" element={<Engage />} />    
             <Route exact path="/contact" element={<Contact />} />       
             <Route exact path="/login_admin" element={<LoginAdmin />} />
-
-            <Route exact path="/dashboard" element={<ProtectedRoute> <Dashboard /> </ProtectedRoute>} /> 
+            <Route exact path="/dashboard/*" element={<DashboardAdmin/>}/>
+            <Route exact path="/resetPassword" element={<ForgotPassword />} />  
+            <Route path="*" element={<NotFound />} /> 
+            
+            {/* <Route exact path="/dashboard" element={<ProtectedRoute> <Dashboard /> </ProtectedRoute>} /> 
             <Route exact path="/dashboard/artist" element={ <ArtistAdmin />} />  
             <Route exact path="/dashboard/upcoming-events" element={  <UpcomingEventsAdmin /> }/> 
             <Route exact path="/dashboard/pianist" element={<ProtectedRoute> <PianistAdmin />  </ProtectedRoute>} />
@@ -51,7 +55,7 @@ function Generic() {
             <Route exact path="/dashboard/teacher" element={ <ProtectedRoute> <TeacherAdmin /> </ProtectedRoute>} /> 
             <Route exact path="/resetPassword" element={<ForgotPassword />} />  
         
-            <Route path="*" element={<NotFound />} />  
+              */}
       </Routes>        
     </UserAuthContextProvider>
 
