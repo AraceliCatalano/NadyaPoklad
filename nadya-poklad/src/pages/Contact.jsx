@@ -5,7 +5,7 @@ import '../styles/Contact.css';
 import Piano from '../Assests/images/PianoContact.jpg';
 
 
-export default function Contact() {
+export  function Contact() {
   return (
 <>
 

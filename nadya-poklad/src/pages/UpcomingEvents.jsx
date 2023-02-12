@@ -7,7 +7,7 @@ import UpcomingEventsItem from '../components/upcomingEvents/UpcomingEventsItem'
 import { ButtonGeneric } from '../components/ButtonGeneric';
 
 
-export default function UpcomingEvents() {
+export function UpcomingEvents() {
 
   const [UpcomingEventsPost, setUpcomingEventsPost] = useState([]);
 

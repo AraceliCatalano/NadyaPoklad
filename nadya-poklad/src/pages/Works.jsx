@@ -4,7 +4,7 @@ import {Composer, Pianist, Teacher, MusicalEventOrganizer} from '../components/w
 
 
 
-export default function Works() {
+export function Works() {
   return (
     <>
       <Container>

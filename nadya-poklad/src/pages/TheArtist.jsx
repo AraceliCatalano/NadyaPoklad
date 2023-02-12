@@ -5,7 +5,7 @@ import { Container, Image, Row, Col } from 'react-bootstrap';
 import '../styles/App.css';
 
 
-export default function TheArtist() {
+export function TheArtist() {
 
 
   const [artistPosts, setArtistPosts] = useState([]);

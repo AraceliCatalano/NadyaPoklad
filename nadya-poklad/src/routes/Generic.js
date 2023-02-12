@@ -1,12 +1,7 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Home from '../components/home/Home'
-import TheArtist from '../pages/TheArtist';
-import Works from '../pages/Works'
-import Engage from '../pages/Engage';
-import UpcomingEventsList from '../pages/UpcomingEventsList';
-import Contact from '../pages/Contact';
-import NotFound from '../components/NotFound';
+import {TheArtist , Works,Engage, UpcomingEvents, Contact, NotFound } from '../pages'
 
 
 // Imports for Login with Firebase
@@ -15,6 +10,12 @@ import LoginAdmin from '../pages/LoginAdmin';
 import ForgotPassword from '../pages/ForgotPassword'
 import { DashboardAdmin } from '../components/dashboard/pagesAdmin/DashboardAdmin';
 
+// import TheArtist from '../pages/TheArtist';
+// import Works from '../pages/Works'
+// import Engage from '../pages/Engage';
+// import UpcomingEventsList from '../pages/UpcomingEventsList';
+// import Contact from '../pages/Contact';
+// import NotFound from '../pages/NotFound';
 // import ProtectedRoute from './ProtectedRoute';
 // import Dashboard from '../components/dashboard/Dashboard';
 // import PianistAdmin from '../components/dashboard/PianistAdmin';
@@ -37,7 +38,7 @@ function Generic() {
             <Route path="/" element={<Home />} />    
             <Route exact path="/theartist" element={<TheArtist />} /> 
             <Route exact path="/works/*" element={<Works />} /> 
-            <Route exact path="/upcoming_events" element={<UpcomingEventsList />} />    
+            <Route exact path="/upcoming_events" element={<UpcomingEvents />} />    
             <Route exact path="/engage" element={<Engage />} />    
             <Route exact path="/contact" element={<Contact />} />       
             <Route exact path="/login_admin" element={<LoginAdmin />} />

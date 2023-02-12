@@ -1,7 +1,8 @@
 import React from 'react';
 import '../styles/App.css';
 
-function NotFound(){
+
+export function NotFound(){
     return(
         <div className="not-found">
             <h2>Error 404 - Page not found</h2>
@@ -11,4 +12,4 @@ function NotFound(){
     )
 }
 
-export default NotFound;
+  
