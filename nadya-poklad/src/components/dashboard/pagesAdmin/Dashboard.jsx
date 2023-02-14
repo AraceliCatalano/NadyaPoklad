@@ -6,12 +6,10 @@ import { useUserAuth } from '../../../context/UserAuthContext';
 import SideBar from './SideBar';
 
 
+export function Dashboard() {
 
-export  function Dashboard() {
-
-  const {user, logOut} = useUserAuth();
-  const navigate = useNavigate();
-
+   const {user, logOut } = useUserAuth();
+   const navigate = useNavigate();
   const handleLogout = async () => {
       try {
           await logOut();

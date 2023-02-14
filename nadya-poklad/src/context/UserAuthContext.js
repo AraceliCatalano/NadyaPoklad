@@ -12,17 +12,56 @@ const userAuthContext = createContext();
 export function UserAuthContextProvider({ children }) {
 
     const [user, setUser] = useState("");
+    const [isLoggedIn, setIsLoggedIn] = useState(
+        localStorage.getItem("isLoggedIn") || false
+      );
 
-    function logIn(email, password) {
-        console.log('Email', email);
-        return signInWithEmailAndPassword(auth, email, password);
-    }
-    function passwordReset (email) {
-        console.log('Email', email);
-        return sendPasswordResetEmail(auth, email);
-    }
+      const init =() =>{
+        const userLogged = JSON.parse(localStorage.getItem("is_Logged_In"))
+
+        return {
+            isLoggedIn: !!userLogged,
+
+        }
+      }
+
+           
+      
+      function  logIn (email, password) {
+         
+        console.log('Email', email );
+        setUser(signInWithEmailAndPassword(auth, email, password));
+        setIsLoggedIn(true);
+        console.log('is Logged In:', isLoggedIn , 'email=', email);
+        localStorage.setItem(JSON.stringify("is-Logged-In"), true);
+        console.log(user)
+        
+        return logIn
+
+        }
+
+
+        function passwordReset (email) {
+            console.log('Email', email );
+            return sendPasswordResetEmail(auth, email);
+        }
+        
+//         const isLogin= (email, password)=>{
+    
+//             logIn(email, password);
+//             setIsLoggedIn(true);
+//             console.log('isLoggin:', isLoggedIn , 'email', email);
+//           localStorage.setItem("isLoggedIn", true);
+//         }
+
+// console.log(localStorage)
 
     function logOut() {
+       setIsLoggedIn(false);
+       localStorage.removeItem(JSON.stringify("is-Logged-In"), false);
+       setUser('')
+
+        console.log( 'is Logged In:', isLoggedIn )
         return  signOut(auth);
     }
 
@@ -37,6 +76,7 @@ export function UserAuthContextProvider({ children }) {
 
     return (
         <userAuthContext.Provider value={{ user, logIn, passwordReset, logOut }}>
+  
             {children}
         </userAuthContext.Provider>
     );
