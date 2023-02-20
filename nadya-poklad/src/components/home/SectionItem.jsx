@@ -3,7 +3,7 @@ import { Image } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import '../../styles/App.css'
 
-export default function SectionItem(props) {
+const SectionItem= (props) => {
   return (
    
    <div className="section">
@@ -20,3 +20,4 @@ export default function SectionItem(props) {
     </div>
   )
 }
+export default SectionItem;

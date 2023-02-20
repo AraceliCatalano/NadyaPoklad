@@ -10,14 +10,8 @@ export function Dashboard() {
 
    const {user, logOut } = useUserAuth();
    const navigate = useNavigate();
-  const handleLogout = async () => {
-      try {
-          await logOut();
-          navigate("/login_admin");
-      } catch (err) { 
-          console.log(err.message);
-      };
-  }
+
+ 
 
   return (
     <>
@@ -34,10 +28,10 @@ export function Dashboard() {
                     <p style={{marginLeft: 0}}> Your are logged in with the email: {user && user.email}</p>      
                   </Row>
                 </Col>
-                
+{/*                 
                 <Col sm={2}>
                     <Button variant="btn"  size='md' onClick={handleLogout}>Signout</Button>
-                </Col>
+                </Col> */}
             </Row>
           </Container>
           

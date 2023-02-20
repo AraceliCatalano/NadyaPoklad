@@ -3,7 +3,7 @@ import { Container, Row, Col , Navbar} from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import '../../styles/App.css'
 
-export default function Footer() {
+export function  Footer () {
   return (
     <footer>
    <Navbar className="footer my-5 " fixed=''>

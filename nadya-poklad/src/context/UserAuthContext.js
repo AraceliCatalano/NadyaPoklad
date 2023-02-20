@@ -16,46 +16,35 @@ export function UserAuthContextProvider({ children }) {
         localStorage.getItem("isLoggedIn") || false
       );
 
-      const init =() =>{
+    const init =() =>{
         const userLogged = JSON.parse(localStorage.getItem("is_Logged_In"))
 
         return {
             isLoggedIn: !!userLogged,
 
         }
-      }
+    }
 
-           
-      
-      function  logIn (email, password) {
+        
+    function  logIn (email, password) {
          
         console.log('Email', email );
-        setUser(signInWithEmailAndPassword(auth, email, password));
+        setUser(JSON.stringify(signInWithEmailAndPassword(auth, email, password)));
         setIsLoggedIn(true);
-        console.log('is Logged In:', isLoggedIn , 'email=', email);
+        // console.log('is Logged In:', isLoggedIn , 'email=', email);
         localStorage.setItem(JSON.stringify("is-Logged-In"), true);
         console.log(user)
         
         return logIn
 
-        }
+    }
 
 
-        function passwordReset (email) {
+    function passwordReset (email) {
             console.log('Email', email );
             return sendPasswordResetEmail(auth, email);
-        }
+    }
         
-//         const isLogin= (email, password)=>{
-    
-//             logIn(email, password);
-//             setIsLoggedIn(true);
-//             console.log('isLoggin:', isLoggedIn , 'email', email);
-//           localStorage.setItem("isLoggedIn", true);
-//         }
-
-// console.log(localStorage)
-
     function logOut() {
        setIsLoggedIn(false);
        localStorage.removeItem(JSON.stringify("is-Logged-In"), false);
@@ -76,8 +65,7 @@ export function UserAuthContextProvider({ children }) {
 
     return (
         <userAuthContext.Provider value={{ user, logIn, passwordReset, logOut }}>
-  
-            {children}
+              {children}
         </userAuthContext.Provider>
     );
 };

@@ -8,7 +8,7 @@ import { Row, Col, Container } from 'react-bootstrap'
 import ArtistPreview from './ArtistPreview'
 import { VideoYouTube } from '../VideoYouTube';
 
-function Home() {
+export const Home = () => {
 
     return (
         <>
@@ -113,5 +113,4 @@ function Home() {
         </>
     )
 }
-
 export default Home;

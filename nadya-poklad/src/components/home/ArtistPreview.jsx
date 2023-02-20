@@ -4,7 +4,8 @@ import '../../styles/App.css'
 import { collection, getDocs, query, where } from 'firebase/firestore';
 import { db } from '../../firebase-config';
 
-export default function ArtistPreview() {
+
+const ArtistPreview= ()=> {
 
 
     const [artistPosts, setArtistPosts] = useState([]);
@@ -36,3 +37,4 @@ export default function ArtistPreview() {
         </>
     )
 }
+export default ArtistPreview;
