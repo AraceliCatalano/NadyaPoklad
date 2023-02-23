@@ -12,8 +12,8 @@ const SectionItem= (props) => {
           <Image src={props.image} alt={props.image} className="box-picture" />
         </div>
 
-        <div as="button"  className=" title-section-bg link " position-absolute="true" href={props.url}>
-          <Link to={props.url} as="link" className="link link-header">  {props.name}  </Link>
+        <div as="button"  className=" title-section-bg  " position-absolute="true" href={props.url}>
+          <Link to={props.url} as="link" className="link-header">  {props.name}  </Link>
         </div>
       
 

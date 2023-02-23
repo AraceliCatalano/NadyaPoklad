@@ -1,10 +1,9 @@
 
 import './styles/App.css'
 import Generic from './routes/Generic'
-import { Header, Home, Footer } from './components/home';
+import { Header, Footer } from './components/home';
+import { Home } from './pages/Home'
 import  {UserAuthContextProvider}  from './context/UserAuthContext';
-// import Footer from './components/home/Footer';
-// import Home from './components/home/Home';
 
 function App() {
   return (

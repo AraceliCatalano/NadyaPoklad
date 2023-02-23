@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { collection, getDocs, query, orderBy  } from 'firebase/firestore';
+import { collection, getDocs, query, orderBy } from 'firebase/firestore';
 import { db } from '../firebase-config';
 import { Container, Row, Col, CardGroup } from 'react-bootstrap';
 import '../styles/App.css';
@@ -27,7 +27,7 @@ export function UpcomingEvents() {
     <>
 
 
-<Container fluid="sm">
+      <Container fluid="sm">
         <Row>
           <h2 className='title'> Upcoming Events </h2>
         </Row>
@@ -35,7 +35,7 @@ export function UpcomingEvents() {
 
       <Container >
         <p>
-        Schedule of next Performances during 2023. I would like to enjoy it with you!
+          Schedule of next Performances during 2023. I would like to enjoy it with you!
         </p>
       </Container>
 
@@ -60,33 +60,33 @@ export function UpcomingEvents() {
                   free={post.free}
                   eventLocation={post.eventLocation}
                   linkToBuy={
-                    post.eventType === "Free" ?  <span >  {"- Free Event -"} </span>
+                    post.eventType === "Free" ? <span >  {"- Free Event -"} </span>
+                      :
+                      <ButtonGeneric text=<a target="_blank" rel="noopener noreferrer" href={post.linkToBuy}> Buy Ticket </a> />
+
+
+
+                  }
+                  linkToEvent={post.linkToEvent === ""
+                    ?
+                    <button disabled="true" style={{ display: 'none' }}>-</button>
                     :
-                    <ButtonGeneric text=  <a target="_blank" rel="noopener noreferrer" href={post.linkToBuy}> Buy Ticket </a> />
-                     
-                   
-             
-                  }  
-                  linkToEvent={post.linkToEvent ===""
-                     ? 
-                     <button disabled="true"style={{display:'none'}}>-</button> 
-                     : 
-                    <ButtonGeneric text={<a target="_blank" rel="noopener noreferrer" href={post.linkToEvent}> Go Event </a>}/>
+                    <ButtonGeneric text={<a target="_blank" rel="noopener noreferrer" href={post.linkToEvent}> Go Event </a>} />
 
-                  }/>
+                  } />
 
 
-               
+
 
               </Col>
             )}
           </Row>
 
 
-</CardGroup>
+        </CardGroup>
 
-</Container>
-      
+      </Container>
+
 
     </>
   )
