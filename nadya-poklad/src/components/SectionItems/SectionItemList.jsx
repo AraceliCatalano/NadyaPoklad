@@ -16,7 +16,7 @@ const SectionItemList = () => {
         const queryHomeSectionItem = query(homeSectionItem, orderBy('name', 'desc'));
         getDocs(queryHomeSectionItem)
             .then(res => setItemHome(res.docs.map(doc => ({ id: doc.id, ...doc.data() }))));
-        console.log(itemHome)
+        // console.log(itemHome)
     }, []);
 
     useEffect(() => {
@@ -24,7 +24,7 @@ const SectionItemList = () => {
         const queryHomeOtherSectionItem = query(homeOtherSectionItem, orderBy('name', 'desc'));
         getDocs(queryHomeOtherSectionItem)
             .then(res => setOtherItem(res.docs.map(doc => ({ id: doc.id, ...doc.data() }))));
-        console.log(otherItem)
+        // console.log(otherItem)
     }, []);
 
 
@@ -34,7 +34,7 @@ const SectionItemList = () => {
             {
                 itemHome.map((item) => (
 
-                    <Col>
+                    <Col key={item.id}>
                         <Row className='responsive-Row' >
                             <SectionItem
                                 name={item.name}

@@ -5,7 +5,7 @@
 import { useState, useEffect } from "react";
 import { Container, Row, Col, Button, Spinner, Form, Image } from "react-bootstrap";
 
-import ErrorMessage from "./Messages/ErrorMessage";
+import ErrorMessage from "../Messages/ErrorMessage";
 import "./MenuItemsPage.css";
 import '../../../styles/App.css';
 

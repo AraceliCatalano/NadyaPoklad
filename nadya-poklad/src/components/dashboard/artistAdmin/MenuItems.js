@@ -3,9 +3,9 @@ import { Container, Row, Col, Button } from "react-bootstrap";
 
 import AddMenuItemForm from "./AddMenuItemForm";
 import MenuItemCard from "./MenuItemCard";
-import ErrorMessage from "./Messages/ErrorMessage";
-import MessageBox from "./Messages/MessageBox";
-import useMenuItems from "./FirebaseHooks/useArtistItems";
+import ErrorMessage from "../Messages/ErrorMessage";
+import MessageBox from "../Messages/MessageBox";
+import useMenuItems from "../FirebaseHooks/useArtistItems";
 
 export default function MenuItems() {
   const [loading, setLoading] = useState(false);

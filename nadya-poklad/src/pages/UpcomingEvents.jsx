@@ -1,27 +1,16 @@
-import React, { useState, useEffect } from 'react';
-import { collection, getDocs, query, orderBy } from 'firebase/firestore';
-import { db } from '../firebase-config';
+// import React, { useState, useEffect } from 'react';
+// import { collection, getDocs, query, orderBy } from 'firebase/firestore';
+// import { db } from '../firebase-config';
 import { Container, Row, Col, CardGroup } from 'react-bootstrap';
 import '../styles/App.css';
 import UpcomingEventsItem from '../components/upcomingEvents/UpcomingEventsItem';
 import { ButtonGeneric } from '../components/ButtonGeneric';
+import useUpcommingEvent from '../components/dashboard/FirebaseHooks/useUpcommingEvent';
 
 
-export function UpcomingEvents() {
+export function UpcomingEvents( ) {
 
-  const [UpcomingEventsPost, setUpcomingEventsPost] = useState([]);
-
-
-
-  useEffect(() => {
-    const UpcomingEventsPosttImageRef = collection(db, "UpcomingEvents");
-    // const queryUpcomingEventsPostI = query(UpcomingEventsPosttImageRef, where('active', '==', true ));
-    const queryUpcomingEventsPostI = query(UpcomingEventsPosttImageRef, orderBy('date', 'desc'));
-    getDocs(queryUpcomingEventsPostI)
-      .then(res => setUpcomingEventsPost(res.docs.map(doc => ({ id: doc.id, ...doc.data() }))));
-    console.log(UpcomingEventsPost)
-  }, []);
-
+  const {UpcomingEventsPost} = useUpcommingEvent();
 
   return (
     <>
@@ -69,7 +58,7 @@ export function UpcomingEvents() {
                   }
                   linkToEvent={post.linkToEvent === ""
                     ?
-                    <button disabled="true" style={{ display: 'none' }}>-</button>
+                    <button disabled={true} style={{ display: 'none' }}>-</button>
                     :
                     <ButtonGeneric text={<a target="_blank" rel="noopener noreferrer" href={post.linkToEvent}> Go Event </a>} />
 

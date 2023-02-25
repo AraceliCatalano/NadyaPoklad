@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { db, storage } from "../../../firebase-config";
 import { doc, updateDoc } from "firebase/firestore";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
-import { deleteFileFromStorage } from "./FirebaseHooks/Storage";
+import { deleteFileFromStorage } from "../FirebaseHooks/Storage";
 import { Card, Row, Col, Form, Button, Container } from "react-bootstrap";
 import '../../../styles/App.css';
 

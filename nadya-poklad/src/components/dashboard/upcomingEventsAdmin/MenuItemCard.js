@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 import { db, storage } from "../../../firebase-config";
 import { doc, updateDoc } from "firebase/firestore";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
-import { deleteFileFromStorage } from "./FirebaseHooks/Storage";
+import { deleteFileFromStorage } from "../FirebaseHooks/Storage";
 
-import { Card, Row, Col, Form, Button } from "react-bootstrap";
+import { Card, Col, Form, Button } from "react-bootstrap";
 
 import '../../../styles/App.css';
 
@@ -13,7 +13,7 @@ export default function MenuItemCard({ item, deleteItem, setError, setSuccessful
 
   const [image, setImage] = useState(item.image);
   const [imageFileName, setImageFileName] = useState(item.imageFileName);
-  const [active, setActive] = useState(item.active);
+  // const [active, setActive] = useState(item.active);
   const [itemId, setItemId] = useState(item.id);
   const [cardClass, setCardClass] = useState("");
   const [update, setUpdate] = useState(false);
@@ -34,19 +34,19 @@ export default function MenuItemCard({ item, deleteItem, setError, setSuccessful
   const [updatedLinkToEvent, setUpdatedLinkToEvent] = useState(item.linkToEvent)
 
 
-  const [updatedOrderDisplay, setUpdatedOrderDisplay] = useState(item.orderDisplay);
+  // const [updatedOrderDisplay, setUpdatedOrderDisplay] = useState(item.orderDisplay);
   const [updatedImage, setUpdatedImage] = useState(null);
   const itemDocRef = doc(db, "UpcomingEvents", itemId);
 
-  useEffect(() => {
-    toggleCardClass();
-  }, [active]);
+  // useEffect(() => {
+  //   toggleCardClass();
+  // }, [active]);
 
 
-  const toggleCardClass = () => {
-    if (active) setCardClass("menu-item-card-active");
-    else setCardClass("menu-item-card-disabled");
-  };
+  // const toggleCardClass = () => {
+  //   if (active) setCardClass("menu-item-card-active");
+  //   else setCardClass("menu-item-card-disabled");
+  // };
 
   const handleDelete = () => {
     deleteItem(itemId, imageFileName);
@@ -273,7 +273,6 @@ export default function MenuItemCard({ item, deleteItem, setError, setSuccessful
                 placeholder="Enter the text that will appear next to the image"
                 onChange={(e) => setUpdatedDescription(e.target.value)}
                 size="sm"
-
 
               />
             ) : (

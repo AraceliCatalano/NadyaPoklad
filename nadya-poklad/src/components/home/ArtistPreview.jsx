@@ -16,7 +16,7 @@ const ArtistPreview= ()=> {
         const queryartistPostsI = query(artistPostsRef, where("orderDisplay", "==", "1"));
         getDocs(queryartistPostsI)
             .then(res => setArtistPosts(res.docs.map(doc => ({ id: doc.id, ...doc.data() }))))
-        console.log(artistPosts);
+        // console.log(artistPosts);
     }, []);
 
 

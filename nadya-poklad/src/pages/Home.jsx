@@ -1,6 +1,7 @@
 import SectionItemList from '../components/SectionItems/SectionItemList'
 import { Row, Col, Container } from 'react-bootstrap'
 import ArtistPreview from '../components/home/ArtistPreview'
+import {UpcomimgEventSummary} from '../components/upcomingEvents/UpcomimgEventSummary'
 
 
 export const Home = () => {
@@ -17,16 +18,14 @@ export const Home = () => {
                     </Col>
 
 
-                    <Col sm="4">
+                    <Col sm="9" md='9' lg='3'>
                         <Row >
                             <h4 className='title home-h4 mx-2 mt-3'>Upcoming Events</h4><br/>
                         </Row>
                         <Row fluid="sm" className="mx-3 mb-2">
-                            EVENT AREA
+                            <UpcomimgEventSummary/>
                         </Row>
-                        <Row fluid="sm" className="mx-3 mb-2">
-                            EVENT AREA
-                        </Row>
+                        
                     </Col>
                 </Row>
 

@@ -25,6 +25,9 @@ function Generic() {
             <Route exact path="/login_admin" element={<LoginAdmin />} />
             <Route exact path="/dashboard/*" element={<DashboardAdmin/>}/>
             <Route exact path="/resetPassword" element={<ForgotPassword />} />  
+
+
+            <Route path="/upcoming_events/:id" element={<UpcomingEvents />} />    
             <Route path="*" element={<NotFound />} /> 
             
            

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { db, storage } from "../../../../firebase-config";
+import { db, storage } from "../../../firebase-config";
 import {
   collection,
   getDocs,
@@ -78,7 +78,7 @@ export default function useGetArtistItems() {
   };
 
   const addItemToFirestore = async (item) => {
-    const docRef = await addDoc(collection(db, "TheArtist"), item)
+    await addDoc(collection(db, "TheArtist"), item)
       .then((docRef) => {
         item.id = docRef.id;
         setData((prevState) => [...prevState, item]);
