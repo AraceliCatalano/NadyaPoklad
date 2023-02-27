@@ -1,50 +1,42 @@
 import React, { useState } from "react";
-
 import { db, storage } from "../../../firebase-config";
 import { doc, updateDoc } from "firebase/firestore";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { deleteFileFromStorage } from "../FirebaseHooks/Storage";
-
-import { Card, Col, Form, Button } from "react-bootstrap";
-
+import { Card, Row, Col, Form, Button, Container } from "react-bootstrap";
 import '../../../styles/App.css';
 
 export default function MenuItemCard({ item, deleteItem, setError, setSuccessfull }) {
-
-  const [image, setImage] = useState(item.image);
-  const [imageFileName, setImageFileName] = useState(item.imageFileName);
-  // const [active, setActive] = useState(item.active);
+  
   const [itemId, setItemId] = useState(item.id);
   const [cardClass, setCardClass] = useState("");
-  const [update, setUpdate] = useState(false);
+  const [category, setCategory] = useState(item.category)
   const [date, setDate] = useState(item.date)
-  const [description, setDescription] = useState(item.description);
-  const [eventType, setEventType] = useState(item.eventType);
-  const [eventLocation, setEventLocation] = useState(item.eventLocation);
-  const [linkToBuy, setLinkToBuy] = useState(item.linkToBuy);
-  const [linkToEvent, setLinkToEvent] = useState(item.linkToEvent);
-
-  const [updatedDate, setUpdatedDate] = useState(item.date)
-  const [updatedDescription, setUpdatedDescription] = useState(item.description);
   const [title, setTitle] = useState(item.title);
-  const [updatedTitle, setUpdatedTitle] = useState(item.title)
-  const [updatedEventLocation, setUpdatedEventLocation] = useState(item.eventLocation)
-  const [updatedEventType, setUpdatedEventType] = useState(item.eventType)
-  const [updatedLinkToBuy, setUpdatedLinkToBuy] = useState(item.linkToBuy)
-  const [updatedLinkToEvent, setUpdatedLinkToEvent] = useState(item.linkToEvent)
+  const [description, setDescription] = useState(item.description);
+  const [url, setUrl] = useState(item.url)
+  const [image, setImage] = useState(item.image);
+  const [imageFileName, setImageFileName] = useState(item.imageFileName);
 
 
+  // const [orderDisplay, setOrderDisplay] = useState(item.orderDisplay);
   // const [updatedOrderDisplay, setUpdatedOrderDisplay] = useState(item.orderDisplay);
-  const [updatedImage, setUpdatedImage] = useState(null);
-  const itemDocRef = doc(db, "UpcomingEvents", itemId);
-
   
+  const [update, setUpdate] = useState(false);
+  const [updatedCategory, setUpdatedCategory] = useState(item.category)
+  const [updatedDate, setUpdatedDate] = useState(item.date)
+  const [updatedTitle, setUpdatedTitle] = useState(item.title);
+  const [updatedDescription, setUpdatedDescription] = useState(item.description);
+  const [updatedUrl, setUpdatedUrl] = useState(item.url)
+  const [updatedImage, setUpdatedImage] = useState(null);
+  const itemDocRef = doc(db, "Works", itemId);
+
   const handleDelete = () => {
     deleteItem(itemId, imageFileName);
   };
 
   const handleImageUpdate = async () => {
-    let path = "UpcomingEvents/";
+    let path = `works/${category}/`;
     const currentTime = Date.now();
     let fileName = `${currentTime}-${updatedImage?.name}`;
 
@@ -65,38 +57,43 @@ export default function MenuItemCard({ item, deleteItem, setError, setSuccessful
       }
     );
 
-    const deleted = await deleteFileFromStorage("UpcomingEvents/" + imageFileName);
+    const deleted = await deleteFileFromStorage( path + imageFileName);
     if (deleted) {
       setImageFileName(fileName);
     }
   };
 
-  const handleUpdate = async () => {
-    const isEmptyValues = updatedDate === "" && updatedDescription === "" && updatedTitle === "" && updatedEventLocation === "" && updatedEventType === "" && updatedLinkToBuy === "" && updatedLinkToEvent === "";
-    const isItemsChanged = date !== updatedDate || description !== updatedDescription || title !== updatedTitle || eventLocation !== updatedEventLocation || eventType !== updatedEventType || linkToBuy !== updatedLinkToBuy || linkToEvent !== updatedLinkToEvent;
+  const handleUpdate = async() => {
+    const isEmptyValues = updatedCategory === "" && updatedDate === "" && updatedTitle === "" && updatedDescription === "" && updatedUrl === "";
+    const isItemsChanged = category !== updatedCategory || date !== updatedDate|| title !== updatedTitle||  description !== updatedDescription || url !== updatedUrl;
 
     if (updatedImage !== null) {
       handleImageUpdate();
       setUpdatedImage(null);
-    }
+    };
 
     if (isItemsChanged && !isEmptyValues) {
-      await updateDoc(itemDocRef, { date: updatedDate, description: updatedDescription, title: updatedTitle, eventType: updatedEventType, eventLocation: updatedEventLocation, linkToBuy: updatedLinkToBuy, linkToEvent: updatedLinkToEvent })
+      await updateDoc(itemDocRef, { 
+        category: updatedCategory,
+        date: updatedDate,
+        title: updatedTitle,
+        description: updatedDescription,
+        url: updatedUrl,
+            
+      })
         .then(() => {
+          setCategory(updatedCategory);
           setDate(updatedDate);
           setTitle(updatedTitle);
           setDescription(updatedDescription);
-          setEventType(updatedEventType);
-          setEventLocation(updatedEventLocation);
-          setLinkToBuy(updatedLinkToBuy);
-          setLinkToEvent(updatedLinkToEvent);
+          setUrl(updatedUrl);
 
           setSuccessfull("Item updated succesfully!");
         })
         .catch((error) => {
           setError(error.message);
         });
-    }
+    };
     setUpdate(!update);
   };
 
@@ -130,7 +127,6 @@ export default function MenuItemCard({ item, deleteItem, setError, setSuccessful
                 onChange={(e) => setUpdatedTitle(e.target.value)}
                 size="sm"
 
-
               />
             ) : (
               title
@@ -160,19 +156,18 @@ export default function MenuItemCard({ item, deleteItem, setError, setSuccessful
 
       <Col xs={12}>
         <Card.Body style={{ fontSize: '14px' }} className='card-body-event '>
-          <Form.Label className="form-label">Location:</Form.Label>
+          <Form.Label className="form-label">Category:</Form.Label>
           <Card.Text  >
             {update ? (
               <Form.Control
                 type="text"
-                defaultValue={eventLocation}
-                placeholder="Enter the text that will appear "
-                onChange={(e) => setUpdatedEventLocation(e.target.value)}
+                defaultValue={category}
+                placeholder="Enter a category "
+                onChange={(e) => setUpdatedCategory(e.target.value)}
                 size="sm"
-
               />
             ) : (
-              eventLocation
+              category
             )}
           </Card.Text>
         </Card.Body>
@@ -180,19 +175,18 @@ export default function MenuItemCard({ item, deleteItem, setError, setSuccessful
 
       <Col xs={12}>
         <Card.Body style={{ fontSize: '14px' }} className='card-body-event'>
-          <Form.Label>Event type:</Form.Label>
+          <Form.Label>url:</Form.Label>
           <Card.Text  >
             {update ? (
               <Form.Control
                 type="text"
-                defaultValue={eventType}
-                placeholder="Enter 'Free' or 'Pay'"
-                onChange={(e) => setUpdatedEventType(e.target.value)}
+                defaultValue={url}
+                placeholder="Enter url o link "
+                onChange={(e) => setUpdatedUrl(e.target.value)}
                 size="sm"
-
               />
             ) : (
-              eventType
+              url
             )}
           </Card.Text>
         </Card.Body>
@@ -200,68 +194,13 @@ export default function MenuItemCard({ item, deleteItem, setError, setSuccessful
 
       <Col xs={12}>
         <Card.Body style={{ fontSize: '14px' }} className='card-body-event'>
-          <Form.Label>Link to Buy Tickets:</Form.Label>
+          <Form.Label>description</Form.Label>
           <Card.Text  >
             {update ? (
               <Form.Control
-                type="text"
-                defaultValue={linkToBuy}
-                placeholder="Enter the text that will appear "
-                onChange={(e) => setUpdatedLinkToBuy(e.target.value)}
-                size="sm"
-
-              />
-            ) : (
-              linkToBuy
-            )}
-          </Card.Text>
-        </Card.Body>
-      </Col>
-
-      <Col xs={12}>
-        <Card.Body style={{ fontSize: '14px' }} className='card-body-event'>
-          <Form.Label>Link to Event:</Form.Label>
-          <Card.Text  >
-            {update ? (
-              <Form.Control
-                type="text"
-                defaultValue={linkToEvent}
-                placeholder="Enter the text that will appear "
-                onChange={(e) => setUpdatedLinkToEvent(e.target.value)}
-                size="sm"
-
-              />
-            ) : (
-              linkToEvent
-            )}
-          </Card.Text>
-        </Card.Body>
-      </Col>
-
-
-      <Col xs={12}>
-        <Card.Body style={{ fontSize: '14px' }} className='card-body-event'  >
-          <Form.Label>Image and Description:</Form.Label>
-          {update === true && (
-            <Form.Control
-              type="file"
-              onChange={(e) => handleChangeImageInput(e)}
-              id="input-update-image"
-              accept=".jpg, .jpeg, .png, .jfif"
-              size="sm"
-            />
-          )}
-        </Card.Body>
-      </Col>
-
-      <Col xs={12}>
-        <Card.Body style={{ fontSize: '14px' }} className='card-body-event'  >
-          <Card.Text className="menu-item-card-description-event">
-            {update ? (
-              <Form.Control
-                type="text"
+                type="textarea"
                 defaultValue={description}
-                placeholder="Enter the text that will appear next to the image"
+                placeholder="Enter the text that will appear "
                 onChange={(e) => setUpdatedDescription(e.target.value)}
                 size="sm"
 
@@ -272,6 +211,25 @@ export default function MenuItemCard({ item, deleteItem, setError, setSuccessful
           </Card.Text>
         </Card.Body>
       </Col>
+
+     
+      <Col xs={12}>
+        <Card.Body style={{ fontSize: '14px' }} className='card-body-event'  >
+          <Form.Label>Image </Form.Label>
+          {update === true && (
+            <Form.Control
+              type="file"
+              placeholder="Select an image"
+              onChange={(e) => handleChangeImageInput(e)}
+              id="input-update-image"
+              accept=".jpg, .jpeg, .png, .jfif"
+              size="sm"
+            />
+          )}
+        </Card.Body>
+      </Col>
+
+    
 
       <Col xs={12}>
         <Card.Body className="card-end-buttons">
@@ -299,7 +257,5 @@ export default function MenuItemCard({ item, deleteItem, setError, setSuccessful
 
 
     </Card>
-
-
   );
 }

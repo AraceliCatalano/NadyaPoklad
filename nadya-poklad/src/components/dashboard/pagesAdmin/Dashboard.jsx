@@ -8,7 +8,7 @@ import SideBar from './SideBar';
 
 export function Dashboard() {
 
-   const {user, logOut } = useUserAuth();
+   const {user} = useUserAuth();
    const navigate = useNavigate();
 
  
@@ -28,10 +28,7 @@ export function Dashboard() {
                     <p style={{marginLeft: 0}}> Your are logged in with the email: {user && user.email}</p>      
                   </Row>
                 </Col>
-{/*                 
-                <Col sm={2}>
-                    <Button variant="btn"  size='md' onClick={handleLogout}>Signout</Button>
-                </Col> */}
+
             </Row>
           </Container>
           

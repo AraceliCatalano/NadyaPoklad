@@ -8,6 +8,7 @@ export default function SideBar() {
       <Col sm="3" className="side-menu">
         <Row className='side-row-title'> <h3 className="title"><Link to="/dashboard" className="link">Site Management</Link></h3></Row>
         <Row className='side-row'> <Link to="/dashboard/artist" className="link-text">The artist</Link></Row>
+        <Row className='side-row'> <Link to="/dashboard/works" className="link-text">Works</Link></Row>
         <Row className='side-row'> <Link to="/dashboard/pianist" className="link-text">Pianist</Link></Row>
         <Row className='side-row'> <Link to="/dashboard/composer" className="link-text">Composer</Link></Row>
         <Row className='side-row'> <Link to="/dashboard/teacher" className="link-text">Teacher</Link></Row>

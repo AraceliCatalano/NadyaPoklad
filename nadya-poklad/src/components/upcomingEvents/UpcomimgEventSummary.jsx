@@ -1,11 +1,11 @@
 import { ListGroup} from 'react-bootstrap';
-import useUpcommingEvent from '../dashboard/FirebaseHooks/useUpcommingEvent';
+import useHookToRender from '../dashboard/FirebaseHooks/useHookToRender';
 
 
 
 export const UpcomimgEventSummary=() =>{
 
-    const {UpcomingEventsPost} = useUpcommingEvent();
+    const {UpcomingEventsPost} = useHookToRender();
 
   return (
 

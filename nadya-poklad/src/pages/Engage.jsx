@@ -1,29 +1,14 @@
 import { Container, Row, Col } from 'react-bootstrap'
 import { VideoYouTube } from '../components/VideoYouTube'
 import '../../src/styles/App.css'
+import useHookToRender from '../components/dashboard/FirebaseHooks/useHookToRender';
 
 
 
 export function Engage() {
 
-  const items = [
-    {
-      id: 1,
-      url: "https://www.youtube.com/embed/GyLnhdHSjYY",
-      title: 'Nadya Poklad- Imagination'
-    },
-    {
-      id: 2,
-      url: "https://www.youtube.com/embed/dLk9pzmaFHY",
-      title: 'Nadya Poklad- Hallelujah'
-    },
-    {
-      id: 3,
-      url: "https://www.youtube.com/embed/hKgcHjq1xKQ",
-      title: 'Nadya Poklad- Hallelujah'
-    }
+  const { engagePost } = useHookToRender()
 
-  ];
 
   return (
     <>
@@ -34,7 +19,7 @@ export function Engage() {
       <Container>
         <Row>
       {
-        items.map(item =>
+        engagePost.map(item =>
         <Col className='video-item'>
 
 

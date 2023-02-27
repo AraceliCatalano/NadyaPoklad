@@ -1,34 +1,20 @@
 import { useEffect, useState } from "react";
 import { db, storage } from "../../../firebase-config";
-import {
-  collection,
-  getDocs,
-  doc,
-  deleteDoc,
- // where,
-  query,
-  addDoc,
-  // updateDoc
-} from "firebase/firestore";
-import {
-  ref,
-  deleteObject,
-  uploadBytesResumable,
-  getDownloadURL,
-  listAll,
-} from "firebase/storage";
+import {  collection,  getDocs,  doc,  deleteDoc, query, addDoc} from "firebase/firestore";
+import {  ref, deleteObject, uploadBytesResumable, getDownloadURL, listAll} from "firebase/storage";
 
-export default function useWorksItems() {
+export default function useWorksItems (WorksCategory) {
   const [data, setData] = useState([]);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
   const [succesfull, setSuccessfull] = useState(null);
 
+  console.log(WorksCategory)
+
   useEffect(() => {
     setLoading(true);
-    const q = query(collection(db, "TheArtist"));
-    console.log("getting data");
-    getDocs(q)
+    const q = query(collection(db, "Works"));
+      getDocs(q)
       .then((data) => {
         setData(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
         setError(null);
@@ -58,7 +44,7 @@ export default function useWorksItems() {
     const currentTime = Date.now();
     const fileName = `${currentTime}-${imageFile.name}`;
     item.imageFileName = fileName;
-    const storageRef = ref(storage, "TheArtist/" + fileName);
+    const storageRef = ref(storage, "works/" + fileName);
     const uploadTask = uploadBytesResumable(storageRef, imageFile);
     uploadTask.on(
       "state_changed",
@@ -78,7 +64,7 @@ export default function useWorksItems() {
   };
 
   const addItemToFirestore = async (item) => {
-    await addDoc(collection(db, "TheArtist"), item)
+    await addDoc(collection(db, "Works"), item)
       .then((docRef) => {
         item.id = docRef.id;
         setData((prevState) => [...prevState, item]);
@@ -91,7 +77,7 @@ export default function useWorksItems() {
   };
 
   const checkFileCountInStorage = () => {
-    const listRef = ref(storage, "TheArtist");
+    const listRef = ref(storage, "Works");
     let maxxed = false;
     listAll(listRef)
       .then((response) => {
@@ -135,7 +121,7 @@ export default function useWorksItems() {
 
   const deleteDocFromFirestore = async (itemId) => {
     let deleted = false;
-    const itemDoc = doc(db, "TheArtist", itemId);
+    const itemDoc = doc(db, "Works", itemId);
     await deleteDoc(itemDoc)
       .then(() => {
         deleted = true;
@@ -146,7 +132,7 @@ export default function useWorksItems() {
 
   const deleteObjectFromStorage = async (imageFileName) => {
     let deleted = false;
-    const fileRef = ref(storage, "TheArtist/" + imageFileName);
+    const fileRef = ref(storage, "Works/" + imageFileName);
     await deleteObject(fileRef)
       .then(() => {
         deleted = true;

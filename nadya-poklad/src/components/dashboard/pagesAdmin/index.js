@@ -8,4 +8,4 @@ export * from './SideBar'
 export * from './TeacherAdmin'
 export * from './UpcomingEventsAdmin'
 export * from './ArtistAdmin'
-
+export * from './WorksAdmin'

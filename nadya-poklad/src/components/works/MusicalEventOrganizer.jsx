@@ -1,7 +1,17 @@
-import React from 'react'
+import { Accordion, Container, Row, Col } from 'react-bootstrap';
+import useHookToRender from '../dashboard/FirebaseHooks/useHookToRender';
+import AccordionComponent from './AccordionComponent';
 
-export function MusicalEventOrganizer() {
+
+
+export const MusicalEventOrganizer = () => {
+  const { worksMusicalOrganizerPost } = useHookToRender();
+
   return (
-    <div>Musical Event Organizer</div>
+    <Container>
+
+      <AccordionComponent subcategory={worksMusicalOrganizerPost} />
+
+    </Container>
   )
 }

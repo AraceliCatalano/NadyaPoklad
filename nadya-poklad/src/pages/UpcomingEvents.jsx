@@ -1,16 +1,13 @@
-// import React, { useState, useEffect } from 'react';
-// import { collection, getDocs, query, orderBy } from 'firebase/firestore';
-// import { db } from '../firebase-config';
 import { Container, Row, Col, CardGroup } from 'react-bootstrap';
 import '../styles/App.css';
 import UpcomingEventsItem from '../components/upcomingEvents/UpcomingEventsItem';
 import { ButtonGeneric } from '../components/ButtonGeneric';
-import useUpcommingEvent from '../components/dashboard/FirebaseHooks/useUpcommingEvent';
+import useHookToRender from '../components/dashboard/FirebaseHooks/useHookToRender';
 
 
 export function UpcomingEvents( ) {
 
-  const {UpcomingEventsPost} = useUpcommingEvent();
+  const {UpcomingEventsPost} = useHookToRender();
 
   return (
     <>
@@ -31,7 +28,7 @@ export function UpcomingEvents( ) {
 
       <Container className='container-list' >
 
-        {/* UpcomingEventsPost.length === 0 ? " No Events at Moment " : */}
+        {UpcomingEventsPost.length === 0 ? " No Events at Moment " :
         <CardGroup>
 
 
@@ -73,7 +70,7 @@ export function UpcomingEvents( ) {
 
 
         </CardGroup>
-
+        }
       </Container>
 
 

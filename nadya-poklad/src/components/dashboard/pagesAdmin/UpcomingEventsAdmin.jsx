@@ -1,6 +1,5 @@
 import React from 'react';
 import { Container, Col, Row } from "react-bootstrap";
-
 import '../../../styles/App.css';
 import SideBar from './SideBar';
 import MenuItems from '../upcomingEventsAdmin/MenuItems';

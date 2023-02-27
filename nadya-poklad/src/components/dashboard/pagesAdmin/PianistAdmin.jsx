@@ -5,6 +5,7 @@ import SideBar from './SideBar';
 
 
 
+
 export function PianistAdmin() {
 
   
@@ -18,6 +19,7 @@ export function PianistAdmin() {
           <Container fluid>
             <Row>
             <h4 className="title mt-3">Pianist page: content administration </h4>
+            
           </Row>
         </Container>
         
