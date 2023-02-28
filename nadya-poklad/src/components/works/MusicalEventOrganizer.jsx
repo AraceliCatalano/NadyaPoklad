@@ -9,6 +9,9 @@ export const MusicalEventOrganizer = () => {
 
   return (
     <Container>
+      <Row >
+        <h4 className='title home-h4 mx-2 mt-3'>Musical event organizer</h4><br />
+      </Row>
 
       <AccordionComponent subcategory={worksMusicalOrganizerPost} />
 

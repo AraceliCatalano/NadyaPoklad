@@ -16,37 +16,24 @@
     user-select: none;
     
 }
-/* 
- *, ::after, ::before {
-   
 
+
+/* html, body{
+    height: 100%;
 } */
-
-html{
-    height: 70vh;
-}
 
 body {
     display: flex ;
     flex-direction: column ;
     min-height:50vh;
     flex-wrap: wrap; 
-    /* padding:10px; */
     margin-top: 80px !important;
-
     background-color: #43555C !important;
     color: white !important;
     font-family: Poppins;
-    /* margin: 80px 20px 80px 20px !important; */
-    
-    
+ 
 }
-
-
-
-
-
-.btn {
+  .btn {
     color: #ACD8EC !important;
     font-size: 22px;
     border:1px solid #ACD8EC !important ;

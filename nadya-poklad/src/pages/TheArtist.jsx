@@ -19,14 +19,13 @@ export function TheArtist() {
   }, []);
 
  
-  
 
   return (
     <>
       <Container fluid="sm">
-        <Row>
-          <h2 className='title'> The Artist </h2>
-        </Row>
+      <Row>
+      <h4 className='title home-h4 mt-3'> The Artist </h4><br/>
+  </Row>
       </Container>
 
       <Container >

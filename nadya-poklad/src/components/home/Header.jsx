@@ -36,13 +36,14 @@ export const  Header = ( ) => {
     };
 }
 
+
   return (
     <>
       <OffcanvasHeader>
         {[false, 'md'].map((expand) => (
           <Navbar key={expand} expand={expand} className="mb-0 header" fixed="top">
             <Container fluid>
-              <Navbar.Brand><Link to="/" className="title"> Nadya Poklad </Link> </Navbar.Brand>
+              <Navbar.Brand><Link to="/" className="title home-h4"> Nadya Poklad </Link> </Navbar.Brand>
               <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />
               <Navbar.Offcanvas
                 id={`offcanvasNavbar-expand-${expand}`}

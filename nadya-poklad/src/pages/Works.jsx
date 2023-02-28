@@ -1,5 +1,5 @@
 import { Navigate, Route, Routes } from 'react-router-dom';
-import {  Container} from 'react-bootstrap';
+import {  Container, Row } from 'react-bootstrap';
 import { Composer, Pianist, Teacher, MusicalEventOrganizer } from '../components/works'
 
 
@@ -13,7 +13,9 @@ export function Works() {
     <>
       <Container>
 
-        <h1>Works</h1>
+      <Row >
+        <h4 className='title home-h4 mx-2 mt-3'>Works </h4><br />
+      </Row>
 
 
         <Routes>

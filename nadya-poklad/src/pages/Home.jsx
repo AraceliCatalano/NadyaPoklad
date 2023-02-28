@@ -7,7 +7,7 @@ import {UpcomimgEventSummary} from '../components/upcomingEvents/UpcomimgEventSu
 export const Home = () => {
 
     return (
-        <>
+        <div className='bodywidth'        >
             <Container fluid="sm" className="mx-3 mb-5 my-2" >
                 <Row>
                     <Col sm="8">
@@ -50,7 +50,7 @@ export const Home = () => {
 
 
 
-        </>
+        </div>
     )
 }
 

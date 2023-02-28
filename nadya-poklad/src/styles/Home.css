@@ -15,6 +15,14 @@
     margin:5px;
 }
 
+.icon-h4 {
+    font-family: Marcellus;
+    font-size: 38px;
+    font-weight: 400;
+    color: whitesmoke;
+    text-shadow: 2px 2px 4px #000;
+    margin:5px;
+}
 .artist-home-container {
     position:relative;
     border-radius: 10px;
