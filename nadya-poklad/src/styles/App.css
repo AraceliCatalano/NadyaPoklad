@@ -70,6 +70,7 @@ body {
  position: relative;
  color: white;
  text-decoration: none;
+ font-size: 17px;
 }
 
 .dropdown-menu {
@@ -215,6 +216,7 @@ span.navbar-toggler-icon {
     }  
     .navbar-text, .nav-link, .dropdown-item {
         color: white !important;
+        text-align: center;
       
     }
 

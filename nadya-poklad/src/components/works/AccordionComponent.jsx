@@ -20,7 +20,7 @@ export default function AccordionComponent( { subcategory }) {
 
                     </Col>
                     <Col style={{ marginLeft: '0px',  alignItems: 'flex-end',  display: 'flex',  flexDirection: 'row-reverse'}}>
-                      <img src={work.image} alt='' width={'250px'} style={{boxShadow:'5px 5px 10px 0px rgba(172, 216, 236, 0.65)'}}/>
+                      <img src={work.image} alt='' width={'350px'} style={{boxShadow:'5px 5px 10px 0px rgba(172, 216, 236, 0.65)', borderRadius:'8px'}}/>
 
                     </Col>
                   </Row>
