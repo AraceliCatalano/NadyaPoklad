@@ -62,6 +62,13 @@ body {
     background-color: #2F434A !important;
 }
 
+.btn-close, .offcanvas-header .btn-close {
+    background-color: #c2ced6 !important;
+}
+
+.navbar-toggler {
+    background-color:#c2ced6 !important;
+}
 
 
 /****** HEADER ******/

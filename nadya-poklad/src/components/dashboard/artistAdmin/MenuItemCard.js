@@ -107,7 +107,7 @@ export default function MenuItemCard({ item, deleteItem, setError, setSuccessful
 
   return (
     <Card className="menu-item-card">
-      <Row>
+      <Row className="menu-item-row">
         <Col>
           <Card.Img
             variant="top"
@@ -161,33 +161,30 @@ export default function MenuItemCard({ item, deleteItem, setError, setSuccessful
                 )}
               </Col>
             </Col>
-            
+
 
           </Card.Body>
         </Col>
         <Col >
-        <Row>
-          <Container>
-            <Row className="mt-2">
-              Possible actions:
-            </Row>
-            <Button onClick={handleDelete} variant="btn" className="m-2" size="md">
-              Delete
-            </Button>
+          <Row>
+            <Container>
+              <Button onClick={handleDelete} variant="btn" className="m-2" size="md">
+                Delete
+              </Button>
 
-            <Button
-              onClick={handleUpdate}
-              variant={update ? "btn" : "btn"}
-              className="m-2" size="md"
-            >
-              {update ? (
-                <>Save</>
-              ) : (
-                <>Edit</>
-              )}
-            </Button>
-          </Container>
-        </Row>
+              <Button
+                onClick={handleUpdate}
+                variant={update ? "btn" : "btn"}
+                className="m-2" size="md"
+              >
+                {update ? (
+                  <>Save</>
+                ) : (
+                  <>Edit</>
+                )}
+              </Button>
+            </Container>
+          </Row>
         </Col>
       </Row>
     </Card>
