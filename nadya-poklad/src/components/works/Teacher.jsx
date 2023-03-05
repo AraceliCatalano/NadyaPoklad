@@ -9,17 +9,12 @@ export const Teacher = () => {
 
   return (
     <>
-      <Container>
-
-        <Container>
+    
         <Row >
         <h4 className='title home-h4 mx-2 mt-3'>Teacher</h4><br />
         </Row>
 
           <AccordionComponent subcategory={worksTeacherPost} />
 
-        </Container>
-
-      </Container>
     </>)
 }

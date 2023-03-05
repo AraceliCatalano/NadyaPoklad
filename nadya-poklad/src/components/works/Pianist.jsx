@@ -9,13 +9,13 @@ export const Pianist = () => {
 
   return (
     
-    <Container>
+    <>
       <Row >
         <h4 className='title home-h4 mx-2 mt-3'>Pianist</h4><br />
       </Row>
 
       <AccordionComponent subcategory={worksPianistPost} />
 
-    </Container>
+    </>
     )
 }
