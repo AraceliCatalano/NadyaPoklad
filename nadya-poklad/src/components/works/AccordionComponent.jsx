@@ -2,7 +2,7 @@ import { Accordion, Container, Row, Col } from 'react-bootstrap';
 import '../../styles/App.css'
 export default function AccordionComponent( { subcategory }) {
   return (
-    <Container>
+    <>
 
         <Accordion defaultActiveKey="" flush style={{borderBottom:'1px solid #acd8ec '}}>
           {
@@ -35,6 +35,6 @@ export default function AccordionComponent( { subcategory }) {
           }
         </Accordion>
 
-      </Container>
+      </>
   )
 }
