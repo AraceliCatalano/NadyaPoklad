@@ -35,7 +35,7 @@ const SectionItemList = () => {
                 itemHome.map((item) => (
 
                     <Col key={item.id}>
-                        <Row className='responsive-Row' >
+                        <Row className='mt-3 mb-3' >
                             <SectionItem
                                 name={item.name}
                                 url={item.url}
@@ -51,15 +51,14 @@ const SectionItemList = () => {
                 otherItem.map((item, id) => (
 
                     <Col key={item.id} >
-                        <Container >
-                            <Row className='responsive-Row' >
-                                <SectionItem
-
+                       
+                            <Row className='mt-3 mb-3' >
+                                <SectionItem 
                                     name={item.name}
                                     url={item.url}
                                     image={item.image} />
                             </Row>
-                        </Container>
+                       
                     </Col>
 
                 ))

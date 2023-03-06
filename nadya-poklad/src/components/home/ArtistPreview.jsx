@@ -33,9 +33,7 @@ const ArtistPreview= ()=> {
                         </Col>
                         )}
                         <Col lg>
-
-
-                            {/* <p> Ukrainian composer. Pianist. Teacher of piano, composition, and musical theoretical disciplines. Laureate of international and all-ukranian competitions for young composers. </p> */}
+                       
                             <p> Let me introduce myself, I'm Nadya Poklad, an artist born in Ukraine. From a very young age, I discovered my passion for music and the arts, and dedicated myself to cultivating my talent as a composer, pianist, and prose writer. </p>
                             <p style={{display:'none'}}> Throughout my career, I have had the opportunity to share my art in various schools and institutions, and to participate in performances in China and Canada, where I have demonstrated my skill and creativity on stage. </p>
                             <p style={{display:'none'}}> I currently reside in Canada, where I continue to work hard to improve my art and surprise my audience with my music and lyrics.</p>
