@@ -1,9 +1,9 @@
 .responsive-Row{
     display: flex;
     flex-wrap: wrap;
-    align-content: space-around;
+    align-content: space-between;
     align-items: flex-start;
-    justify-content:center;
+    justify-content:space-around;
     margin-bottom:19px;
 }
 .home-h4 {

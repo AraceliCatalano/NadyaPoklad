@@ -35,7 +35,7 @@ const SectionItemList = () => {
                 itemHome.map((item) => (
 
                     <Col key={item.id}>
-                        <Row className='mt-3 mb-3' >
+                        <Row className='mt-3 mb-3 ' >
                             <SectionItem
                                 name={item.name}
                                 url={item.url}

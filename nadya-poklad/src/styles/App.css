@@ -8,6 +8,7 @@
 @import url(UpcomingEvent.css);
 @import url(Engage.css);
 @import url(Works.css);
+@import url(AccordionComponent.css);
 
 *{
     margin: 0;
