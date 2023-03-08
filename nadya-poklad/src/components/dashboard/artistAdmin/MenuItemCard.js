@@ -1,12 +1,9 @@
-import React, { useState, useEffect } from "react";
-
+import React, { useState } from "react";
 import { db, storage } from "../../../firebase-config";
 import { doc, updateDoc } from "firebase/firestore";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
-import { deleteFileFromStorage } from "./FirebaseHooks/Storage";
-
+import { deleteFileFromStorage } from "../FirebaseHooks/Storage";
 import { Card, Row, Col, Form, Button, Container } from "react-bootstrap";
-
 import '../../../styles/App.css';
 
 export default function MenuItemCard({ item, deleteItem, setError, setSuccessfull }) {
@@ -14,33 +11,13 @@ export default function MenuItemCard({ item, deleteItem, setError, setSuccessful
   const [orderDisplay, setOrderDisplay] = useState(item.orderDisplay);
   const [image, setImage] = useState(item.image);
   const [imageFileName, setImageFileName] = useState(item.imageFileName);
-  //const [active, setActive] = useState(item.active);
   const [itemId, setItemId] = useState(item.id);
-  //const [cardClass, setCardClass] = useState("");
-
+  
   const [update, setUpdate] = useState(false);
   const [updatedDescription, setUpdatedDescription] = useState(item.description);
   const [updatedOrderDisplay, setUpdatedOrderDisplay] = useState(item.orderDisplay);
   const [updatedImage, setUpdatedImage] = useState(null);
   const itemDocRef = doc(db, "TheArtist", itemId);
-
-  // useEffect(() => {
-  //   toggleCardClass();
-  // }, [active]);
-
-  // const updateItemActivityToDb = async (e) => {
-  //   let newActive = e.target.checked;
-  //   setActive(newActive);
-  //   const itemDocRef = doc(db, "TheArtist", itemId);
-  //   await updateDoc(itemDocRef, { active: newActive })
-  //     .then(() => { setSuccessfull("Item updated succesfully!") })
-  //     .catch((error) => { setError(error.message) });
-  // };
-
-  // const toggleCardClass = () => {
-  //   if (active) setCardClass("menu-item-card-active");
-  //   else setCardClass("menu-item-card-disabled");
-  // };
 
   const handleDelete = () => {
     deleteItem(itemId, imageFileName);

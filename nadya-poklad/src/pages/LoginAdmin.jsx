@@ -19,7 +19,6 @@ export default function LoginAdmin() {
         setError("");
         try {
           await logIn(email, password);
-
             navigate("/dashboard");
         } catch (err) {
             setError(err.message);
@@ -47,10 +46,7 @@ export default function LoginAdmin() {
          /> 
       </FormGroup>
       
-      <Form.Group className="mb-3" controlId="formBasicCheckbox">
-        <Form.Check type="checkbox" label="Remember me" />
-      </Form.Group>
-      
+   
       <Button variant="btn" type="submit" value="Log In" size='md'> Login</Button>
 
       <div className="p-2 text-center">

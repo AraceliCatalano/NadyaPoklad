@@ -3,7 +3,8 @@ import { Container, Row, Col } from "react-bootstrap";
 import AddConactItem from "./AddConactItem";
 import ContactItems from "./ContactItems";
 import '../../../styles/App.css';
-import SideBar from '../SideBar';
+import SideBar from "../pagesAdmin/SideBar";
+
 
 export default function ContactAdmin() {
   //[For Alba and future Ara] "getContactPostId" is the prop passed to contactItems 
@@ -17,7 +18,7 @@ export default function ContactAdmin() {
   return (
     <>
       <Row>
-        <SideBar />
+        <SideBar/>
 
         <Col sm="9" className="main-menu">
           <Container >

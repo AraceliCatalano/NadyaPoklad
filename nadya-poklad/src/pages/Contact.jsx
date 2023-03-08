@@ -5,14 +5,14 @@ import '../styles/Contact.css';
 import Piano from '../Assests/images/PianoContact.jpg';
 
 
-export default function Contact() {
+export  function Contact() {
   return (
 <>
 
 <Container fluid="sm">
-        <Row>
-          <h2 className='title'> Contact </h2>
-        </Row>
+<Row >
+        <h4 className='title home-h4 mx-2 mt-3'> Contact </h4><br />
+      </Row>
       </Container>
 
       <Container >

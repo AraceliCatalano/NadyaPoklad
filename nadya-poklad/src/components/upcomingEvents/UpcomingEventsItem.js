@@ -25,7 +25,7 @@ export default function UpcomingEventsItem(props) {
           </Card.Text>
 
         <Card.Body className='event-card-body' >
-          <Card.Text position-relative="true" className="section-upcomingEvents mostly-customized-scrollbar">
+          <Card.Text position-relative={toString(true)} className="section-upcomingEvents mostly-customized-scrollbar">
             {props.description}
           </Card.Text>
         </Card.Body>

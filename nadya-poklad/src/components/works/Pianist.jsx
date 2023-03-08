@@ -1,7 +1,21 @@
+import { Accordion, Container, Row, Col } from 'react-bootstrap';
+import useHookToRender from '../dashboard/FirebaseHooks/useHookToRender';
+import AccordionComponent from './AccordionComponent';
 
 
-export function Pianist() {
+
+export const Pianist = () => {
+  const { worksPianistPost } = useHookToRender();
+
   return (
-    <div>Pianist</div>
-  )
+    
+    <>
+      <Row >
+        <h4 className='title home-h4 mt-3'>Pianist</h4><br />
+      </Row>
+
+      <AccordionComponent subcategory={worksPianistPost} />
+
+    </>
+    )
 }
