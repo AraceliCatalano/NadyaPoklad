@@ -1,8 +1,6 @@
 import { createContext, useEffect, useState, useContext } from 'react';
 import {
     signInWithEmailAndPassword,
-    browserSessionPersistence,
-    setPersistence,
     signOut,
     onAuthStateChanged,
     sendPasswordResetEmail
@@ -56,12 +54,9 @@ export function UserAuthContextProvider({ children }) {
         return  signOut(auth);
     }
 
-   
-
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
             setUser(currentUser);
-            
         });
         return () => {
             unsubscribe();

@@ -1,4 +1,4 @@
-import { Accordion, Container, Row, Col } from 'react-bootstrap';
+import { Accordion,  Row, Col } from 'react-bootstrap';
 import '../../styles/App.css'
 
 export default function AccordionComponent( { subcategory }) {
