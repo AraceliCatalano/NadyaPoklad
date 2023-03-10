@@ -111,6 +111,7 @@ export default function AddMenuItem({ menuItems }) {
           />
           <Form.Label>Description</Form.Label>
           <Form.Control
+            as="textarea" rows={4} cols={50}
             name="upcomingEvents-description"
             className="menu-add-form-input-description "
             type="text"

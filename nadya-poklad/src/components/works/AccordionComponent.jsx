@@ -1,8 +1,9 @@
-import { Accordion, Container, Row, Col } from 'react-bootstrap';
+import { Accordion,  Row, Col } from 'react-bootstrap';
 import '../../styles/App.css'
+
 export default function AccordionComponent( { subcategory }) {
   return (
-    <Container>
+    <>
 
         <Accordion defaultActiveKey="" flush style={{borderBottom:'1px solid #acd8ec '}}>
           {
@@ -19,9 +20,8 @@ export default function AccordionComponent( { subcategory }) {
                       {work.description}
 
                     </Col>
-                    <Col style={{ marginLeft: '0px',  alignItems: 'flex-end',  display: 'flex',  flexDirection: 'row-reverse'}}>
-                      <img src={work.image} alt='' width={'250px'} style={{boxShadow:'5px 5px 10px 0px rgba(172, 216, 236, 0.65)'}}/>
-
+                    <Col className='accordion-col-img'>
+                      <img src={work.image} alt='' className='accordion-img' />
                     </Col>
                   </Row>
                     
@@ -35,6 +35,6 @@ export default function AccordionComponent( { subcategory }) {
           }
         </Accordion>
 
-      </Container>
+      </>
   )
 }

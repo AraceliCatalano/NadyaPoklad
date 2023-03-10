@@ -39,7 +39,7 @@ export const  Header = ( ) => {
 
   return (
     <>
-      <OffcanvasHeader>
+      <OffcanvasHeader  >
         {[false, 'md'].map((expand) => (
           <Navbar key={expand} expand={expand} className="mb-0 header" fixed="top">
             <Container fluid>
@@ -50,7 +50,7 @@ export const  Header = ( ) => {
                 aria-labelledby={`offcanvasNavbarLabel-expand-${expand}`}
                 placement="end"
               >
-                <Offcanvas.Header >
+                <Offcanvas.Header closeButton>
                   <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${expand}`}>
                   <Navbar.Text > <Link to="/" className="link link-header">Home</Link> </Navbar.Text>
                   </Offcanvas.Title>
