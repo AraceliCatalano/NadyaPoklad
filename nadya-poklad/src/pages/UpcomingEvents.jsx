@@ -23,6 +23,7 @@ export function UpcomingEvents( ) {
         <p>
           Schedule of next Performances during 2023. I would like to enjoy it with you!
         </p>
+        <img src="https://i.imgur.com/lw5y5Q5.png" alt="Logo de las letras NP"/>
       </Container>
 
 
@@ -32,7 +33,7 @@ export function UpcomingEvents( ) {
         <CardGroup>
 
 
-          <Row className='container-list g-4' mb-3 xs={1} sm={2} md={3} lg={4} >
+          <Row className='container-list g-4 mb-3' xs={1} sm={2} md={3} lg={4} >
 
             {UpcomingEventsPost.map((post) =>
 

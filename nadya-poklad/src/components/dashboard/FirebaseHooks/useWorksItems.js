@@ -1,20 +1,22 @@
 import { useEffect, useState } from "react";
 import { db, storage } from "../../../firebase-config";
-import {  collection,  getDocs,  doc,  deleteDoc, query, addDoc} from "firebase/firestore";
+import {  collection,  getDocs,  doc,  deleteDoc, query, addDoc, orderBy} from "firebase/firestore";
 import {  ref, deleteObject, uploadBytesResumable, getDownloadURL, listAll} from "firebase/storage";
 
-export default function useWorksItems (WorksCategory) {
+export default function useWorksItems (  ) {
+  const categoriesList = [ 'Pianist', 'Composer', 'Teacher', 'Musical Event Organizer', 'Engage']
+
   const [data, setData] = useState([]);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
   const [succesfull, setSuccessfull] = useState(null);
+  const [categories, setCategories] = useState(categoriesList)
 
-  console.log(WorksCategory)
 
   useEffect(() => {
     setLoading(true);
-    const q = query(collection(db, "Works"));
-      getDocs(q)
+    const q = query(collection(db, "Works"), orderBy('category', 'asc'));
+      getDocs(q )
       .then((data) => {
         setData(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
         setError(null);
@@ -149,5 +151,6 @@ export default function useWorksItems (WorksCategory) {
     succesfull,
     deleteItem,
     addItem,
+    categories,
   };
 }

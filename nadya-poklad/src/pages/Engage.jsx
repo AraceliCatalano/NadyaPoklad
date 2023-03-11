@@ -21,10 +21,7 @@ export function Engage() {
       {
         engagePost.map(item =>
         <Col className='video-item'>
-
-
-                <VideoYouTube
-                                  
+                <VideoYouTube                                  
                   url={item.url}
                   title={item.title} />
         </Col>
