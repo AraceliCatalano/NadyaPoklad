@@ -14,8 +14,8 @@ const SectionItem= (props) => {
           <Image src={props.image} alt={props.image} className="box-picture" />
         </Link>
 
-        <a as="link" className=" title-section-bg sectionItem-link" position-absolute="true" href={props.url}>
-          <Link to={props.url} as="link" className="sectionItem-link ">  {props.name}  </Link>
+        <a href={props.url} as="link" className=" title-section-bg sectionItem-link" position-absolute="true" >
+           {props.name} 
         </a>
       
         </div>
