@@ -155,11 +155,13 @@ span.navbar-toggler-icon {
     color: white !important;
 }
 
-
-
 .navbar-toggler:focus {
     box-shadow: none !important; 
+}
 
+.offcanvas {
+    max-width: 80% !important;
+    
 }
 /****** END HEADER ******/
 

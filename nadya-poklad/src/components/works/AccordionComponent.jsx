@@ -5,7 +5,7 @@ export default function AccordionComponent( { subcategory }) {
   return (
     <>
 
-        <Accordion defaultActiveKey="" flush style={{borderBottom:'1px solid #acd8ec '}}>
+        <Accordion defaultActiveKey={0}  alwaysOpen >
           {
             subcategory.map((work, index) =>
               <Accordion.Item eventKey={index} key={index}>
@@ -25,7 +25,7 @@ export default function AccordionComponent( { subcategory }) {
                     </Col>
                   </Row>
                     
-                  <a href={work.url} target="_blank" style={{color: 'white'}}>
+                  <a href={work.url} target="_blank" rel='noreferrer' style={{color: 'white'}}>
                     {work.url}
                     </a>
                 </Accordion.Body>
