@@ -8,7 +8,7 @@ export function  Footer () {
     <footer>
    <Navbar className="footer my-5 " fixed=''>
       <Container className="footerbg " >
-        <Navbar.Brand href="#home" className="title footerBrand ">Naya Poklad</Navbar.Brand>
+        <Navbar.Brand href="#home" className="title footerBrand ">Nadya Poklad</Navbar.Brand>
        
            <Navbar.Text  className="">
               <Row className=" "   >

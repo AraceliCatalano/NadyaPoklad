@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { db } from '../../firebase-config';
 import { collection, getDocs, query, orderBy } from 'firebase/firestore';
 
-import { Container, Row, Col } from 'react-bootstrap'
+import { Row, Col } from 'react-bootstrap'
 import SectionItem from '../SectionItems/SectionItem'
 import '../../styles/App.css'
 
@@ -24,7 +24,7 @@ const SectionItemList = () => {
         const queryHomeOtherSectionItem = query(homeOtherSectionItem, orderBy('name', 'desc'));
         getDocs(queryHomeOtherSectionItem)
             .then(res => setOtherItem(res.docs.map(doc => ({ id: doc.id, ...doc.data() }))));
-        // console.log(otherItem)
+        
     }, []);
 
 
