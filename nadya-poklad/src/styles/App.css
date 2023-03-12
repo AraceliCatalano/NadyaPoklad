@@ -101,7 +101,7 @@ body {
   background-color: #ACD8EC;
   transform: scaleX(0);
   transform-origin: top left;
-  transition: transform 0.3s ease;
+  transition: transform 0.5s ease;
 }
 
 .link-header:hover::before{
@@ -120,7 +120,7 @@ body {
 
 
 .link-header-menu:hover::before{
-    transform: scaleX(1);
+    transform: scaleX(0.85);
 }
 
 .navbar-text{
@@ -242,7 +242,7 @@ span.navbar-toggler-icon {
     }  
     .navbar-text, .nav-link, .dropdown-item {
         color: white !important;
-        text-align: center;
+        text-align: flex-end;
       
     }
 
@@ -253,4 +253,3 @@ span.navbar-toggler-icon {
         align-items: center !important;
     }
 }
-

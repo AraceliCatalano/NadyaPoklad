@@ -23,7 +23,7 @@ export function UpcomingEvents( ) {
         <p>
           Schedule of next Performances during 2023. I would like to enjoy it with you!
         </p>
-        <img src="https://i.imgur.com/lw5y5Q5.png" alt="Logo de las letras NP"/>
+       
       </Container>
 
 

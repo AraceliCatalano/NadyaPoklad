@@ -10,13 +10,15 @@ import { useUserAuth } from '../../context/UserAuthContext';
 export const Header = () => {
   const { user, logOut } = useUserAuth();
   const navigate = useNavigate();
-  const [logged, setLogged] = useState('');
+  const [logged, setLogged] = useState('block');
+  const [display, setDisplay] = useState('');
 
 
   const navbarToggle = document.querySelector('.navbar-toggler');
-  const navbarDropdown = document.querySelectorAll('.navbar-dropdown')
+  const navbarDropdown = document.querySelectorAll('#offcanvasNavbar-expand')
 
   const closeOffcanvas = () => {
+    setDisplay('none');
     navbarToggle.closest();
     navbarDropdown.closest();
 
@@ -37,22 +39,21 @@ export const Header = () => {
 
   return (
     <>
-      <OffcanvasHeader >
-        {[false, 'md'].map((expand) => (
+      <OffcanvasHeader style={{display:{display}}}>
+        {[false, 'lg'].map((expand) => (
           <Navbar key={expand} expand={expand} className="mb-0 header" fixed="top">
             <Container fluid>
               <Navbar.Brand><Link to="/" className="title home-h4"> Nadya Poklad </Link> </Navbar.Brand>
 
 
-              <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} className='navbar-dropdown' />
+              <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`}   />
               <Navbar.Offcanvas
                 id={`offcanvasNavbar-expand-${expand}`}
                 aria-labelledby={`offcanvasNavbarLabel-expand-${expand}`}
                 placement="end"
 
-
-              >
-                <Offcanvas.Body className='navbar-dropdown'>
+                >
+                <Offcanvas.Body >
                   <Nav className="justify-content-end flex-grow-1 pe-3">
                     <Navbar.Text><Link to="/" className=" link link-header" onClick={closeOffcanvas}>Home</Link></Navbar.Text>
                     <Navbar.Text>
@@ -60,28 +61,26 @@ export const Header = () => {
                     </Navbar.Text>
 
                     <NavDropdown
-                      className="link navbar-dropdown"
                       title="Works"
+                      className="link"
                       id={`offcanvasNavbarDropdown-expand-${expand}`}
-
+                      onClick={closeOffcanvas}
                     >
-
-                      <NavDropdown.Item className="link-dropdown " onClick={closeOffcanvas }>
-                        <Link to="/works/pianist" className="link-header " 
-                         > Pianist</Link>
-                      </NavDropdown.Item>
-                      <NavDropdown.Item className="link-dropdown" onClick={closeOffcanvas }>
-                        <Link to="/works/composer" className="link-header" >Composer</Link>
-                      </NavDropdown.Item>
-                      <NavDropdown.Item className="link-dropdown ">
-                        <Link to="/works/musical_event_organizer" className="link-header" >Musical Event Organizer</Link>
-                      </NavDropdown.Item>
-                      <NavDropdown.Item className="link-dropdown ">
-                        <Link to="/works/teacher" className="link-header" >Teacher</Link>
-                      </NavDropdown.Item>
+                     <NavDropdown.Item className="">
+                          <Link to="/works/pianist" className="link-header" >Pianist</Link>
+                        </NavDropdown.Item>
+                        <NavDropdown.Item className="link-dropdown">
+                          <Link to="/works/composer" className="link-header">Composer</Link>
+                        </NavDropdown.Item>
+                        <NavDropdown.Item className="link-dropdown "> 
+                          <Link to="/works/musical_event_organizer" className="link-header">Musical Event Organizer</Link>
+                        </NavDropdown.Item>
+                        <NavDropdown.Item className="link-dropdown "> 
+                          <Link to="/works/teacher" className="link-header">Teacher</Link>
+                        </NavDropdown.Item>
                     </NavDropdown>
 
-                    <Navbar.Text className="link"><Link to="/engage" className="link link-header" onClick={closeOffcanvas}>Engage</Link></Navbar.Text>
+                    <Navbar.Text className="link"> <Link to="/engage" className="link link-header" onClick={closeOffcanvas}>Engage</Link></Navbar.Text>
                     <Navbar.Text className="link"><Link to="/upcoming_events" className="link link-header" onClick={closeOffcanvas}>Upcoming events</Link></Navbar.Text>
                     <Navbar.Text className="link"><Link to="/contact" className="link link-header" onClick={closeOffcanvas}>Contact</Link></Navbar.Text>
                     <Nav className="justify-content-end ">
