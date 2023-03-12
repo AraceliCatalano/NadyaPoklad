@@ -107,6 +107,22 @@ body {
 .link-header:hover::before{
     transform: scaleX(1);
 }
+
+
+
+.offcanvas.offcanvas-end {
+    width: 220px !important;
+    border-left: 160px !important;
+    opacity: 0.85 !important;
+    transform: translateX(100%);
+}
+
+
+
+.link-header-menu:hover::before{
+    transform: scaleX(1);
+}
+
 .navbar-text{
     display: flex;
    
@@ -127,6 +143,7 @@ body {
     font-family: "Marcellus" !important;
     font-size: medium !important;
     flex-direction: column;
+    /* text-align: end !important; */
 }
 
 .navbar-text:hover, .nav-link:hover, .dropdown-item:hover, .navbar-text a:hover {
@@ -141,6 +158,7 @@ body {
 
 .header{
     background-color: #2F434A;
+    /* right: 10px !important; */
 }
 
 span.navbar-toggler-icon {
