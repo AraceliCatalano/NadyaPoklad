@@ -38,8 +38,8 @@ export function TheArtist() {
 
         { artistPosts
           .map((post) =>
-          <Container>
-          <Row sm key={post.id} className="artist-content-row" style={{ flexDirection: post.orderDisplay % 2 ? 'row' : 'row-reverse' }}>
+          <Container key={post.id}>
+          <Row sm  className="artist-content-row" style={{ flexDirection: post.orderDisplay % 2 ? 'row' : 'row-reverse' }}>
               <Col sm className="artist-content-col ">
                 <Image src={post.image} fluid className='image artist-content' 
                />

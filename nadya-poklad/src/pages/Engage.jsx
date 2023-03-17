@@ -20,8 +20,11 @@ export function Engage() {
         <Row>
       {
         engagePost.map(item =>
-        <Col className='video-item'>
-                <VideoYouTube                                  
+        <Col key={item.id} className='video-item'>
+
+
+                <VideoYouTube
+                                  
                   url={item.url}
                   title={item.title} />
         </Col>

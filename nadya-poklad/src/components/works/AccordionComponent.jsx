@@ -5,7 +5,7 @@ export default function AccordionComponent( { subcategory }) {
   return (
     <>
 
-        <Accordion defaultActiveKey="" flush style={{borderBottom:'1px solid #acd8ec '}}>
+        <Accordion defaultActiveKey={0}  alwaysOpen >
           {
             subcategory.map((work, index) =>
               <Accordion.Item eventKey={index} key={index}>

@@ -12,6 +12,10 @@ export const Header = () => {
   const navigate = useNavigate();
   const [logged, setLogged] = useState('block');
   const [display, setDisplay] = useState('');
+  const [show, setShow] = useState(true);
+  const userInfo =(user)
+
+  // console.log(userInfo?.email)
 
 
   const navbarToggle = document.querySelector('.navbar-toggler');
@@ -36,6 +40,11 @@ export const Header = () => {
       console.log(err.message);
     };
   };
+
+  
+
+  const handleClose = () => setShow(false);
+  
 
   return (
     <>
@@ -113,6 +122,7 @@ export default Header;
 
 
 {/* <OffcanvasHeader  >
+      <OffcanvasHeader  show={toString(show)}>
         {[false, 'md'].map((expand) => (
           <Navbar key={expand} expand={expand} className="mb-0 header" fixed="top">
             <Container fluid>
@@ -129,7 +139,7 @@ export default Header;
                   </Offcanvas.Title>
                 </Offcanvas.Header>
                 <Offcanvas.Body>
-                  <Nav className="justify-content-end flex-grow-1 pe-3">
+                  <Nav onClick={handleClose} className="justify-content-end flex-grow-1 pe-3">
                     <Navbar.Text > <Link to="/theartist" className="link link-header">The Artist</Link> </Navbar.Text>
                     <NavDropdown
                       title="Works"
