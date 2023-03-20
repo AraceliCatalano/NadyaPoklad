@@ -25,7 +25,7 @@ export  function Contact() {
     <Card  className='ImgOverlay '>
        <Card.Img src= {Piano} alt="Card image" className='cardImage'/>
            
-          <div class="position-absolute bottom-0 start-0 cardText imgOverlay">
+          <div className="position-absolute bottom-0 start-0 cardText imgOverlay">
          
                 <Link as='mail' to="#" className='link cardText'>
                     <i className="bi bi-envelope-fill icon"></i>
