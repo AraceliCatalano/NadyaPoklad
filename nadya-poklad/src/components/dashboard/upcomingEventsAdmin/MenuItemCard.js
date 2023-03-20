@@ -129,8 +129,6 @@ export default function MenuItemCard({ item, deleteItem, setError, setSuccessful
                 placeholder="Enter a new Title"
                 onChange={(e) => setUpdatedTitle(e.target.value)}
                 size="sm"
-
-
               />
             ) : (
               title

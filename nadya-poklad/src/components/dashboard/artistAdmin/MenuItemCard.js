@@ -83,17 +83,15 @@ export default function MenuItemCard({ item, deleteItem, setError, setSuccessful
   }
 
   return (
-    <Card className="menu-item-card">
-      <Row className="menu-item-row">
-        <Col>
+    <Card className='card-edition menu-item-card-text-event m-2'>
           <Card.Img
             variant="top"
             src={image}
             alt={description}
-            className="menu-item-card-image"
+            className="menu-item-card-image-event"
           />
-        </Col>
-        <Col xs={6}>
+        
+        <Col xs={12}>
           <Card.Body className="menu-item-card-body">
             <Form.Label>Description:</Form.Label>
             {update === true && (
@@ -123,8 +121,8 @@ export default function MenuItemCard({ item, deleteItem, setError, setSuccessful
               <Col>
                 <Form.Label>Order display:</Form.Label>
               </Col>
-              <Col>
 
+              <Col>
                 {update ? (
                   <Form.Control
                     type="number"
@@ -142,7 +140,7 @@ export default function MenuItemCard({ item, deleteItem, setError, setSuccessful
 
           </Card.Body>
         </Col>
-        <Col >
+        <Col className="card-end-buttons" style={{margin:'auto'}}>
           <Row>
             <Container>
               <Button onClick={handleDelete} variant="btn" className="m-2" size="md">
@@ -163,7 +161,7 @@ export default function MenuItemCard({ item, deleteItem, setError, setSuccessful
             </Container>
           </Row>
         </Col>
-      </Row>
+      
     </Card>
   );
 }

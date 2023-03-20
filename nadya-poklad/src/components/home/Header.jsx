@@ -12,7 +12,7 @@ export const Header = () => {
   const navigate = useNavigate();
   const [logged, setLogged] = useState('block');
   const [display, setDisplay] = useState('');
-
+ const [show, setShow] = useState(true)
 
   const navbarToggle = document.querySelector('.navbar-toggler');
   const navbarDropdown = document.querySelectorAll('#offcanvasNavbar-expand')

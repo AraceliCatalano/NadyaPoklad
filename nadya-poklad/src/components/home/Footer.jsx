@@ -6,7 +6,7 @@ import '../../styles/App.css'
 export function  Footer () {
   return (
     <footer>
-   <Navbar className="footer my-5 " fixed=''>
+   <Navbar className="footer my-5 " fixed>
       <Container className="footerbg " >
         <Navbar.Brand href="#home" className="title footerBrand ">Nadya Poklad</Navbar.Brand>
        

@@ -7,7 +7,6 @@ import { Card, Col, Form, Button } from "react-bootstrap";
 import '../../../styles/App.css';
 import useWorksItems from "../FirebaseHooks/useWorksItems";
 
-
 export default function MenuItemCard({ item, deleteItem, setError, setSuccessfull   }) {
 
   let {categories}= useWorksItems()
