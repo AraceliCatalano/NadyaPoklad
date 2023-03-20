@@ -6,38 +6,52 @@ import {
     sendPasswordResetEmail
 } from 'firebase/auth';
 import { auth } from '../firebase-config'
+import {Navigate } from 'react-router-dom'
+
+
 
 const userAuthContext = createContext();
 
 export function UserAuthContextProvider({ children }) {
 
     const [user, setUser] = useState("");
+  
     const [isLoggedIn, setIsLoggedIn] = useState(
         localStorage.getItem("isLoggedIn") || false
       );
 
-    // const init =() =>{
-    //     const userLogged = JSON.parse(localStorage.getItem("is_Logged_In"))
-
-    //     return {
-    //         isLoggedIn: !!userLogged,
-
-    //     }
-    // }
-
+          
+      function logIn(email, password) {
+        return new Promise((resolve, reject) => {
+        if (email && password) {
+          signInWithEmailAndPassword(auth, email, password)
+            .then((credentials) => {
+          
+              // Autenticación exitosa
+              setIsLoggedIn(true);
+              localStorage.setItem("is-Logged-In", true);
+              resolve(credentials.user);
         
-    function  logIn (email, password) {
-         
-        console.log('Email', email );
-        setUser(JSON.stringify(signInWithEmailAndPassword(auth, email, password)));
-        setIsLoggedIn(true);
-        // console.log('is Logged In:', isLoggedIn , 'email=', email);
-        localStorage.setItem(JSON.stringify("is-Logged-In"), true);
-        console.log(user)
-        
-        return logIn
-
-    }
+            })
+            .catch((error) => {
+              // Manejar el caso de error
+              setIsLoggedIn(false);
+              localStorage.removeItem("is-Logged-In");
+              reject({ message: error.message });
+              <Navigate to="/login_admin"/>
+            });
+        } else {
+          setIsLoggedIn(false);
+          localStorage.removeItem("is-Logged-In");
+          
+        }
+    })
+}
+      
+      
+      
+      
+      
 
 
     function passwordReset (email) {

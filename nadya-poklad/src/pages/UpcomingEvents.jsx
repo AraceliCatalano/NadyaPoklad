@@ -15,7 +15,7 @@ export function UpcomingEvents( ) {
 
       <Container fluid="sm">
       <Row>
-      <h4 className='title home-h4 mt-3'> Upcoming Events</h4><br/>
+      <h4 className='title home-h5 mt-3'> Upcoming Events</h4><br/>
       </Row>
       </Container>
 

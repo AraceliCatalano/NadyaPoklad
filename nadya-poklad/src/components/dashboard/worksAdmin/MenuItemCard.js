@@ -170,14 +170,7 @@ export default function MenuItemCard({ item, deleteItem, setError, setSuccessful
                    {categories.map(cat =>  <option  key={cat} >{cat}</option> )}
                      </Form.Select>
                  </Form.Group>
-                             
-              // <Form.Control
-              //   type="text"
-              //   defaultValue={category}
-              //   placeholder="Enter a category "
-              //   onChange={(e) => setUpdatedCategory(e.target.value)}
-              //   size="sm"
-              // />
+              
             ) : (
               category
             )}

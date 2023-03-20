@@ -12,7 +12,11 @@ export const Header = () => {
   const navigate = useNavigate();
   const [logged, setLogged] = useState('block');
   const [display, setDisplay] = useState('');
- const [show, setShow] = useState(true)
+  const [show, setShow] = useState(true);
+  // const userInfo =(user)
+
+  // console.log(userInfo?.email)
+
 
   const navbarToggle = document.querySelector('.navbar-toggler');
   const navbarDropdown = document.querySelectorAll('#offcanvasNavbar-expand')
@@ -21,6 +25,7 @@ export const Header = () => {
     setDisplay('none');
     navbarToggle.closest();
     navbarDropdown.closest();
+    setShow(false);
 
 
   };
@@ -37,9 +42,7 @@ export const Header = () => {
     };
   };
 
-  
-
-  const handleClose = () => setShow(false);
+  // const handleClose = () => setShow(false);
   
 
   return (
@@ -71,7 +74,7 @@ export const Header = () => {
                       id={`offcanvasNavbarDropdown-expand-${expand}`}
                       onClick={closeOffcanvas}
                     >
-                     <NavDropdown.Item className="">
+                     <NavDropdown.Item className="" show={show}>
                           <Link to="/works/pianist" className="link-header" >Pianist</Link>
                         </NavDropdown.Item>
                         <NavDropdown.Item className="link-dropdown">
@@ -85,7 +88,7 @@ export const Header = () => {
                         </NavDropdown.Item>
                     </NavDropdown>
 
-                    <Navbar.Text className="link"> <Link to="/engage" className="link link-header" onClick={closeOffcanvas}>Engage</Link></Navbar.Text>
+                    <Navbar.Text className="link"> <Link to="/perfomances" className="link link-header" onClick={closeOffcanvas}>Performances</Link></Navbar.Text>
                     <Navbar.Text className="link"><Link to="/upcoming_events" className="link link-header" onClick={closeOffcanvas}>Upcoming events</Link></Navbar.Text>
                     <Navbar.Text className="link"><Link to="/contact" className="link link-header" onClick={closeOffcanvas}>Contact</Link></Navbar.Text>
                     <Nav className="justify-content-end ">
@@ -116,3 +119,74 @@ export const Header = () => {
 }
 export default Header;
 
+
+{/* <OffcanvasHeader  >
+      <OffcanvasHeader  show={toString(show)}>
+        {[false, 'md'].map((expand) => (
+          <Navbar key={expand} expand={expand} className="mb-0 header" fixed="top">
+            <Container fluid>
+              <Navbar.Brand><Link to="/" className="title home-h4"> Nadya Poklad </Link> </Navbar.Brand>
+              <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />
+              <Navbar.Offcanvas
+                id={`offcanvasNavbar-expand-${expand}`}
+                aria-labelledby={`offcanvasNavbarLabel-expand-${expand}`}
+                placement="end"
+              >
+                <Offcanvas.Header closeButton>
+                  <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${expand}`}>
+                  <Navbar.Text > <Link to="/" className="link link-header">Home</Link> </Navbar.Text>
+                  </Offcanvas.Title>
+                </Offcanvas.Header>
+                <Offcanvas.Body>
+                  <Nav onClick={handleClose} className="justify-content-end flex-grow-1 pe-3">
+                    <Navbar.Text > <Link to="/theartist" className="link link-header">The Artist</Link> </Navbar.Text>
+                    <NavDropdown
+                      title="Works"
+                      className="link"
+                      id={`offcanvasNavbarDropdown-expand-${expand}`}
+                    >
+                     <NavDropdown.Item className="link-dropdown ">
+                          <Link to="/works/pianist" className="link-header">Pianist</Link>
+                        </NavDropdown.Item>
+                        <NavDropdown.Item className="link-dropdown">
+                          <Link to="/works/composer" className="link-header">Composer</Link>
+                        </NavDropdown.Item>
+                        <NavDropdown.Item className="link-dropdown "> 
+                          <Link to="/works/musical_event_organizer" className="link-header">Musical Event Organizer</Link>
+                        </NavDropdown.Item>
+                        <NavDropdown.Item className="link-dropdown "> 
+                          <Link to="/works/teacher" className="link-header">Teacher</Link>
+                        </NavDropdown.Item>
+                    </NavDropdown>
+
+                    <Navbar.Text className="link"><Link to="/perfomances" className="link link-header">  Performances </Link></Navbar.Text>
+                      <Navbar.Text className="link"><Link to="/upcoming_events" className="link link-header">  Upcoming events </Link>  </Navbar.Text>
+                      <Navbar.Text className="link"> <Link to="/contact" className="link link-header">  Contact </Link> </Navbar.Text>
+                     
+                   
+                    <Nav className="justify-content-end ">
+
+                    {  
+                         !(userInfo && userInfo.email)
+                         
+                      ?
+                      <Navbar.Text className="link">
+                         <Link to="/login_admin" className="link link-header">  Login </Link>
+                      </Navbar.Text>
+                      :
+                      <>
+                         <Navbar.Text className="link"> <Link to="/dashboard" className="link link-header">  Dashboard </Link> </Navbar.Text>
+                         <Navbar.Text className="link" onClick={handleLogout} > Sign Out     </Navbar.Text>
+                       </>
+                                            
+                    }
+                    </Nav> 
+                    </Nav> 
+                  
+
+                </Offcanvas.Body>
+              </Navbar.Offcanvas>
+            </Container>
+          </Navbar>
+        ))}
+      </OffcanvasHeader> */}

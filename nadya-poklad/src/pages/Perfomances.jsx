@@ -3,34 +3,27 @@ import { VideoYouTube } from '../components/VideoYouTube'
 import '../../src/styles/App.css'
 import useHookToRender from '../components/dashboard/FirebaseHooks/useHookToRender';
 
+export function Perfomances() {
 
-
-export function Engage() {
-
-  const { engagePost } = useHookToRender()
-
+  const { performancesPost } = useHookToRender()
+  //console.log(performancesPost )
 
   return (
     <>
-      
-        <h4 className='title home-h4 mx-2'>Engages</h4><br />
-      
-
+      <h4 className='title home-h5 mx-2'>Perfomances</h4><br />
       <Container>
         <Row>
-      {
-        engagePost.map(item =>
-        <Col className='video-item'>
-                <VideoYouTube                                  
+          {
+            performancesPost.map(item =>
+              <Col key={item.id} className='video-item'>
+                <VideoYouTube
                   url={item.url}
                   title={item.title} />
-        </Col>
-        )
-      }
-              </Row>
+              </Col>
+            )
+          }
+        </Row>
       </Container>
-
-
     </>
   )
 }

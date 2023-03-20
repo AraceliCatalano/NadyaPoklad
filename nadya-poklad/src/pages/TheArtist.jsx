@@ -24,7 +24,7 @@ export function TheArtist() {
     <>
       <Container fluid="sm">
       <Row>
-      <h4 className='title home-h4 mt-3'> The Artist </h4><br/>
+      <h4 className='title home-h5 mt-3'> The Artist </h4><br/>
   </Row>
       </Container>
 
@@ -41,10 +41,10 @@ export function TheArtist() {
           <Container key={post.id}>
           <Row sm  className="artist-content-row" style={{ flexDirection: post.orderDisplay % 2 ? 'row' : 'row-reverse' }}>
               <Col sm className="artist-content-col ">
-                <Image src={post.image} fluid className='image artist-content' 
+                <Image src={post.image}  className='image artist-content' 
                />
               </Col>
-              <Col sm>
+              <Col md>
                 <p>{post.description}</p>
               </Col>
           </Row>

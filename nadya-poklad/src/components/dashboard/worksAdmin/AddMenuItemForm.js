@@ -7,10 +7,10 @@ import useWorksItems from "../FirebaseHooks/useWorksItems";
 
 export default function AddMenuItem({ menuItems }) {
 
-  const defaultImageUrl ="https://firebasestorage.googleapis.com/v0/b/nadyapokladsite.appspot.com/o/General%2FNP.png?alt=media&token=967d7a10-db01-44a3-83c2-fe0595197e93"
+  const defaultImageUrl = "https://firebasestorage.googleapis.com/v0/b/nadyapokladsite.appspot.com/o/General%2FNP.png?alt=media&token=967d7a10-db01-44a3-83c2-fe0595197e93"
   const imageDefault = <img src={defaultImageUrl} alt="Default" />;
 
-  const {categories} = useWorksItems()
+  const { categories } = useWorksItems()
 
   const [itemId, setItemId] = useState('');
   const [category, setCategory] = useState('')
@@ -37,7 +37,7 @@ export default function AddMenuItem({ menuItems }) {
   }, [menuItems.loading])
 
   const clearInputStates = () => {
-  
+
     setCategory('');
     setDate('');
     setTitle('');
@@ -52,16 +52,16 @@ export default function AddMenuItem({ menuItems }) {
     e.preventDefault();
     const item = {
       category: category,
-      date:date,
-      title:title,
+      date: date,
+      title: title,
       description: description,
       url: url,
       image: null,
       imageFileName: null,
-      
-     
+
+
     };
- 
+
     if (!formError) {
       const addedMenuItem = menuItems.addItem(item, imageFile);
       if (addedMenuItem) clearInputStates();
@@ -71,7 +71,7 @@ export default function AddMenuItem({ menuItems }) {
   }
 
   const handleFileChange = (e) => {
-    const file = e.target.files[0]  ;
+    const file = e.target.files[0];
     if (file !== defaultImageUrl) {
       if (file.size < 2000000) {
         setFileValid(true);
@@ -84,7 +84,7 @@ export default function AddMenuItem({ menuItems }) {
       }
     }
   };
-  
+
   return (
     <Form
       onSubmit={submitForm}
@@ -92,34 +92,36 @@ export default function AddMenuItem({ menuItems }) {
       data-testid="add-menu-item-form"
     >
       <Row>
-      <Form.Group className="mb-3">
-          <Form.Label htmlFor="enabledSelect">Select a Category</Form.Label>
-          
-          <Form.Select id="enabledSelect" onChange={(e) => setCategory(e.target.value)}>
-          {categories.map(cat =>   
-          <option  key={cat}  >{cat}</option> )}
+        <Col>
+          <Form.Group className="mb-3">
+            <Form.Label htmlFor="enabledSelect">Select a Category</Form.Label>
+
+            <Form.Select id="enabledSelect" onChange={(e) => setCategory(e.target.value)}>
+              {categories.map(cat =>
+                <option key={cat}  >{cat}</option>)}
             </Form.Select>
-        </Form.Group>
-        
+          </Form.Group>
+        </Col>
+        <Col></Col>
       </Row>
 
 
 
       <Row>
 
-       
+
         <Col className="menu-add-input-container">
-         <Form.Label>Date</Form.Label>
-         <Form.Control
-           name={`${category}-date`}
-           className="menu-add-form-input"
-           type="date"
-           placeholder=""
-           value={date}
-           onChange={(e) => setDate(e.target.value)}
-           required
-         />
-         <Form.Label> Title</Form.Label>
+          <Form.Label>Date</Form.Label>
+          <Form.Control
+            name={`${category}-date`}
+            className="menu-add-form-input"
+            type="date"
+            placeholder=""
+            value={date}
+            onChange={(e) => setDate(e.target.value)}
+            required
+          />
+          <Form.Label> Title</Form.Label>
           <Form.Control
             name={`${category}-title`}
             className="menu-add-form-input"
@@ -158,9 +160,9 @@ export default function AddMenuItem({ menuItems }) {
             placeholder="Enter the url to event organizer"
             value={url}
             onChange={(e) => setUrl(e.target.value)}
-            
+
           />
-                             
+
           <Form.Label>Image</Form.Label>
           <Form.Control
             className="menu-add-form-input"
@@ -174,7 +176,7 @@ export default function AddMenuItem({ menuItems }) {
           <Form.Control.Feedback type="invalid">
             File size is too big! Maximum size of file is 2mb.
           </Form.Control.Feedback>
-          
+
         </Col>
         <Col className="menu-item-container-image-preview">
           <Form.Label>Preview image:</Form.Label>
@@ -190,7 +192,7 @@ export default function AddMenuItem({ menuItems }) {
             )}
           </Container>
         </Col>
-        
+
       </Row>
       <Row>
         <Col className="menu-form-submit-container">
@@ -199,7 +201,7 @@ export default function AddMenuItem({ menuItems }) {
             type="submit"
             data-testid="submit-button"
           >
-           {` Save in ${category}`}
+            {` Save in ${category}`}
           </Button>
           {loading ? (
             <Spinner

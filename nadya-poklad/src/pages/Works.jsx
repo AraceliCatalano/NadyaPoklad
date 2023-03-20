@@ -14,7 +14,7 @@ export function Works() {
       <Container>
 
       <Row >
-        <h4 className='title home-h4 mx-2 mt-3'>Works </h4><br />
+        <h4 className='title home-h5 mx-2 mt-3'>Works </h4><br />
       </Row>
 
 

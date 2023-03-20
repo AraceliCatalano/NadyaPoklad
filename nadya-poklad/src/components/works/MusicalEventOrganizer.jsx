@@ -9,7 +9,7 @@ export const MusicalEventOrganizer = () => {
 
   return (
     <>
-        <h4 className='title home-h4 mx-2 mt-3'>Musical event organizer</h4><br />
+        <h4 className='title home-h5 mx-2 mt-3'>Musical event organizer</h4><br />
       <Row >
       </Row>
 

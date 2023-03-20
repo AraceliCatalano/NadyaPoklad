@@ -3,7 +3,7 @@ import '../../../styles/App.css';
 import { Container, Row, Col} from 'react-bootstrap';
 import SideBar from './SideBar';
 
-export function EngageAdmin() {
+export function PerformancesAdmin() {
 
   return (
     <>
@@ -13,7 +13,7 @@ export function EngageAdmin() {
           <Col sm="9" className="main-menu">
             <Container fluid>
               <Row>
-                <h4 className="title mt-3">Engage page: content administration </h4>
+                <h4 className="title mt-3">Perfomances page: content administration </h4>
               </Row>
             </Container>
           
