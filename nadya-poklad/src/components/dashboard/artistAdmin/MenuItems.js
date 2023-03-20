@@ -15,7 +15,6 @@ export default function MenuItems() {
   const [addMenuItemVisible, setAddMenuItemVisible] = useState(false);
   const menuItems = useMenuItems();
   
- 
   useEffect(() => {
     setError(menuItems.error);
   }, [menuItems.error])
@@ -38,8 +37,7 @@ export default function MenuItems() {
   };
 
   return (
-    <Container className="container-page">
-     
+    <Container className="container-page">   
       <Row className="container-menu-add-form">
         <Row>
           <Col>

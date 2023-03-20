@@ -18,7 +18,7 @@ const AddConactItem = ({ id, setContactPostId }) => {
     const newContactPost = {
       contact
     };
-    console.log(newContactPost);
+  
 
     try {
       if (id !== undefined && id !== "") {
@@ -34,7 +34,7 @@ const AddConactItem = ({ id, setContactPostId }) => {
     }
 
     setContact("");
-    
+
   };
 
   const editHandler = async () => {
@@ -49,7 +49,7 @@ const AddConactItem = ({ id, setContactPostId }) => {
   }
 
   useEffect(() => {
-    console.log("The id here is:", id);
+   // console.log("The id here is:", id);
     if (id !== undefined && id !== "") {
       editHandler();
     }
@@ -68,31 +68,30 @@ const AddConactItem = ({ id, setContactPostId }) => {
             {message?.msg}
           </Alert>
         )}
-          <Form onSubmit={handleSubmit} className="mb-3 contact-form">
-            <Col sm={6}>
-              <Form.Group className="mb-3" controlId="formArtistPostDescription">
-                <Form.Label>Conatct information</Form.Label>
-                <Form.Control
-                  type="text"
-                  placeholder="Add text to be displayed next to the image"
-                  value={contact}
-                  onChange={(e) => setContact(e.target.value)}
-                />
-                <Form.Text className="text-muted" id="formArtistPostDescription">
-                  Add any contact information here.
-                </Form.Text>
-              </Form.Group>
-            </Col>
-  
-          <Col  sm={2} className="mb-3 form-bottom">
-              <Button variant="btn" type="Submit">
-                Add/ Update
-              </Button>
-    
+        <Form onSubmit={handleSubmit} className="mb-3 contact-form">
+          <Col sm={6}>
+            <Form.Group className="mb-3" controlId="formArtistPostDescription">
+              <Form.Label>Conatct information</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Add text to be displayed next to the image"
+                value={contact}
+                onChange={(e) => setContact(e.target.value)}
+              />
+              <Form.Text className="text-muted" id="formArtistPostDescription">
+                Add any contact information here.
+              </Form.Text>
+            </Form.Group>
           </Col>
 
+          <Col sm={2} className="mb-3 form-bottom">
+            <Button variant="btn" type="Submit">
+              Add/ Update
+            </Button>
+          </Col>
+          
         </Form>
-        </Row>
+      </Row>
     </>
   );
 };

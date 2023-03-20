@@ -111,7 +111,6 @@ export default function MenuItemCard({ item, deleteItem, setError, setSuccessful
                   placeholder="Enter the text that will appear next to the image"
                   onChange={(e) => setUpdatedDescription(e.target.value)}
                   size="sm"
-
                 />
               ) : (
                 description
@@ -136,10 +135,9 @@ export default function MenuItemCard({ item, deleteItem, setError, setSuccessful
                 )}
               </Col>
             </Col>
-
-
           </Card.Body>
         </Col>
+        
         <Col className="card-end-buttons" style={{margin:'auto'}}>
           <Row>
             <Container>

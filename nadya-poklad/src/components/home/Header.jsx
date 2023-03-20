@@ -5,8 +5,6 @@ import '../../styles/App.css'
 import { Link } from 'react-router-dom';
 import { useUserAuth } from '../../context/UserAuthContext';
 
-
-
 export const Header = () => {
   const { user, logOut } = useUserAuth();
   const navigate = useNavigate();
@@ -14,9 +12,6 @@ export const Header = () => {
   const [display, setDisplay] = useState('');
   const [show, setShow] = useState(true);
   // const userInfo =(user)
-
-  // console.log(userInfo?.email)
-
 
   const navbarToggle = document.querySelector('.navbar-toggler');
   const navbarDropdown = document.querySelectorAll('#offcanvasNavbar-expand')
@@ -26,11 +21,7 @@ export const Header = () => {
     navbarToggle.closest();
     navbarDropdown.closest();
     setShow(false);
-
-
   };
- 
-
 
   const handleLogout = async () => {
     try {
@@ -44,7 +35,6 @@ export const Header = () => {
 
   // const handleClose = () => setShow(false);
   
-
   return (
     <>
       <OffcanvasHeader style={{display:{display}}}>
@@ -53,13 +43,11 @@ export const Header = () => {
             <Container fluid>
               <Navbar.Brand><Link to="/" className="title home-h4"> Nadya Poklad </Link> </Navbar.Brand>
 
-
               <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`}   />
               <Navbar.Offcanvas
                 id={`offcanvasNavbar-expand-${expand}`}
                 aria-labelledby={`offcanvasNavbarLabel-expand-${expand}`}
                 placement="end"
-
                 >
                 <Offcanvas.Body >
                   <Nav className="justify-content-end flex-grow-1 pe-3">
@@ -101,12 +89,9 @@ export const Header = () => {
                           <Navbar.Text className="link"> <Link to="/dashboard" className="link link-header">  Dashboard </Link> </Navbar.Text>
                           <Navbar.Text className="link" onClick={handleLogout} > Sign Out     </Navbar.Text>
                         </>
-
                       }
                     </Nav>
                   </Nav>
-
-
                 </Offcanvas.Body>
               </Navbar.Offcanvas>
             </Container>
@@ -115,7 +100,6 @@ export const Header = () => {
       </OffcanvasHeader>
     </>
   )
-
 }
 export default Header;
 

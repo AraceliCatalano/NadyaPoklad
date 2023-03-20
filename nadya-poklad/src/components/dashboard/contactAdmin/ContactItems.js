@@ -4,7 +4,6 @@ import ContactService from "../../../services/contact.services";
 import '../../../styles/App.css';
 
 
-
 const ContactItems = ({ getContactPostId }) => {
   const [contactPosts, setContactPosts] = useState([]);
   useEffect(() => {
@@ -23,8 +22,7 @@ const ContactItems = ({ getContactPostId }) => {
   };
 
   return (
-    <>
-      
+    <>     
       <h4 className="title mt-3"> Current contact items currently showing: </h4>
       <Container className="mt-6 pt-6">
         

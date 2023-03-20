@@ -25,7 +25,7 @@ export default function useGetUpcomingEventsItems() {
   useEffect(() => {
     setLoading(true);
     const q = query(collection(db, "UpcomingEvents")); 
-    console.log("getting data");
+
     getDocs(q)
       .then((data) => {
         setData(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));

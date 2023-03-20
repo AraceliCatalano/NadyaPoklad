@@ -211,6 +211,14 @@ span.navbar-toggler-icon {
 }
 /****** END RESET PASWORD ******/
 
+/****** NOT FOUND ******/
+.not-found {
+    justify-items: center;
+}
+/****** HOME ******/
+/****** END NOT FOUND ******/
+
+
 /****** HOME ******/
 .artist-home-container { 
     /* background-image: url("https://firebasestorage.googleapis.com/v0/b/nadyapokladsite.appspot.com/o/TheArtist%2F1673990278414-nadya1.jpg?alt=media&token=21c0f912-13c5-4d4a-9d92-ea4b776c0f27"); */

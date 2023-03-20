@@ -27,7 +27,7 @@ export default function useWorksItems() {
   useEffect(() => {
     setLoading(true);
     const q = query(collection(db, "TheArtist"));
-    console.log("getting data");
+  
     getDocs(q)
       .then((data) => {
         setData(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));

@@ -7,7 +7,6 @@ import Piano from '../Assests/images/PianoContact.jpg';
 export function Contact() {
   return (
     <>
-
       <Container fluid="sm">
         <Row >
           <h4 className='title home-h5 mx-2 mt-3'> Contact </h4><br />
@@ -20,7 +19,6 @@ export function Contact() {
         </p>
       </Container>
 
-
       <Card className='ImgOverlay '>
         <Card.Img src={Piano} alt="Card image" className='cardImage' />
 
@@ -28,8 +26,7 @@ export function Contact() {
 
           <a href='mailto:pokladweb@gmail.com' type='email' target='_blank' rel="noreferrer" className='link cardText'>
             <i className="bi bi-envelope-fill icon"></i>
-           pokladweb@gmail.com
-
+            pokladweb@gmail.com
           </a>
 
           <a className='link' target="_blank" rel="noopener noreferrer" href='https://www.youtube.com/@nadiiapoklad1533'>
