@@ -35,7 +35,6 @@ const ForgotPassword = () => {
             <hr/>    
             <Link to="/login_admin" className="link-text">Back to Site Management</Link>
             </Container>
-
         </>
     )
 }

@@ -3,11 +3,15 @@ import { db, storage } from "../../../firebase-config";
 import { doc, updateDoc } from "firebase/firestore";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { deleteFileFromStorage } from "../FirebaseHooks/Storage";
-import { Card, Row, Col, Form, Button, Container } from "react-bootstrap";
+import { Card, Col, Form, Button } from "react-bootstrap";
 import '../../../styles/App.css';
+import useWorksItems from "../FirebaseHooks/useWorksItems";
 
-export default function MenuItemCard({ item, deleteItem, setError, setSuccessfull }) {
-  
+
+export default function MenuItemCard({ item, deleteItem, setError, setSuccessfull   }) {
+
+  let {categories}= useWorksItems()
+
   const [itemId, setItemId] = useState(item.id);
   const [cardClass, setCardClass] = useState("");
   const [category, setCategory] = useState(item.category)
@@ -19,8 +23,6 @@ export default function MenuItemCard({ item, deleteItem, setError, setSuccessful
   const [imageFileName, setImageFileName] = useState(item.imageFileName);
 
 
-  // const [orderDisplay, setOrderDisplay] = useState(item.orderDisplay);
-  // const [updatedOrderDisplay, setUpdatedOrderDisplay] = useState(item.orderDisplay);
   
   const [update, setUpdate] = useState(false);
   const [updatedCategory, setUpdatedCategory] = useState(item.category)
@@ -96,12 +98,15 @@ export default function MenuItemCard({ item, deleteItem, setError, setSuccessful
     };
     setUpdate(!update);
   };
+  const imageDefault = <img src="https://firebasestorage.googleapis.com/v0/b/nadyapokladsite.appspot.com/o/General%2FNP.png?alt=media&token=967d7a10-db01-44a3-83c2-fe0595197e93" alt="default_image"/>
+
 
   const handleChangeImageInput = (e) => {
-    let file = e.target.files[0]
+    let file = e.target.files[0] || imageDefault;
     if (file) {
       setImage(URL.createObjectURL(file))
-    }
+    } 
+
     setUpdatedImage(file)
   }
 
@@ -155,17 +160,25 @@ export default function MenuItemCard({ item, deleteItem, setError, setSuccessful
       </Col>
 
       <Col xs={12}>
+
+     
         <Card.Body style={{ fontSize: '14px' }} className='card-body-event '>
-          <Form.Label className="form-label">Category:</Form.Label>
+            <Form.Label htmlFor="enabledSelect">Select a Category</Form.Label>
           <Card.Text  >
             {update ? (
-              <Form.Control
-                type="text"
-                defaultValue={category}
-                placeholder="Enter a category "
-                onChange={(e) => setUpdatedCategory(e.target.value)}
-                size="sm"
-              />
+                <Form.Group className="mb-3">
+                   <Form.Select id="enabledSelect" onChange={(e) => setUpdatedCategory(e.target.value)}>
+                   {categories.map(cat =>  <option  key={cat} >{cat}</option> )}
+                     </Form.Select>
+                 </Form.Group>
+                             
+              // <Form.Control
+              //   type="text"
+              //   defaultValue={category}
+              //   placeholder="Enter a category "
+              //   onChange={(e) => setUpdatedCategory(e.target.value)}
+              //   size="sm"
+              // />
             ) : (
               category
             )}

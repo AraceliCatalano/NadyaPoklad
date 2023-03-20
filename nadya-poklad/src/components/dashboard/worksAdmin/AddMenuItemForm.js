@@ -3,8 +3,15 @@ import { Container, Row, Col, Button, Spinner, Form, Image } from "react-bootstr
 import ErrorMessage from "../Messages/ErrorMessage";
 import "../upcomingEventsAdmin/MenuItemsUpdatingEvents.css";
 import '../../../styles/App.css';
+import useWorksItems from "../FirebaseHooks/useWorksItems";
 
-export default function AddMenuItem({ menuItems , worksCategory}) {
+export default function AddMenuItem({ menuItems }) {
+
+  const defaultImageUrl ="https://firebasestorage.googleapis.com/v0/b/nadyapokladsite.appspot.com/o/General%2FNP.png?alt=media&token=967d7a10-db01-44a3-83c2-fe0595197e93"
+  const imageDefault = <img src={defaultImageUrl} alt="Default" />;
+
+  const {categories} = useWorksItems()
+
   const [itemId, setItemId] = useState('');
   const [category, setCategory] = useState('')
   const [date, setDate] = useState('')
@@ -12,7 +19,7 @@ export default function AddMenuItem({ menuItems , worksCategory}) {
   const [description, setDescription] = useState('');
   const [url, setUrl] = useState('')
 
-  const [imageFile, setImageFile] = useState(null);
+  const [imageFile, setImageFile] = useState(defaultImageUrl);
   const [inputKey, setInputKey] = useState("");
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -20,7 +27,6 @@ export default function AddMenuItem({ menuItems , worksCategory}) {
   const [formError, setFormError] = useState(false);
 
 
-  const categories = [ 'Pianist', 'Composer', 'Teacher', 'Musical Event Organizer', 'Engage']
 
   useEffect(() => {
     setError(menuItems.error);
@@ -65,13 +71,14 @@ export default function AddMenuItem({ menuItems , worksCategory}) {
   }
 
   const handleFileChange = (e) => {
-    const file = e.target.files[0];
-    if (file) {
+    const file = e.target.files[0]  ;
+    if (file !== defaultImageUrl) {
       if (file.size < 2000000) {
         setFileValid(true);
         setFormError(false);
         setImageFile(file);
       } else {
+        setImageFile(defaultImageUrl)
         setFileValid(false);
         setFormError(true);
       }
@@ -124,6 +131,7 @@ export default function AddMenuItem({ menuItems , worksCategory}) {
           />
           <Form.Label>Description</Form.Label>
           <Form.Control
+            as="textarea" rows={4} cols={50}
             name={`${category}-description`}
             className="menu-add-form-input-description "
             type="text"
@@ -150,7 +158,7 @@ export default function AddMenuItem({ menuItems , worksCategory}) {
             placeholder="Enter the url to event organizer"
             value={url}
             onChange={(e) => setUrl(e.target.value)}
-            required
+            
           />
                              
           <Form.Label>Image</Form.Label>
@@ -158,7 +166,7 @@ export default function AddMenuItem({ menuItems , worksCategory}) {
             className="menu-add-form-input"
             type="file"
             placeholder="Select an image"
-            accept=".jpg, .jpeg, .png, .jfif"
+            accept=".jpg, .jpeg, .png, .jfif, .mov, .mp4"
             key={inputKey}
             onChange={(e) => handleFileChange(e)}
             isInvalid={!fileValid}
@@ -176,7 +184,8 @@ export default function AddMenuItem({ menuItems , worksCategory}) {
                 className="preview-image"
                 width="auto"
                 height="250px"
-                src={URL.createObjectURL(imageFile)}
+                // src={URL.createObjectURL(imageFile)}
+                src={imageFile}
               />
             )}
           </Container>

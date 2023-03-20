@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { collection, getDocs, orderBy, query, where } from 'firebase/firestore';
+import { collection, getDocs, orderBy, query } from 'firebase/firestore';
 import { db } from '../firebase-config';
 import { Container, Image, Row, Col } from 'react-bootstrap';
 import '../styles/App.css';
@@ -42,14 +42,7 @@ export function TheArtist() {
           <Row sm  className="artist-content-row" style={{ flexDirection: post.orderDisplay % 2 ? 'row' : 'row-reverse' }}>
               <Col sm className="artist-content-col ">
                 <Image src={post.image} fluid className='image artist-content' 
-                style={{
-                  minWidth:'290px' , 
-                  width:'450px',
-                  minHeight: '350px',
-                  borderRadius:'8px',
-                  boxShadow:'5px 5px 10px 0px rgba(172, 216, 236, 0.65)',
-                  
-                  }}/>
+               />
               </Col>
               <Col sm>
                 <p>{post.description}</p>

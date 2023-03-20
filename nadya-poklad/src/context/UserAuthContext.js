@@ -16,14 +16,14 @@ export function UserAuthContextProvider({ children }) {
         localStorage.getItem("isLoggedIn") || false
       );
 
-    const init =() =>{
-        const userLogged = JSON.parse(localStorage.getItem("is_Logged_In"))
+    // const init =() =>{
+    //     const userLogged = JSON.parse(localStorage.getItem("is_Logged_In"))
 
-        return {
-            isLoggedIn: !!userLogged,
+    //     return {
+    //         isLoggedIn: !!userLogged,
 
-        }
-    }
+    //     }
+    // }
 
         
     function  logIn (email, password) {

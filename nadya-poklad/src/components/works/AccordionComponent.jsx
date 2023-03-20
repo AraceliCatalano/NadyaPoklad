@@ -25,7 +25,7 @@ export default function AccordionComponent( { subcategory }) {
                     </Col>
                   </Row>
                     
-                  <a href={work.url} target="_blank" rel='noreferrer' style={{color: 'white'}}>
+                  <a href={work.url} target="_blank" rel="noreferrer" style={{color: 'white'}}>
                     {work.url}
                     </a>
                 </Accordion.Body>
