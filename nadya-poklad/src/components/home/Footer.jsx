@@ -1,6 +1,5 @@
 import React from 'react'
 import { Container, Row, Col, Navbar } from 'react-bootstrap'
-import { Link } from 'react-router-dom'
 import '../../styles/App.css'
 
 export function Footer() {
@@ -13,7 +12,7 @@ export function Footer() {
           <Navbar.Text className="">
             <Row className=" "   >
               <Col className=" "   >
-                <a href='mailto:pokladweb@gmail.com' type='email' target='_blank' className="btn-footer footerbg ">
+                <a href='mailto:pokladweb@gmail.com' type='email' target='_blank' rel="noopener noreferrer" className="btn-footer footerbg ">
 
                   <i className="bi bi-envelope-fill icon mx-1"></i>
 

@@ -5,11 +5,9 @@ import {
   getDocs,
   doc,
   deleteDoc,
- // where,
   query,
   addDoc,
-  // updateDoc
-} from "firebase/firestore";
+  } from "firebase/firestore";
 import {
   ref,
   deleteObject,
@@ -26,7 +24,7 @@ export default function useGetUpcomingEventsItems() {
 
   useEffect(() => {
     setLoading(true);
-    const q = query(collection(db, "UpcomingEvents")); //, where("userId", "==", userId)
+    const q = query(collection(db, "UpcomingEvents")); 
     console.log("getting data");
     getDocs(q)
       .then((data) => {
@@ -80,7 +78,7 @@ export default function useGetUpcomingEventsItems() {
   const addItemToFirestore = async (item) => {
     const docRef = await addDoc(collection(db, "UpcomingEvents"), item)
       .then((docRef) => {
-        item.id = docRef.id;
+       item.id = docRef.id;
         setData((prevState) => [...prevState, item]);
         setSuccessfull("Item uploaded succesfully!");
         setError(null);

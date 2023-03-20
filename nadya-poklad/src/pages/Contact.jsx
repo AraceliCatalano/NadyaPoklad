@@ -1,6 +1,5 @@
 import React from 'react';
 import { Card, Container, Row } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
 import '../styles/Contact.css';
 import Piano from '../Assests/images/PianoContact.jpg';
 
@@ -11,7 +10,7 @@ export function Contact() {
 
       <Container fluid="sm">
         <Row >
-          <h4 className='title home-h4 mx-2 mt-3'> Contact </h4><br />
+          <h4 className='title home-h5 mx-2 mt-3'> Contact </h4><br />
         </Row>
       </Container>
 
@@ -27,7 +26,7 @@ export function Contact() {
 
         <div className="position-absolute bottom-0 start-0 cardText imgOverlay">
 
-          <a href='mailto:pokladweb@gmail.com' type='email' target='_blank' className='link cardText'>
+          <a href='mailto:pokladweb@gmail.com' type='email' target='_blank' rel="noreferrer" className='link cardText'>
             <i className="bi bi-envelope-fill icon"></i>
            pokladweb@gmail.com
 

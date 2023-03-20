@@ -57,9 +57,9 @@ export default function LoginAdmin() {
           </Button>
   
           <div className="p-2 text-center">
-            Forgot your password?
+            Forgot your password ? 
             <Link to="/resetPassword" className="link-text">
-              Reset.
+             - Reset - 
             </Link>
           </div>
         </Form>

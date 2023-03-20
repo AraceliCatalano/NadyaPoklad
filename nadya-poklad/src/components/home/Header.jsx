@@ -13,7 +13,7 @@ export const Header = () => {
   const [logged, setLogged] = useState('block');
   const [display, setDisplay] = useState('');
   const [show, setShow] = useState(true);
-  const userInfo =(user)
+  // const userInfo =(user)
 
   // console.log(userInfo?.email)
 
@@ -25,6 +25,7 @@ export const Header = () => {
     setDisplay('none');
     navbarToggle.closest();
     navbarDropdown.closest();
+    setShow(false);
 
 
   };
@@ -41,9 +42,7 @@ export const Header = () => {
     };
   };
 
-  
-
-  const handleClose = () => setShow(false);
+  // const handleClose = () => setShow(false);
   
 
   return (
@@ -75,7 +74,7 @@ export const Header = () => {
                       id={`offcanvasNavbarDropdown-expand-${expand}`}
                       onClick={closeOffcanvas}
                     >
-                     <NavDropdown.Item className="">
+                     <NavDropdown.Item className="" show={show}>
                           <Link to="/works/pianist" className="link-header" >Pianist</Link>
                         </NavDropdown.Item>
                         <NavDropdown.Item className="link-dropdown">
@@ -89,7 +88,7 @@ export const Header = () => {
                         </NavDropdown.Item>
                     </NavDropdown>
 
-                    <Navbar.Text className="link"> <Link to="/engage" className="link link-header" onClick={closeOffcanvas}>Engage</Link></Navbar.Text>
+                    <Navbar.Text className="link"> <Link to="/perfomances" className="link link-header" onClick={closeOffcanvas}>Performances</Link></Navbar.Text>
                     <Navbar.Text className="link"><Link to="/upcoming_events" className="link link-header" onClick={closeOffcanvas}>Upcoming events</Link></Navbar.Text>
                     <Navbar.Text className="link"><Link to="/contact" className="link link-header" onClick={closeOffcanvas}>Contact</Link></Navbar.Text>
                     <Nav className="justify-content-end ">
@@ -160,7 +159,7 @@ export default Header;
                         </NavDropdown.Item>
                     </NavDropdown>
 
-                    <Navbar.Text className="link"><Link to="/engage" className="link link-header">  Engage </Link></Navbar.Text>
+                    <Navbar.Text className="link"><Link to="/perfomances" className="link link-header">  Performances </Link></Navbar.Text>
                       <Navbar.Text className="link"><Link to="/upcoming_events" className="link link-header">  Upcoming events </Link>  </Navbar.Text>
                       <Navbar.Text className="link"> <Link to="/contact" className="link link-header">  Contact </Link> </Navbar.Text>
                      

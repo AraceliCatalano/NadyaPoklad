@@ -5,21 +5,22 @@ import useHookToRender from '../components/dashboard/FirebaseHooks/useHookToRend
 
 
 
-export function Engage() {
+export function Perfomances() {
 
-  const { engagePost } = useHookToRender()
+  const { performancesPost } = useHookToRender()
+  console.log(performancesPost )
 
 
   return (
     <>
       
-        <h4 className='title home-h4 mx-2'>Engages</h4><br />
+        <h4 className='title home-h5 mx-2'>Perfomances</h4><br />
       
 
       <Container>
         <Row>
       {
-        engagePost.map(item =>
+        performancesPost.map(item =>
         <Col key={item.id} className='video-item'>
 
 

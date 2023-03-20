@@ -4,7 +4,7 @@ import {  collection,  getDocs,  doc,  deleteDoc, query, addDoc, orderBy} from "
 import {  ref, deleteObject, uploadBytesResumable, getDownloadURL, listAll} from "firebase/storage";
 
 export default function useWorksItems (  ) {
-  const categoriesList = [ 'Pianist', 'Composer', 'Teacher', 'Musical Event Organizer', 'Engage']
+  const categoriesList = [ 'Pianist', 'Composer', 'Teacher', 'Musical Event Organizer', 'Performances']
 
   const [data, setData] = useState([]);
   const [error, setError] = useState(null);

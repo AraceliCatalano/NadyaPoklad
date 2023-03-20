@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { collection, getDocs, query, orderBy, where } from 'firebase/firestore';
 import { db } from '../../../firebase-config';
 
@@ -9,7 +9,7 @@ const [worksPianistPost, setworksPianistPost] = useState([])
 const [worksComposerPost, setWorksComposerPost] = useState([])
 const [worksTeacherPost, setWorksTeacherPost] = useState([])
 const [worksMusicalOrganizerPost, setWorksMusicalOrganizerPost] = useState([])
-const [engagePost, setEngagePost] = useState([])
+const [performancesPost, setPerformancesPost] = useState([])
 
 
 
@@ -51,20 +51,20 @@ const [engagePost, setEngagePost] = useState([])
   }, []);
   useEffect(() => {
     const worksPosted= collection(db, "Works");
-    const queryWorksPost = query(worksPosted, where("category", "==", "Engage"));
+    const queryWorksPost = query(worksPosted, where("category", "==", "Performances"));
     getDocs(queryWorksPost)
-      .then(res => setEngagePost(res.docs.map(doc => ({ id: doc.id, ...doc.data() }))));
+      .then(res => setPerformancesPost(res.docs.map(doc => ({ id: doc.id, ...doc.data() }))));
 
   }, []);
 
-
+console.log(performancesPost, "estas son las performances")
   return {
     UpcomingEventsPost,setUpcomingEventsPost,
     worksComposerPost, setWorksComposerPost,
     worksPianistPost, setworksPianistPost,
     worksTeacherPost, setWorksTeacherPost,
     worksMusicalOrganizerPost, setWorksMusicalOrganizerPost,
-    engagePost, setEngagePost
+    performancesPost, setPerformancesPost,
 
 
 

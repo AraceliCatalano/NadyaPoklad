@@ -22,7 +22,7 @@ const ForgotPassword = () => {
     return (
         <>
             <Container className="p-4 box">
-                <h2 className="mb-3"> Reset password.</h2>
+                <h2 className='title home-h5 mx-2 mt-3 mb-3'> Reset password.</h2>
                 {error && <Alert variant="danger">{error}</Alert>}
                 <Form onSubmit={handlePasswordReset}>
                     <FormGroup className="mb-3" controlId="formBasicEmail">
