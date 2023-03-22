@@ -24,7 +24,7 @@ const ContactItems = ({ getContactPostId }) => {
   return (
     <>     
       <h4 className="title mt-3"> Current contact items currently showing: </h4>
-      <Container className="mt-6 pt-6">
+      <Container className="mt-4 pt-6">
         
         <Button className="mt-2 mb-1"
           variant="btn"
@@ -38,22 +38,23 @@ const ContactItems = ({ getContactPostId }) => {
 
               <Row key={doc.id}>
                 <Row className="post-header">
-                  <Col sm={8}>
+                  <Col >
                     <p>Contact: {doc.contact}</p>
                   </Col>
-                  <Col sm={2}>
+                  </Row>
+                  <Row>
+                  <Col >
                     <Button
                       variant="btn"
-                      className="edit"
+                      className="edit me-2 mb-2"
                       onClick={(e) => getContactPostId(doc.id)}
                     >
                       Edit
                     </Button>
-                  </Col>
-                  <Col sm={2}>
+                  
                     <Button
                       variant="btn"
-                      className="delete"
+                      className="delete mb-2"
                       onClick={(e) => deleteHandler(doc.id)}
                     >
                       Delete

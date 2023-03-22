@@ -68,27 +68,30 @@ const AddConactItem = ({ id, setContactPostId }) => {
             {message?.msg}
           </Alert>
         )}
-        <Form onSubmit={handleSubmit} className="mb-3 contact-form">
-          <Col sm={6}>
-            <Form.Group className="mb-3" controlId="formArtistPostDescription">
-              <Form.Label>Conatct information</Form.Label>
+        <Form onSubmit={handleSubmit} >
+         <Col>
+        
+          <Row >
+            <Form.Group className="mb-3" controlId="formArtistPostDescription" >
+              <Form.Label>Contact information</Form.Label>
               <Form.Control
                 type="text"
-                placeholder="Add text to be displayed next to the image"
+                placeholder="Add text to be displayed "
                 value={contact}
                 onChange={(e) => setContact(e.target.value)}
+                className="contact-form-addInput"                
               />
               <Form.Text className="text-muted" id="formArtistPostDescription">
                 Add any contact information here.
               </Form.Text>
             </Form.Group>
+          </Row>
           </Col>
-
-          <Col sm={2} className="mb-3 form-bottom">
-            <Button variant="btn" type="Submit">
+          <Row xs="2" sm="3" md="3" lg="3" className="mb-3 ms-1 " flexWrap="no-wrap">
+            <Button variant="btn btn-btn" type="Submit">
               Add/ Update
             </Button>
-          </Col>
+          </Row>
           
         </Form>
       </Row>

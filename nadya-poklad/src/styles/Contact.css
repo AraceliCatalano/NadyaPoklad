@@ -1,4 +1,6 @@
+/*CCS FOR CONTACT SECTION AND CONTACT PAGE-ADMIN*/
 
+/*CONTACT SECTION START*/
 .cardText {
     display:block;
     flex-direction: column;
@@ -8,11 +10,7 @@
     color:white;
     text-align: start;
     margin-bottom: 5px !important;
-   
-  
 }
-
-
 .cardImage{
     min-height:200px;
     min-width: 290px;
@@ -20,10 +18,7 @@
     margin: 0;
     padding: 0;
     margin:auto;
-    
 }
-
-
 .ImgOverlay {
     background-color: #2F434A !important;
     color: white !important;
@@ -32,35 +27,37 @@
     width:85%;
     padding: 0;
     margin:auto;
-    
 }
-
 .cardBrand{
     background-color: #2F434A !important;
     height: 70px;
     flex-wrap: wrap;
     opacity: 75%;
     text-align: center;
-      
-}
-
+      }
 .cardBrandH3 {
-  
     height: 70px;
     margin: 20% 0%;
     padding-top: 5px;
     font-size: 36px;
     font-family: Marcellus;
     color: white !important;
- 
 }
-
-
-
 
 .cardText i {
     font-size: 16px;
     margin:5px;
     padding: 5px;
-    
+   
 }
+/*CONTACT SECTION END*/
+
+
+/*CONTACT PAGE-ADMIN START*/
+.contact-form-addInput{
+    width:350px !important;
+    min-width: 280px;
+}
+
+
+/*CONTACT PAGE-ADMIN START*/

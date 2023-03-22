@@ -20,7 +20,7 @@ export function ContactAdmin() {
       <Row>
         <SideBar/>
 
-        <Col sm="9" className="main-menu">
+        <Col sm={9} className="main-menu">
           <Container >
 
             <Row >
@@ -31,9 +31,9 @@ export function ContactAdmin() {
               <AddConactItem id={contactPostId} setContactPostId={setContactPostId} />
             </Row>
 
-            <Row>
+            
               <ContactItems getContactPostId={getContactPostIdHandler} />
-            </Row>
+           
 
           </Container>
         </Col>

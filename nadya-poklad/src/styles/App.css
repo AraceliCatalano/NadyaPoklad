@@ -19,14 +19,10 @@
 }
 
 
-/* html, body{
-    height: 100%;
-} */
-
 body {
     display: flex ;
     flex-direction: column ;
-    min-height:50vh;
+    /* min-height:50vh; */
     flex-wrap: wrap; 
     margin-top: 80px !important;
     background-color: #43555C !important;
@@ -202,6 +198,7 @@ span.navbar-toggler-icon {
 .link-text {
     color: #ACD8EC;
     text-decoration: none;
+    font-family: Marcellus, sans-serif;
 }
 
 .link-text:hover {
@@ -213,8 +210,30 @@ span.navbar-toggler-icon {
 
 /****** NOT FOUND ******/
 .not-found {
+    margin-top: 20px;
+    text-align: center;
     justify-items: center;
+
 }
+
+.not-found-img{
+    padding: 0 !important;
+    min-width: 290px; 
+    width: 900px; /* ancho de la imagen */
+    height: 200px; /* altura de la imagen */
+    text-align:center;
+    /* -webkit-clip-path: polygon(0 50%, 25% 0, 75% 0, 100% 50%, 75% 100%, 25% 100%); 
+    clip-path: polygon(0 50%, 25% 0, 75% 0, 100% 50%, 75% 100%, 25% 100%);  */
+    border:#ACD8EC 2px solid;
+    border-top-color:  #ACD8EC
+  }
+  .not-found-title {
+    font-family: "Marcellus" !important;
+    text-decoration: none !important;
+    color: white !important;
+    margin-left: 0px;
+}
+
 /****** HOME ******/
 /****** END NOT FOUND ******/
 
