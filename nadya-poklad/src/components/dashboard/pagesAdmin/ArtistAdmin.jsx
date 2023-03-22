@@ -11,7 +11,7 @@ export  function ArtistAdmin() {
         <Row>
           <SideBar />
           <Col sm="9" className="main-menu">
-            <Container fluid>
+            <Container fluid >
               <Row>
                <h4 className="title mt-3 mb-4">Artist page: content administration </h4>
               </Row>
@@ -21,12 +21,9 @@ export  function ArtistAdmin() {
                <p>You can also use the Edit and cancel Button next to each post to update the text or change the image of the post. </p>
                <p>IMPORTANT: The order display field controls the order in which the posts are displayed. Please always use consecutive numbers. This keeps the image of image posts with odd numberts at the left, and the image of the posts with even numbers in the order display at the right.</p>
               </Row>
-              <Row>
-               <MenuItems />
-              </Row>
-              <Row>
-               
-              </Row>
+              
+              <MenuItems />
+            
           </Container>
           </Col>
         </Row>

@@ -17,9 +17,6 @@ export function UpcomingEventsAdmin() {
               <Row>
                <MenuItems />
               </Row>
-              <Row>
-               
-              </Row>
           </Container>
           </Col>
         </Row>

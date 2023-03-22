@@ -83,7 +83,7 @@ export default function MenuItemCard({ item, deleteItem, setError, setSuccessful
   }
 
   return (
-    <Card className='card-edition menu-item-card-text-event m-2'>
+    <Card className='card-edition-artist menu-item-card-text-event m-2'>
           <Card.Img
             variant="top"
             src={image}
