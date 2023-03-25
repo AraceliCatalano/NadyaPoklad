@@ -1,19 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import AddConactItem from "../contactAdmin/AddConactItem";
-import ContactItems from "../contactAdmin/ContactItems";
+
 import '../../../styles/App.css';
 import SideBar from "./SideBar";
 
 
 export function ContactAdmin() {
-  //[For Alba and future Ara] "getContactPostId" is the prop passed to contactItems 
-  const [contactPostId, setContactPostId] = useState("");
-
-  const getContactPostIdHandler = (id) => {
-    console.log("The ID of document to be edited: ", id);
-    setContactPostId(id);
-  };
+  
 
   return (
     <>
@@ -28,11 +21,11 @@ export function ContactAdmin() {
             </Row>
 
             <Row >
-              <AddConactItem id={contactPostId} setContactPostId={setContactPostId} />
+              IMPORT ADD CONTACT ITEM
             </Row>
 
             <Row>
-              <ContactItems getContactPostId={getContactPostIdHandler} />
+              IMPORT CONTACT ITEMS LIST
             </Row>
 
           </Container>
