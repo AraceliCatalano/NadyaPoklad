@@ -22,7 +22,7 @@ const ArtistPreview= ()=> {
                 <Row >
                 {artistPosts.map((post) =>
                 
-                    <Col key={post.id} className="">
+                    <Col key={post.id} className="image-artist-container">
                         <Image src={post.image}  className='image-artist-home' />
                         {/* {post.description} */}
                 
