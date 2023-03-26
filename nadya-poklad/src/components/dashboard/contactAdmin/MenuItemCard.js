@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Card, Col, Form, Button } from "react-bootstrap";
+import { Card, Col, Form, Button, Modal } from "react-bootstrap";
 import { db } from "../../../firebase-config";
 import { doc, updateDoc } from "firebase/firestore";
 import '../../../styles/App.css';
@@ -13,10 +13,22 @@ export default function MenuItemCard({ item, deleteItem, setError, setSuccessful
   const [cardClass, setCardClass] = useState("");
   const [updatedDescription, setUpdatedDescription] = useState(item.description);
 
+  
+  const [showConfirmDelete, setShowConfirmDelete] = useState(false);
+
   const itemDocRef = doc(db, "Contact", itemId);
+
+  const handleShowConfirmDelete = () => {
+    setShowConfirmDelete(true);
+  }
+
+  const handleClose = () => setShowConfirmDelete(false);
+  const handleCancelDeletion = () => setShowConfirmDelete(false)
+  
 
   const handleDelete = () => {
     deleteItem(itemId);
+    setShowConfirmDelete(false);
   };
 
   const handleUpdate = async () => {
@@ -38,6 +50,7 @@ export default function MenuItemCard({ item, deleteItem, setError, setSuccessful
   };
 
   return (
+    <>
     <Card className={[cardClass, 'card-edition-contact', 'mt-2', 'mb-2']} fluid  >
 
       <Col xs={12}>
@@ -83,7 +96,7 @@ export default function MenuItemCard({ item, deleteItem, setError, setSuccessful
         <Card.Body className="card-end-buttons">
           <Col style={{ margin: 'auto' }} >
 
-            <Button onClick={handleDelete} variant="btn" className="mt-2 mb-3">   Delete  </Button>
+            <Button onClick={handleShowConfirmDelete} variant="btn" className="mt-2 mb-3"> Delete</Button>
             <Button
               onClick={handleUpdate}
               variant={update ? "btn" : "btn"}
@@ -100,10 +113,25 @@ export default function MenuItemCard({ item, deleteItem, setError, setSuccessful
 
         </Card.Body>
       </Col>
-
-
     </Card>
 
+    {/* MODAL PARA DESPLEGAR CONFIRMACIÓN DE ELIMINACIÓN DE USUARIO */}
 
+    <Modal show={showConfirmDelete} onHide={handleClose} className="mt-5 p-4">
+      <Modal.Body>
+      <h5 className="title">Do you confirm you want to delete this information?</h5>
+        <p >{description}</p>
+        <Modal.Footer>
+          <Button onClick={handleCancelDeletion} variant="btn">
+            Cancel
+          </Button>
+          <Button onClick={handleDelete} variant="btn">
+            Yes, delete.
+          </Button>
+        </Modal.Footer>
+      </Modal.Body>
+    </Modal>
+
+  </>
   );
 }
