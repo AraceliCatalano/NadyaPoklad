@@ -6,20 +6,11 @@ import './MenuItemsContact.css'
 
 export default function AddMenuItem({ menuItems }) {
   const [description, setDescription] = useState("");
-  // const [title, setTitle] = useState('');
-  // const [date, setDate]= useState("");
-  // const [eventType, setEventType] = useState('');
-  // const[ linkToBuy, setlinkToBuy]=useState('')
-  // const[ linkToEvent, setlinkToEvent]=useState('')
-  // const[ eventLocation, setEventLocation]=useState('')
+  const [contactType, setContactType] = useState('');
 
-  // const [active, setActive] = useState(true);
   const [error, setError] = useState(null);
   const [formError, setFormError] = useState(false);
   const [loading, setLoading] = useState(false);
-  // const [imageFile, setImageFile] = useState(null);
-  // const [inputKey, setInputKey] = useState("");
-  // const [fileValid, setFileValid] = useState(true);
 
   useEffect(() => {
     setError(menuItems.error);
@@ -31,33 +22,17 @@ export default function AddMenuItem({ menuItems }) {
 
   const clearInputStates = () => {
     setDescription("");
+    setContactType('');
     setError(null);
-  
-    // setDate('');
-    // setTitle('');
-    // setlinkToBuy("");
-    // setlinkToEvent("");
-    // setEventType("");
-    // setEventLocation("");
-    // setImageFile(null);
-    // setInputKey(Date.now());
   };
 
   const submitForm = (e) => {
     e.preventDefault();
     const item = {
       description: description,
-      // title:title,
-      // image: null,
-      // imageFileName: null,
-      // date:date,
-      // linkToBuy: linkToBuy,
-      // linkToEvent: linkToEvent,
-      // eventType:eventType,
-      // eventLocation:eventLocation,
-     
+      contactType: contactType,
     };
- 
+
     if (!formError) {
       const addedMenuItem = menuItems.addItem(item);
       if (addedMenuItem) clearInputStates();
@@ -66,42 +41,44 @@ export default function AddMenuItem({ menuItems }) {
     }
   }
 
-  // const handleFileChange = (e) => {
-  //   const file = e.target.files[0];
-  //   if (file) {
-  //     if (file.size < 2000000) {
-  //       setFileValid(true);
-  //       setFormError(false);
-  //       setImageFile(file);
-  //     } else {
-  //       setFileValid(false);
-  //       setFormError(true);
-  //     }
-  //   }
-  // };
-  
+
   return (
     <Form
       onSubmit={submitForm}
       className="menu-add-form"
       data-testid="add-menu-item-form"
     >
-      <Row>
-<Col>
-      <Form.Label>Contact:</Form.Label>
-          <Form.Control
-            as="textarea" rows={2} cols={1}
-            name="contact-description"
-            className="menu-add-form-input-description "
-            type="text"
-            placeholder="Enter the text that will appear"
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
-            required
-            />
-            </Col>
-       
-      </Row>
+
+      <Col>
+      <Form.Label className="mt-3">Complete the following fields to add a new contact item:</Form.Label>
+        <Form.Select name="role" className="mt-2 mb-2" 
+          value={contactType}
+          onChange={(e) => setContactType(e.target.value)}
+        >
+          <option value="" disabled selected hidden>Select contact type</option>
+          <option value="Email">E-mail address</option>
+          <option value="Youtube">YouTube</option>
+          <option value="Instagram">Instagram</option>
+          <option value="Facebook">Facebook</option>
+          <option value="TikTok">TikTok</option>
+          <option value="Twitter">Twitter</option>
+          <option value="Twitch">Twitch</option>
+          {/* {errorType.error && <Form.Label> {errorType.msg} </Form.Label>} */}
+        </Form.Select>
+
+        
+        <Form.Control
+          as="textarea" rows={2} cols={1}
+          name="contact-description"
+          className="menu-add-form-input-description "
+          type="text"
+          placeholder="Enter the text that will appear"
+          value={description}
+          onChange={(e) => setDescription(e.target.value)}
+          required
+        />
+      </Col>
+
       <Row>
         <Col className="menu-form-submit-container">
           <Button

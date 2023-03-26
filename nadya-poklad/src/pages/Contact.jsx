@@ -1,10 +1,31 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { collection, getDocs, where, query } from 'firebase/firestore';
+import { db } from '../firebase-config';
 import { Card, Container, Row } from 'react-bootstrap';
 import '../styles/Contact.css';
-import Piano from '../Assests/images/PianoContact.jpg';
 
 
 export function Contact() {
+
+  const imageUrl = 'https://firebasestorage.googleapis.com/v0/b/nadyapokladsite.appspot.com/o/Contact%2FPianoContact.jpg?alt=media&token=cce29ac2-9353-465d-87dd-a3eaa4c8fb91';
+
+  const [emailContact, setEmailContact] = useState([]);
+  const [youTubeContact, setYoutubeContact] = useState([]);
+
+  useEffect(() => {
+    const emailContactRef = collection(db, "Contact");
+    const querycontactEmail = query(emailContactRef, where("contactType", "==", "Email"));
+    getDocs(querycontactEmail)
+      .then(res => setEmailContact(res.docs.map(doc => ({ id: doc.id, ...doc.data() }))))
+  }, []);
+
+  useEffect(() => {
+    const YoutubeContactRef = collection(db, "Contact");
+    const queryYoutubeEmail = query(YoutubeContactRef, where("contactType", "==", "Youtube"));
+    getDocs(queryYoutubeEmail)
+      .then(res => setYoutubeContact(res.docs.map(doc => ({ id: doc.id, ...doc.data() }))))
+  }, []);
+
   return (
     <>
       <Container fluid="sm">
@@ -20,19 +41,24 @@ export function Contact() {
       </Container>
 
       <Card className='ImgOverlay '>
-        <Card.Img src={Piano} alt="Card image" className='cardImage' />
-
+      <Card.Img src={imageUrl} alt="Card image" className='cardImage' />
         <div className="position-absolute bottom-0 start-0 cardText imgOverlay">
-
-          <a href='mailto:pokladweb@gmail.com' type='email' target='_blank' rel="noreferrer" className='link cardText'>
-            <i className="bi bi-envelope-fill icon"></i>
-            pokladweb@gmail.com
-          </a>
-
-          <a className='link' target="_blank" rel="noopener noreferrer" href='https://www.youtube.com/@nadiiapoklad1533'>
-            <i className="bi bi-youtube icon"></i>
-            Nadya Poklad - YouTube
-          </a>
+          {emailContact.map((post) =>
+            <div key={post.id}>
+              <a href={`mailto:${post.description}`} type='email' target='_blank' rel="noreferrer" className='link cardText'>
+                <i className="bi bi-envelope-fill icon"></i>
+                {post.description}
+              </a>
+            </ div >
+          )}
+          {youTubeContact.map((post) =>
+            <div key={post.id}>
+              <a className='link' target="_blank" rel="noopener noreferrer" href={post.description}>
+                <i className="bi bi-youtube icon"></i>
+                Nadya Poklad - YouTube
+              </a>
+            </ div >
+          )}
         </div>
       </Card>
     </>
