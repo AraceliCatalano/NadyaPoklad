@@ -12,8 +12,6 @@ export default function MenuItemCard({ item, deleteItem, setError, setSuccessful
   const [update, setUpdate] = useState(false);
   const [cardClass, setCardClass] = useState("");
   const [updatedDescription, setUpdatedDescription] = useState(item.description);
-
-  
   const [showConfirmDelete, setShowConfirmDelete] = useState(false);
 
   const itemDocRef = doc(db, "Contact", itemId);
@@ -72,7 +70,6 @@ export default function MenuItemCard({ item, deleteItem, setError, setSuccessful
                   <option value="TikTok">TikTok</option>
                   <option value="Twitter">Twitter</option>
                   <option value="Twitch">Twitch</option>
-                  {/* {errorType.error && <Form.Label> {errorType.msg} </Form.Label>} */}
                 </Form.Select>
 
                 <Form.Control
@@ -115,7 +112,7 @@ export default function MenuItemCard({ item, deleteItem, setError, setSuccessful
       </Col>
     </Card>
 
-    {/* MODAL PARA DESPLEGAR CONFIRMACIÓN DE ELIMINACIÓN DE USUARIO */}
+    {/* MODAL TO DISPLAY CONFIRMATION BEFORE DELETING INFORMATION */}
 
     <Modal show={showConfirmDelete} onHide={handleClose} className="mt-5 p-4">
       <Modal.Body>
