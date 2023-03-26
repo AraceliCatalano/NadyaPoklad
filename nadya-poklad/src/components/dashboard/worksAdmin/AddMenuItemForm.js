@@ -19,7 +19,7 @@ export default function AddMenuItem({ menuItems }) {
   const [description, setDescription] = useState('');
   const [url, setUrl] = useState('')
 
-  const [imageFile, setImageFile] = useState(defaultImageUrl);
+  const [imageFile, setImageFile] = useState(null);
   const [inputKey, setInputKey] = useState("");
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -72,14 +72,14 @@ export default function AddMenuItem({ menuItems }) {
 
   const handleFileChange = (e) => {
     const file = e.target.files[0];
-    if (file !== defaultImageUrl) {
+    if (file) {
       if (file.size < 2000000) {
         setFileValid(true);
         setFormError(false);
         setImageFile(file);
       } else {
-        setImageFile(defaultImageUrl)
         setFileValid(false);
+        setImageFile(defaultImageUrl)
         setFormError(true);
       }
     }
@@ -186,8 +186,8 @@ export default function AddMenuItem({ menuItems }) {
                 className="preview-image"
                 width="auto"
                 height="250px"
-                // src={URL.createObjectURL(imageFile)}
-                src={imageFile}
+                src={URL.createObjectURL(imageFile)}
+                
               />
             )}
           </Container>
