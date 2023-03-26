@@ -58,11 +58,7 @@ export default function AddMenuItem({ menuItems }) {
           <option value="" disabled selected hidden>Select contact type</option>
           <option value="Email">E-mail address</option>
           <option value="Youtube">YouTube</option>
-          <option value="Instagram">Instagram</option>
-          <option value="Facebook">Facebook</option>
-          <option value="TikTok">TikTok</option>
-          <option value="Twitter">Twitter</option>
-          <option value="Twitch">Twitch</option>
+          <option value="SocialMedia">Social media</option>
           {/* {errorType.error && <Form.Label> {errorType.msg} </Form.Label>} */}
         </Form.Select>
 

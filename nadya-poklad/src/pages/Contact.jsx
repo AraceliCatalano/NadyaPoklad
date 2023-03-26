@@ -11,7 +11,8 @@ export function Contact() {
 
   const [emailContact, setEmailContact] = useState([]);
   const [youTubeContact, setYoutubeContact] = useState([]);
-
+  const [socialMediaContact, setSocialMediaContact] = useState([]);
+ 
   useEffect(() => {
     const emailContactRef = collection(db, "Contact");
     const querycontactEmail = query(emailContactRef, where("contactType", "==", "Email"));
@@ -21,9 +22,16 @@ export function Contact() {
 
   useEffect(() => {
     const YoutubeContactRef = collection(db, "Contact");
-    const queryYoutubeEmail = query(YoutubeContactRef, where("contactType", "==", "Youtube"));
-    getDocs(queryYoutubeEmail)
+    const queryYoutubeContact = query(YoutubeContactRef, where("contactType", "==", "Youtube"));
+    getDocs(queryYoutubeContact)
       .then(res => setYoutubeContact(res.docs.map(doc => ({ id: doc.id, ...doc.data() }))))
+  }, []);
+
+  useEffect(() => {
+    const socialMediaRef = collection(db, "Contact");
+    const querySocialMediaContact = query(socialMediaRef, where("contactType", "==", "SocialMedia"));
+    getDocs(querySocialMediaContact)
+      .then(res => setSocialMediaContact(res.docs.map(doc => ({ id: doc.id, ...doc.data() }))))
   }, []);
 
   return (
@@ -45,17 +53,32 @@ export function Contact() {
         <div className="position-absolute bottom-0 start-0 cardText imgOverlay">
           {emailContact.map((post) =>
             <div key={post.id}>
+              <p className="title mx-2 mb-1">Main contacts</p> 
               <a href={`mailto:${post.description}`} type='email' target='_blank' rel="noreferrer" className='link cardText'>
                 <i className="bi bi-envelope-fill icon"></i>
                 {post.description}
               </a>
             </ div >
           )}
+          
           {youTubeContact.map((post) =>
             <div key={post.id}>
               <a className='link' target="_blank" rel="noopener noreferrer" href={post.description}>
                 <i className="bi bi-youtube icon"></i>
                 Nadya Poklad - YouTube
+              </a>
+            </ div >
+          )}
+          {socialMediaContact.length === 0 
+          ? 
+          ""
+          :
+          <p className="title mx-2 mb-1 mt-4">Social media</p> 
+          }
+          {socialMediaContact.map((post) =>
+            <div key={post.id}>
+              <a className='link mx-2' target="_blank" rel="noopener noreferrer" href={post.description}>
+               {post.description}
               </a>
             </ div >
           )}
