@@ -3,6 +3,7 @@ import { Container, Row, Col } from "react-bootstrap";
 
 import '../../../styles/App.css';
 import SideBar from "./SideBar";
+import MenuItems from "../contactAdmin/MenuItems";
 
 
 export function ContactAdmin() {
@@ -21,13 +22,10 @@ export function ContactAdmin() {
             </Row>
 
             <Row >
-              IMPORT ADD CONTACT ITEM
+              <MenuItems />
             </Row>
 
-            <Row>
-              IMPORT CONTACT ITEMS LIST
-            </Row>
-
+           
           </Container>
         </Col>
       </Row>

@@ -5,11 +5,12 @@ import { db } from '../../../firebase-config';
 export default function useHookToRender() {
 
   const [UpcomingEventsPost, setUpcomingEventsPost] = useState([]);
-  const [worksPianistPost, setworksPianistPost] = useState([])
-  const [worksComposerPost, setWorksComposerPost] = useState([])
-  const [worksTeacherPost, setWorksTeacherPost] = useState([])
-  const [worksMusicalOrganizerPost, setWorksMusicalOrganizerPost] = useState([])
-  const [performancesPost, setPerformancesPost] = useState([])
+  const [worksPianistPost, setworksPianistPost] = useState([]);
+  const [worksComposerPost, setWorksComposerPost] = useState([]);
+  const [worksTeacherPost, setWorksTeacherPost] = useState([]);
+  const [worksMusicalOrganizerPost, setWorksMusicalOrganizerPost] = useState([]);
+  const [performancesPost, setPerformancesPost] = useState([]);
+  const [contactPost, setContactPost] = useState([]);
 
   useEffect(() => {
     const UpcomingEventsPosttImageRef = collection(db, "UpcomingEvents");
@@ -55,7 +56,16 @@ export default function useHookToRender() {
 
   }, []);
 
-  //console.log(performancesPost, "estas son las performances")
+  useEffect(() => {
+    const worksPosted = collection(db, "Contact");
+    const queryContactPost = query(worksPosted);
+    getDocs(queryContactPost)
+      .then(res => setContactPost(res.docs.map(doc => ({ id: doc.id, ...doc.data() }))));
+
+  }, []);
+
+
+
   return {
     UpcomingEventsPost, setUpcomingEventsPost,
     worksComposerPost, setWorksComposerPost,
@@ -63,5 +73,7 @@ export default function useHookToRender() {
     worksTeacherPost, setWorksTeacherPost,
     worksMusicalOrganizerPost, setWorksMusicalOrganizerPost,
     performancesPost, setPerformancesPost,
+    contactPost, setContactPost
+
   };
 }

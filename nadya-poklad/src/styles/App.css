@@ -198,7 +198,8 @@ span.navbar-toggler-icon {
 .link-text {
     color: #ACD8EC;
     text-decoration: none;
-    font-family: Marcellus, sans-serif;
+    /* font-family: Marcellus, sans-serif; */
+    font-weight: 400;
 }
 
 .link-text:hover {

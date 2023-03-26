@@ -18,9 +18,7 @@ export default function WorksAdmin() {
           <Row>
            <MenuItems />
           </Row>
-          <Row>
-           
-          </Row>
+          
       </Container>
       </Col>
     </Row>
