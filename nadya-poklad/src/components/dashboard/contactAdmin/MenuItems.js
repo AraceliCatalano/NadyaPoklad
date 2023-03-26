@@ -54,7 +54,7 @@ export default function MenuItems() {
           </Col>
         </Row>
         {addMenuItemVisible ? (
-          <AddMenuItemForm menuItems={menuItems} />
+          <AddMenuItemForm menuItems={menuItems} setAddMenuItemVisible={setAddMenuItemVisible}/>
         ) : null}
       </Row>
     

@@ -185,6 +185,7 @@ span.navbar-toggler-icon {
 
 .loginContainer{
     max-width: 500px;
+    margin-bottom: 150px;
 }
 .login-title{
     border-bottom:1px solid #ACD8EC !important;
@@ -206,6 +207,10 @@ span.navbar-toggler-icon {
     color: white;
     font-weight:500;
     text-decoration: none;
+}
+
+.reset-pass-cont {
+    padding-bottom: 150px;
 }
 /****** END RESET PASWORD ******/
 

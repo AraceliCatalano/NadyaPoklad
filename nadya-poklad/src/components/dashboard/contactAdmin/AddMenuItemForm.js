@@ -4,7 +4,7 @@ import ErrorMessage from "../Messages/ErrorMessage";
 import '../../../styles/App.css';
 import './MenuItemsContact.css'
 
-export default function AddMenuItem({ menuItems }) {
+export default function AddMenuItem({ menuItems, setAddMenuItemVisible }) {
   const [description, setDescription] = useState("");
   const [contactType, setContactType] = useState('');
 
@@ -35,7 +35,10 @@ export default function AddMenuItem({ menuItems }) {
 
     if (!formError) {
       const addedMenuItem = menuItems.addItem(item);
-      if (addedMenuItem) clearInputStates();
+      if (addedMenuItem) {
+        clearInputStates();
+        setAddMenuItemVisible(false);
+      }
     } else {
       setError("Form has unresolved errors!");
     }

@@ -52,7 +52,7 @@ export default function LoginAdmin() {
           Login
         </Button>
 
-        <div className="p-2 text-center">
+        <div className="p-2 text-center mb-5">
           Forgot your password ?
           <Link to="/resetPassword" className="link-text">
             - Reset -
@@ -61,35 +61,5 @@ export default function LoginAdmin() {
       </Form>
     </Container>
   );
-  // return (
-  //   <Container fluid className="loginContainer">
-
-  //      <div className='login-title'> Site Management </div>    
-  //      <br/>
-
-  //   {error && <Alert variant="danger">{error}</Alert>}
-
-  //   <Form onSubmit={handleSubmit}>
-  //     <FormGroup className="mb-3" controlId="formBasicEmail">
-  //       <Form.Control type="email" placeholder="Email Address" 
-  //         onChange={(e) => setEmail(e.target.value)}
-  //         /> 
-  //     </FormGroup>
-
-  //     <FormGroup className="mb-3" controlId="formBasicPassword">
-  //       <Form.Control type="password" placeholder="Password" 
-  //        onChange={(e) => setPassword(e.target.value)}
-  //        /> 
-  //     </FormGroup>
-
-
-  //     <Button variant="btn" type="submit" value="Log In" size='md'> Login</Button>
-
-  //     <div className="p-2 text-center">
-  //       Forgot your password?<Link to="/resetPassword" className="link-text">  Reset.</Link>
-  //     </div>
-
-  //   </Form>
-  //   </Container>
-  // )
+  
 }
