@@ -41,6 +41,7 @@
 
 }
 .card-end-buttons{
+    margin-top:10px;
     text-align: center;
     padding: 5px !important;
     margin-bottom: 10px !important;
@@ -121,12 +122,11 @@
 }
 
 .card-edition{
-    
+    height: 770px;
     max-width: 450px !important;
     min-width: 260px !important;
     background-color: rgba(65, 129, 141,0.5) !important;
     color: white !important;
-   
     margin: auto !important;
 
 }
@@ -150,7 +150,7 @@
 
 
 .menu-item-card-description-event{
-    height: 8em;
+    height: 7em;
     overflow-y: auto;
 }
 

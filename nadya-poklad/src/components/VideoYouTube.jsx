@@ -7,7 +7,7 @@ export function VideoYouTube({ url, title, id }) {
     <Container >
       <Row>
 
-      <a href={url} target={"_blank"}  >
+      <a href={url} target={"_blank"} rel={'noreferrer'} >
         <iframe   src={url} title={title } width="300" height="255" allowFullScreen></iframe>     
       </a>
       </Row>

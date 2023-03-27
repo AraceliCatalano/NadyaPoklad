@@ -141,7 +141,7 @@ export default function AddMenuItem({ menuItems }) {
             placeholder="Enter the url to event organizer"
             value={linkToEvent}
             onChange={(e) => setlinkToEvent(e.target.value)}
-            required
+            
           />
           <Form.Label>Link to Buy Tickets</Form.Label>
           <Form.Control
@@ -151,7 +151,7 @@ export default function AddMenuItem({ menuItems }) {
             placeholder="Enter the url to buy tickets"
             value={linkToBuy}
             onChange={(e) => setlinkToBuy(e.target.value)}
-            required
+            
           />
           <Form.Label>Event Location</Form.Label>
           <Form.Control

@@ -1,7 +1,6 @@
 import React from 'react'
 import '../../../styles/App.css'
-import { Button, Container, Row, Col} from 'react-bootstrap';
-import { useNavigate } from "react-router";
+import { Container, Row, Col} from 'react-bootstrap';
 import { useUserAuth } from '../../../context/UserAuthContext';
 import SideBar from './SideBar';
 
@@ -9,7 +8,7 @@ import SideBar from './SideBar';
 export function Dashboard() {
 
    const {user} = useUserAuth();
-   const navigate = useNavigate();
+  
 
  
 

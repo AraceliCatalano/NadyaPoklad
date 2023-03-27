@@ -25,7 +25,7 @@ export default function AddMenuItem({ menuItems }) {
   }, [menuItems.error]);
 
   useEffect(() => {
-    setLoading(menuItems.laoding);
+    setLoading(menuItems.loading);
   }, [menuItems.loading])
 
   const clearInputStates = () => {

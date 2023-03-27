@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Container, Row, Col, Button, Spinner, Form } from "react-bootstrap";
+import { Row, Col, Button, Spinner, Form } from "react-bootstrap";
 import ErrorMessage from "../Messages/ErrorMessage";
 import '../../../styles/App.css';
 import './MenuItemsContact.css'
@@ -53,19 +53,21 @@ export default function AddMenuItem({ menuItems, setAddMenuItemVisible }) {
     >
 
       <Col>
-      <Form.Label className="mt-3">Complete the following fields to add a new contact item:</Form.Label>
-        <Form.Select name="role" className="mt-2 mb-2" 
-          value={contactType}
-          onChange={(e) => setContactType(e.target.value)}
-        >
-          <option value="" disabled selected hidden>Select contact type</option>
-          <option value="Email">E-mail address</option>
-          <option value="Youtube">YouTube</option>
-          <option value="SocialMedia">Social media</option>
-          {/* {errorType.error && <Form.Label> {errorType.msg} </Form.Label>} */}
-        </Form.Select>
+        <Form.Label className="mt-3">Complete the following fields to add a new contact item:</Form.Label>
+        <Col sm={4}>
+          <Form.Select name="role" className="mt-2 mb-2"
+            value={contactType}
+            onChange={(e) => setContactType(e.target.value)}
+          >
+            <option value="" disabled selected hidden>Select contact type</option>
+            <option value="Email">E-mail address</option>
+            <option value="Youtube">YouTube</option>
+            <option value="SocialMedia">Social media</option>
+            {/* {errorType.error && <Form.Label> {errorType.msg} </Form.Label>} */}
+          </Form.Select>
+        </Col>
 
-        
+
         <Form.Control
           as="textarea" rows={2} cols={1}
           name="contact-description"
@@ -78,8 +80,7 @@ export default function AddMenuItem({ menuItems, setAddMenuItemVisible }) {
         />
       </Col>
 
-      <Row>
-        <Col className="menu-form-submit-container">
+        <Col className="menu-form-submit-container" >
           <Button
             variant="btn"
             type="submit"
@@ -95,12 +96,12 @@ export default function AddMenuItem({ menuItems, setAddMenuItemVisible }) {
               className="menu-form-spinner"
             />
           ) : null}
+      
         </Col>
-      </Row>
       {error !== null && (
-        <Row>
+        <Col >
           <ErrorMessage message={error} />
-        </Row>
+        </Col>
       )}
     </Form>
   );

@@ -8,11 +8,11 @@ import useWorksItems from "../FirebaseHooks/useWorksItems";
 export default function AddMenuItem({ menuItems }) {
 
   const defaultImageUrl = "https://firebasestorage.googleapis.com/v0/b/nadyapokladsite.appspot.com/o/General%2FNP.png?alt=media&token=967d7a10-db01-44a3-83c2-fe0595197e93"
-  const imageDefault = <img src={defaultImageUrl} alt="Default" />;
+  // const imageDefault = <img src={defaultImageUrl} alt="Default" />;
 
   const { categories } = useWorksItems()
 
-  const [itemId, setItemId] = useState('');
+  // const [itemId, setItemId] = useState('');
   const [category, setCategory] = useState('')
   const [date, setDate] = useState('')
   const [title, setTitle] = useState('');

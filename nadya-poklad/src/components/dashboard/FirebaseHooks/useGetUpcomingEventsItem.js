@@ -76,7 +76,7 @@ export default function useGetUpcomingEventsItems() {
   };
 
   const addItemToFirestore = async (item) => {
-    const docRef = await addDoc(collection(db, "UpcomingEvents"), item)
+    await addDoc(collection(db, "UpcomingEvents"), item)
       .then((docRef) => {
        item.id = docRef.id;
         setData((prevState) => [...prevState, item]);
