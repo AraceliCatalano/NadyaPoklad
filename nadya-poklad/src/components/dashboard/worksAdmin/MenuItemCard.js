@@ -9,6 +9,7 @@ import useWorksItems from "../FirebaseHooks/useWorksItems";
 
 export default function MenuItemCard({ item, deleteItem, setError, setSuccessfull }) {
 
+
   let { categories } = useWorksItems()
 
   const [itemId, setItemId] = useState(item.id);
@@ -29,12 +30,25 @@ export default function MenuItemCard({ item, deleteItem, setError, setSuccessful
   const [updatedUrl, setUpdatedUrl] = useState(item.url)
   const [updatedImage, setUpdatedImage] = useState(null);
   const [showConfirmDelete, setShowConfirmDelete] = useState(false);
+  const [urlError, setUrlError ] = useState(false)
+
+  const urlRegex = /^https?:\/\/\S+$/i;  //para validar la direccion URL que completa el campo
+  
+  function validateUrl(url) {
+    const urlRegex = /^https?:\/\/\S+$/i;
+    return urlRegex.test(url);
+  }
 
   const itemDocRef = doc(db, "Works", itemId);
 
   const handleShowConfirmDelete = () => {
     setShowConfirmDelete(true);
   }
+
+  const handleCancel = () => {
+    setUpdate(false)
+    
+  };
 
   const handleClose = () => setShowConfirmDelete(false);
   const handleCancelDeletion = () => setShowConfirmDelete(false)
@@ -98,6 +112,9 @@ export default function MenuItemCard({ item, deleteItem, setError, setSuccessful
           setUrl(updatedUrl);
 
           setSuccessfull("Item updated succesfully!");
+          setTimeout(() => {
+            setSuccessfull(null);
+          }, 5000);
         })
         .catch((error) => {
           setError(error.message);
@@ -105,16 +122,21 @@ export default function MenuItemCard({ item, deleteItem, setError, setSuccessful
     };
     setUpdate(!update);
   };
-  const imageDefault = <img src="https://firebasestorage.googleapis.com/v0/b/nadyapokladsite.appspot.com/o/General%2FNP.png?alt=media&token=967d7a10-db01-44a3-83c2-fe0595197e93" alt="default_image" />
+   
+  const imageDefault = "https://firebasestorage.googleapis.com/v0/b/nadyapokladsite.appspot.com/o/General%2FNP.png?alt=media&token=967d7a10-db01-44a3-83c2-fe0595197e93"
 
   const handleChangeImageInput = (e) => {
-    let file = e.target.files[0] || imageDefault;
+    const file =   e.target.files[0] 
+
     if (file) {
       setImage(URL.createObjectURL(file))
-    }
+    } 
+  
     setUpdatedImage(file)
-  }
+    }
+  
 
+   
   return (
     <>
       <Card className={[cardClass, 'card-edition', "menu-item-card-text-event", 'mt-2', 'mb-2']} >
@@ -124,6 +146,28 @@ export default function MenuItemCard({ item, deleteItem, setError, setSuccessful
           alt={title}
           className="menu-item-card-image-event"
         />
+         {
+            (updatedCategory !== "Performances") 
+              &&
+            <Col xs={12}>
+            <Card.Body style={{ fontSize: '14px' }} className='card-body-event'  >
+              <Form.Label>Image </Form.Label>
+
+              {update === true && (
+                <Form.Control
+                  type="file"
+                  placeholder="Select an image"
+                
+                  onChange={(e) => handleChangeImageInput(e)}
+                  id="input-update-image"
+                  accept=".jpg, .jpeg, .png, .jfif"
+                  size="sm"
+                />
+                )}
+                     
+             </Card.Body>
+          </Col>
+           }
 
         <Col xs={12}>
           <Card.Body style={{ fontSize: '12px' }} className=' card-body-event  '>
@@ -169,7 +213,7 @@ export default function MenuItemCard({ item, deleteItem, setError, setSuccessful
             <Card.Text  >
               {update ? (
                 <Form.Group className="mb-3">
-                  <Form.Select id="enabledSelect" onChange={(e) => setUpdatedCategory(e.target.value)}>
+                  <Form.Select id="enabledSelect" onChange={(e) => setUpdatedCategory(e.target.value)} value={updatedCategory}>
                     {categories.map(cat => <option key={cat} >{cat}</option>)}
                   </Form.Select>
                 </Form.Group>
@@ -184,6 +228,39 @@ export default function MenuItemCard({ item, deleteItem, setError, setSuccessful
         <Col xs={12}>
           <Card.Body style={{ fontSize: '14px' }} className='card-body-event'>
             <Form.Label>url:</Form.Label>
+            {
+              (updatedCategory === "Performances")
+              &&
+              <Card.Text  >
+                { update ? (
+                  <Form.Control
+                    type="text"
+                    size="sm"
+                    defaultValue={url}
+                    placeholder="Enter url o link "
+                    onChange={
+                      (e) => {
+                        setUpdatedUrl(e.target.value)
+                        setUrlError(!validateUrl(e.target.value));
+                    
+                    }}
+                    isInvalid={urlError}
+                    required
+                  />
+                  
+                ) : (
+                 url
+                  )}
+                  <Form.Control.Feedback type="invalid">
+                    Please enter a valid URL.
+                  </Form.Control.Feedback>
+                </Card.Text>
+}
+
+
+           { 
+           (updatedCategory !== "Performances")
+           &&
             <Card.Text  >
               {update ? (
                 <Form.Control
@@ -193,10 +270,12 @@ export default function MenuItemCard({ item, deleteItem, setError, setSuccessful
                   onChange={(e) => setUpdatedUrl(e.target.value)}
                   size="sm"
                 />
-              ) : (
-                url
-              )}
+              )
+                : (
+                  url
+                )}
             </Card.Text>
+          }
           </Card.Body>
         </Col>
 
@@ -205,8 +284,8 @@ export default function MenuItemCard({ item, deleteItem, setError, setSuccessful
             <Form.Label>description</Form.Label>
             <Card.Text  >
               {update ? (
-                <Form.Control
-                  type="textarea"
+                <Form.Control 
+                  type="textarea " 
                   defaultValue={description}
                   placeholder="Enter the text that will appear "
                   onChange={(e) => setUpdatedDescription(e.target.value)}
@@ -219,37 +298,38 @@ export default function MenuItemCard({ item, deleteItem, setError, setSuccessful
           </Card.Body>
         </Col>
 
-        <Col xs={12}>
-          <Card.Body style={{ fontSize: '14px' }} className='card-body-event'  >
-            <Form.Label>Image </Form.Label>
-            {update === true && (
-              <Form.Control
-                type="file"
-                placeholder="Select an image"
-                onChange={(e) => handleChangeImageInput(e)}
-                id="input-update-image"
-                accept=".jpg, .jpeg, .png, .jfif"
-                size="sm"
-              />
-            )}
-          </Card.Body>
-        </Col>
+  
+         
+            
 
         <Col xs={12}>
           <Card.Body className="card-end-buttons">
             <Col style={{ margin: 'auto' }} >
-              <Button onClick={handleShowConfirmDelete} variant="btn" className="mt-2 mb-3">   Delete  </Button>
-              <Button
+              <Button onClick={handleShowConfirmDelete} variant="btn" className="mt-2 mb-3 me-2">  <b> Delete </b> </Button>
+              
+              {update &&
+               <Button onClick={handleCancel} variant="btn" className="mt-2 mb-3 mx-2">   Cancel  </Button>
+              }
+
+              
+              {update 
+                ? 
+                <Button
                 onClick={handleUpdate}
                 variant={update ? "btn" : "btn"}
-                className="mt-2 mx-2 mb-3"
-              >
-                {update ? (
+                className="mt-2 mx-2 mb-3">
                   <>Save</>
-                ) : (
+                </Button>
+                
+                :
+                <Button
+                onClick={handleUpdate}
+                variant={update ? "btn" : "btn"}
+                className="mt-2 mx-2 mb-3"> 
                   <>Edit</>
-                )}
-              </Button>
+                </Button>
+                }
+               
             </Col>
           </Card.Body>
         </Col>
@@ -257,20 +337,20 @@ export default function MenuItemCard({ item, deleteItem, setError, setSuccessful
 
       {/* MODAL TO DISPLAY CONFIRMATION BEFORE DELETING INFORMATION */}
 
-       <Modal show={showConfirmDelete} onHide={handleClose} className="mt-5 p-4">
-          <Modal.Body>
+      <Modal show={showConfirmDelete} onHide={handleClose} className="mt-5 p-4">
+        <Modal.Body>
           <h5 className="title">Do you confirm you want to delete this information?</h5>
-            <p >{description}</p>
-            <Modal.Footer>
-              <Button onClick={handleCancelDeletion} variant="btn">
-                Cancel
-              </Button>
-              <Button onClick={handleDelete} variant="btn">
-                Yes, delete.
-              </Button>
-            </Modal.Footer>
-          </Modal.Body>
-        </Modal>          
+          {description}
+          <Modal.Footer>
+            <Button onClick={handleCancelDeletion} variant="btn">
+              Cancel
+            </Button>
+            <Button onClick={handleDelete} variant="btn">
+              Yes, delete.
+            </Button>
+          </Modal.Footer>
+        </Modal.Body>
+      </Modal>
     </>
   );
 }

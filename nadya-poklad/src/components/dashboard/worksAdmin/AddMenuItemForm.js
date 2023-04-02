@@ -10,9 +10,8 @@ export default function AddMenuItem({ menuItems }) {
   const defaultImageUrl = "https://firebasestorage.googleapis.com/v0/b/nadyapokladsite.appspot.com/o/General%2FNP.png?alt=media&token=967d7a10-db01-44a3-83c2-fe0595197e93"
   // const imageDefault = <img src={defaultImageUrl} alt="Default" />;
 
-  const { categories } = useWorksItems()
 
-  // const [itemId, setItemId] = useState('');
+  const { categories } = useWorksItems()
   const [category, setCategory] = useState('')
   const [date, setDate] = useState('')
   const [title, setTitle] = useState('');
@@ -20,12 +19,35 @@ export default function AddMenuItem({ menuItems }) {
   const [url, setUrl] = useState('')
 
   const [imageFile, setImageFile] = useState(null);
-  const [inputKey, setInputKey] = useState("");
+  const [inputKey, setInputKey] = useState('');
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
   const [fileValid, setFileValid] = useState(true);
   const [formError, setFormError] = useState(false);
+  const [urlError, setUrlError ] = useState(false)
 
+  const urlRegex = /^https?:\/\/\S+$/i;  //para validar la direccion URL que completa el campo
+  
+  function validateUrl(url) {
+    const urlRegex = /^https?:\/\/\S+$/i;
+    return urlRegex.test(url);
+  }
+
+  // const urlRegex = /^https?:\/\/\S+$/i;  //para validar la direccion URL que completa el campo
+  
+  // function validateUrl(url) {
+  //   const urlRegex = /^https?:\/\/\S+$/i;
+  
+
+  //   if (urlRegex.test(url)) {
+     
+  //     setFormError(false)
+  //   }else{
+  //     setFormError(true)
+
+  //   }
+  //   urlRegex.test(url)
+  // }
 
 
   useEffect(() => {
@@ -50,6 +72,7 @@ export default function AddMenuItem({ menuItems }) {
 
   const submitForm = (e) => {
     e.preventDefault();
+
     const item = {
       category: category,
       date: date,
@@ -72,19 +95,21 @@ export default function AddMenuItem({ menuItems }) {
 
   const handleFileChange = (e) => {
     const file = e.target.files[0];
+
+    if (file !== null) {
     if (file) {
       if (file.size < 2000000) {
         setFileValid(true);
         setFormError(false);
         setImageFile(file);
       } else {
-        setFileValid(false);
         setImageFile(defaultImageUrl)
-        setFormError(true);
+        setFileValid(false);
+        // setFormError(true);
       }
     }
-  };
-
+  }
+}
   return (
     <Form
       onSubmit={submitForm}
@@ -142,58 +167,116 @@ export default function AddMenuItem({ menuItems }) {
             onChange={(e) => setDescription(e.target.value)}
             required
           />
-          {/* <Form.Label>category</Form.Label>
-          <Form.Control
-            name={`${category}-category`}
-            className="menu-add-form-input"
-            type="text"
-            placeholder="Enter a category"
-            value={category}
-            onChange={(e) => setCategory(e.target.value)}
-            required
-          /> */}
-          <Form.Label>url</Form.Label>
-          <Form.Control
-            name={`${category}-url`}
-            className="menu-add-form-input"
-            type="text"
-            placeholder="Enter the url to event organizer"
-            value={url}
-            onChange={(e) => setUrl(e.target.value)}
 
-          />
-
+          <Form.Label> Url  - (start with: "https://www.")</Form.Label>
+        
+          {
+            (category === "Performances")
+              ?
+              <>
+              <Form.Control
+                name={`${category}-url`}
+                className="menu-add-form-input"
+                type="text"
+                placeholder={"https://www."}
+                value={url}
+                onChange={
+                    (e) => {
+                          setUrl(e.target.value)
+                          setUrlError(!validateUrl(e.target.value))
+                    }}
+                isInvalid={urlError}
+                required
+              />
+                  <Form.Control.Feedback type="invalid">
+                    Please enter a valid URL.
+                  </Form.Control.Feedback>
+              </>
+              :
+              <>
+              <Form.Control
+                name={`${category}-url`}
+                className="menu-add-form-input"
+                type="text"
+                placeholder="Enter the url to event organizer"
+                value={url}
+                onChange={
+                  (e) => {
+                    setUrl(e.target.value)
+                    setUrlError(!validateUrl(e.target.value))
+                  }}
+                  isInvalid={urlError}
+                  
+                  />
+                 <Form.Control.Feedback type="invalid">
+                    Please enter a valid URL.
+                  </Form.Control.Feedback>
+                  </>
+            }
+                           
+           
+        {
+        (category !== "Performances") &&
+        <>                 
           <Form.Label>Image</Form.Label>
-          <Form.Control
+            <Form.Control
             className="menu-add-form-input"
             type="file"
             placeholder="Select an image"
             accept=".jpg, .jpeg, .png, .jfif, .mov, .mp4"
             key={inputKey}
             onChange={(e) => handleFileChange(e)}
+            // src={URL.createObjectURL(imageFile)}
+            src={(imageFile)}
             isInvalid={!fileValid}
-          />
+            />
+            
           <Form.Control.Feedback type="invalid">
             File size is too big! Maximum size of file is 2mb.
           </Form.Control.Feedback>
+         
+         </>
+          }
 
         </Col>
+
+        {
+        (category === "Performances") 
+        ?
         <Col className="menu-item-container-image-preview">
           <Form.Label>Preview image:</Form.Label>
           <Container className="menu-item-card-preview">
-            {imageFile !== null && (
+           
+              <Image
+                className="preview-image"
+                width="auto"
+                height="250px"
+                src= {defaultImageUrl}
+              />
+            
+          </Container>
+        </Col>
+        :
+        <Col className="menu-item-container-image-preview">
+        <Form.Label>Preview image:</Form.Label>
+        <Container className="menu-item-card-preview">
+        {imageFile !== null && (
               <Image
                 className="preview-image"
                 width="auto"
                 height="250px"
                 src={URL.createObjectURL(imageFile)}
-                
               />
             )}
-          </Container>
+           
+        </Container>
         </Col>
-
+        }
+        
       </Row>
+     
+     
+     
       <Row>
         <Col className="menu-form-submit-container">
           <Button
@@ -221,3 +304,4 @@ export default function AddMenuItem({ menuItems }) {
     </Form>
   );
 }
+    

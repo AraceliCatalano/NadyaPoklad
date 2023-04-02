@@ -39,6 +39,9 @@ export default function MenuItemCard({ item, deleteItem, setError, setSuccessful
         .then(() => {
           setDescription(updatedDescription);
           setSuccessfull("Item updated succesfully!");
+          setTimeout(() => {
+            setSuccessfull(null); 
+          }, 5000);
         })
         .catch((error) => {
           setError(error.message);

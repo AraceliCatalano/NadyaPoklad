@@ -136,6 +136,11 @@
     padding:2px !important;
    
 }
+.card-body-event p {
+    overflow-y: auto;
+    height: 4rem;
+   
+}
 .menu-item-card-image-event{
     height: 150px;
     object-fit: contain;
