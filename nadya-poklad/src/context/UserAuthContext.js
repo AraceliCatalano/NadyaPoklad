@@ -21,6 +21,8 @@ export function UserAuthContextProvider({ children }) {
 
 
   function logIn(email, password) {
+
+    let logoutTimer;
     return new Promise((resolve, reject) => {
       if (email && password) {
         signInWithEmailAndPassword(auth, email, password)
@@ -28,6 +30,12 @@ export function UserAuthContextProvider({ children }) {
             // Autenticación exitosa
             setIsLoggedIn(true);
             localStorage.setItem("is-Logged-In", true);
+            // Establecer tiempo límite de 2 horas
+            logoutTimer = setTimeout(() => {
+              setIsLoggedIn(false);
+              localStorage.removeItem("is-Logged-In");
+            }, 1 * 60 * 60 * 1000);
+
             resolve(credentials.user);
           })
           .catch((error) => {
@@ -43,6 +51,7 @@ export function UserAuthContextProvider({ children }) {
       }
     })
   }
+  
 
   function passwordReset(email) {
     console.log('Email', email);

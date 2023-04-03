@@ -168,14 +168,12 @@ export default function MenuItemCard({ item, deleteItem, setError, setSuccessful
             <Form.Label >Event type:</Form.Label>
             <Card.Text  >
               {update ? (
-                <Form.Control
-                  type="text"
-                  defaultValue={eventType}
-                  placeholder="Enter 'Free' or 'Pay'"
-                  onChange={(e) => setUpdatedEventType(e.target.value)}
-                  size="sm"
 
-                />
+                <Form.Select id="enabledSelect" onChange={(e) => setUpdatedEventType(e.target.value)} value={updatedEventType}>
+                      <option>Free</option>
+                      <option>Pay</option>
+                </Form.Select>
+          
               ) : (
                 eventType
               )}

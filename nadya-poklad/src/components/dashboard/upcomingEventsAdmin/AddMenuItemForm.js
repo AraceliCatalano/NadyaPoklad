@@ -103,7 +103,14 @@ export default function AddMenuItem({ menuItems }) {
            required
          />
           <Form.Label>Free Show / Paid Event</Form.Label>
-          <Form.Control
+          
+          <Form.Select id="enabledSelect" onChange={(e) => setEventType(e.target.value)}>
+                <option>Free</option>
+                <option>Pay</option>
+          </Form.Select>
+         
+          
+          {/* <Form.Control
             name="upcomingEvents-eventType"
             className="menu-add-form-input"
             type="text"
@@ -111,7 +118,7 @@ export default function AddMenuItem({ menuItems }) {
             value={eventType}
             onChange={(e) => setEventType(e.target.value)}
             required
-          />
+          /> */}
          <Form.Label>Event Title</Form.Label>
           <Form.Control
             name="upcomingEvents-title"
