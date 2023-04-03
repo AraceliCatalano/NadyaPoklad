@@ -3,7 +3,7 @@ import { db, storage } from "../../../firebase-config";
 import { doc, updateDoc } from "firebase/firestore";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { deleteFileFromStorage } from "../FirebaseHooks/Storage";
-import { Card, Col, Form, Button, Modal } from "react-bootstrap";
+import { Card, Col, Form, Button, Modal, Row } from "react-bootstrap";
 
 import '../../../styles/App.css';
 
@@ -128,7 +128,7 @@ export default function MenuItemCard({ item, deleteItem, setError, setSuccessful
 
         <Col xs={12}>
           <Card.Body style={{ fontSize: '12px' }} className=' card-body-event  '>
-            <Form.Label>Title:</Form.Label>
+            <Form.Label className='me-2'>Title:</Form.Label>
             <Card.Title style={{ fontSize: '14px' }} className='card-body-event mt-1 mb-'>
               {update ? (
                 <Form.Control
@@ -144,11 +144,11 @@ export default function MenuItemCard({ item, deleteItem, setError, setSuccessful
             </Card.Title>
           </Card.Body>
         </Col>
-
-        <Col xs={12}>
-          <Card.Body style={{ fontSize: '12px' }} className=' card-body-event '>
-            <Form.Label>Date:</Form.Label>
-            <Card.Title xs={12} style={{ fontSize: '14px' }} className='card-body-event mt-1 mb-'>
+      <Row>
+        <Col xs={6}>
+          <Card.Body style={{ fontSize: '14px' }} className=' card-body-event '>
+            <Form.Label className='me-2'>Date:</Form.Label>
+            <Card.Title xs={12} style={{ fontSize: '14px' }} className='card-body-event '>
               {update ? (
                 <Form.Control
                   type="date"
@@ -163,6 +163,27 @@ export default function MenuItemCard({ item, deleteItem, setError, setSuccessful
             </Card.Title>
           </Card.Body>
         </Col>
+        <Col xs={6}>
+          <Card.Body style={{ fontSize: '14px' }} className='card-body-event '>
+            <Form.Label >Event type:</Form.Label>
+            <Card.Text  >
+              {update ? (
+                <Form.Control
+                  type="text"
+                  defaultValue={eventType}
+                  placeholder="Enter 'Free' or 'Pay'"
+                  onChange={(e) => setUpdatedEventType(e.target.value)}
+                  size="sm"
+
+                />
+              ) : (
+                eventType
+              )}
+            </Card.Text>
+          </Card.Body>
+        </Col>
+      </Row>
+
 
         <Col xs={12}>
           <Card.Body style={{ fontSize: '14px' }} className='card-body-event '>
@@ -184,25 +205,7 @@ export default function MenuItemCard({ item, deleteItem, setError, setSuccessful
           </Card.Body>
         </Col>
 
-        <Col xs={12}>
-          <Card.Body style={{ fontSize: '14px' }} className='card-body-event'>
-            <Form.Label>Event type:</Form.Label>
-            <Card.Text  >
-              {update ? (
-                <Form.Control
-                  type="text"
-                  defaultValue={eventType}
-                  placeholder="Enter 'Free' or 'Pay'"
-                  onChange={(e) => setUpdatedEventType(e.target.value)}
-                  size="sm"
-
-                />
-              ) : (
-                eventType
-              )}
-            </Card.Text>
-          </Card.Body>
-        </Col>
+        
 
         <Col xs={12}>
           <Card.Body style={{ fontSize: '14px' }} className='card-body-event'>

@@ -8,8 +8,13 @@ export default function ErrorMessage({ message }) {
         <Card.Title>Error!</Card.Title>
       </Card.Header>
       <Card.Body>
-        <Card.Text data-testid="error-message">{message}</Card.Text>
+        <Card.Text data-testid="error-message">
+          
+          setTimeout(()=> { message}, 5000);
+          
+        </Card.Text>
       </Card.Body>
+        
     </Card>
   );
 }

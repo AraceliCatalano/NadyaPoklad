@@ -31,6 +31,10 @@ export default function useWorksItems (  ) {
     const storageMaxxed = checkFileCountInStorage();
     if (storageMaxxed) {
       setError("Storage is full, please delete item before adding new one.");
+      setTimeout(() => {
+        setError(null);
+      }, 5000);
+    
     } else {
       if (imageFile) {
         uploadImageToStorage(item, imageFile);
@@ -71,6 +75,10 @@ export default function useWorksItems (  ) {
         item.id = docRef.id;
         setData((prevState) => [...prevState, item]);
         setSuccessfull("Item uploaded succesfully!");
+        setTimeout(() => {
+          setSuccessfull(null);
+        }, 5000);
+      
         setError(null);
       })
       .catch((error) => {
@@ -102,6 +110,10 @@ export default function useWorksItems (  ) {
         const newData = data.filter((item) => item.id !== itemId);
         setData(newData);
         setSuccessfull("Item succesfully deleted!");
+        setTimeout(() => {
+          setSuccessfull(null);
+        }, 5000);
+      
         setError(null);
       }
     } else {
@@ -112,11 +124,18 @@ export default function useWorksItems (  ) {
           const newData = data.filter((item) => item.id !== itemId);
           setData(newData);
           setSuccessfull("Item succesfully deleted!");
+          setTimeout(() => {
+            setSuccessfull(null);
+          }, 5000);
           setError(null);
         }
       } else {
         setSuccessfull(null);
         setError("Could not delete image file from storage.");
+        setTimeout(() => {
+          setError(null);
+        }, 5000);
+      
       }
     }
   };

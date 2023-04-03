@@ -17,7 +17,7 @@ export default function AddMenuItem({ menuItems }) {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [url, setUrl] = useState('')
-
+  const [imageDefault, setImageDefault] = useState(defaultImageUrl)
   const [imageFile, setImageFile] = useState(null);
   const [inputKey, setInputKey] = useState('');
   const [error, setError] = useState(null);
@@ -103,7 +103,7 @@ export default function AddMenuItem({ menuItems }) {
         setFormError(false);
         setImageFile(file);
       } else {
-        setImageFile(defaultImageUrl)
+        setImageDefault(imageDefault)
         setFileValid(false);
         // setFormError(true);
       }
@@ -216,7 +216,8 @@ export default function AddMenuItem({ menuItems }) {
                            
            
         {
-        (category !== "Performances") &&
+        (category !== "Performances") 
+        &&
         <>                 
           <Form.Label>Image</Form.Label>
             <Form.Control
@@ -236,6 +237,8 @@ export default function AddMenuItem({ menuItems }) {
           </Form.Control.Feedback>
          
          </>
+ 
+
           }
 
         </Col>

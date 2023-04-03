@@ -3,7 +3,7 @@ import { db, storage } from "../../../firebase-config";
 import { doc, updateDoc } from "firebase/firestore";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { deleteFileFromStorage } from "../FirebaseHooks/Storage";
-import { Card, Col, Form, Button, Modal } from "react-bootstrap";
+import { Card, Col, Form, Button, Modal, Row } from "react-bootstrap";
 import '../../../styles/App.css';
 import useWorksItems from "../FirebaseHooks/useWorksItems";
 
@@ -110,7 +110,6 @@ export default function MenuItemCard({ item, deleteItem, setError, setSuccessful
           setTitle(updatedTitle);
           setDescription(updatedDescription);
           setUrl(updatedUrl);
-
           setSuccessfull("Item updated succesfully!");
           setTimeout(() => {
             setSuccessfull(null);
@@ -139,7 +138,7 @@ export default function MenuItemCard({ item, deleteItem, setError, setSuccessful
    
   return (
     <>
-      <Card className={[cardClass, 'card-edition', "menu-item-card-text-event", 'mt-2', 'mb-2']} >
+      <Card className= 'card-edition-works menu-item-card-text-event" mt-1 mb-1' >
         <Card.Img
           variant="top"
           src={image}
@@ -170,8 +169,8 @@ export default function MenuItemCard({ item, deleteItem, setError, setSuccessful
            }
 
         <Col xs={12}>
-          <Card.Body style={{ fontSize: '12px' }} className=' card-body-event  '>
-            <Form.Label>Title:</Form.Label>
+          <Card.Body style={{ fontSize: '14px' }} className=' card-body-event  '>
+            <Form.Label className='me-2'>Title:</Form.Label>
             <Card.Title style={{ fontSize: '14px' }} className='card-body-event mt-1 mb-'>
               {update ? (
                 <Form.Control
@@ -189,8 +188,8 @@ export default function MenuItemCard({ item, deleteItem, setError, setSuccessful
         </Col>
 
         <Col xs={12}>
-          <Card.Body style={{ fontSize: '12px' }} className=' card-body-event '>
-            <Form.Label>Date:</Form.Label>
+          <Card.Body style={{ fontSize: '14px' }} className=' card-body-event '>
+            <Form.Label className='me-2'>Date:</Form.Label>
             <Card.Title xs={12} style={{ fontSize: '14px' }} className='card-body-event mt-1 mb-'>
               {update ? (
                 <Form.Control
@@ -212,7 +211,7 @@ export default function MenuItemCard({ item, deleteItem, setError, setSuccessful
             <Form.Label htmlFor="enabledSelect">Select a Category</Form.Label>
             <Card.Text  >
               {update ? (
-                <Form.Group className="mb-3">
+                <Form.Group className="mb-1">
                   <Form.Select id="enabledSelect" onChange={(e) => setUpdatedCategory(e.target.value)} value={updatedCategory}>
                     {categories.map(cat => <option key={cat} >{cat}</option>)}
                   </Form.Select>
@@ -225,7 +224,7 @@ export default function MenuItemCard({ item, deleteItem, setError, setSuccessful
           </Card.Body>
         </Col>
 
-        <Col xs={12}>
+        <Col xs={12} >
           <Card.Body style={{ fontSize: '14px' }} className='card-body-event'>
             <Form.Label>url:</Form.Label>
             {
@@ -254,10 +253,8 @@ export default function MenuItemCard({ item, deleteItem, setError, setSuccessful
                   <Form.Control.Feedback type="invalid">
                     Please enter a valid URL.
                   </Form.Control.Feedback>
-                </Card.Text>
-}
-
-
+              </Card.Text>
+            }
            { 
            (updatedCategory !== "Performances")
            &&
@@ -277,12 +274,13 @@ export default function MenuItemCard({ item, deleteItem, setError, setSuccessful
             </Card.Text>
           }
           </Card.Body>
+          
         </Col>
 
         <Col xs={12}>
-          <Card.Body style={{ fontSize: '14px' }} className='card-body-event'>
+          <Card.Body style={{ fontSize: '14px' }}  className='card-body-event'>
             <Form.Label>description</Form.Label>
-            <Card.Text  >
+            <Card.Text className='textOverflow'  >
               {update ? (
                 <Form.Control 
                   type="textarea " 
