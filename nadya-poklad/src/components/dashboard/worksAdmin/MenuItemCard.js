@@ -7,13 +7,24 @@ import { Card, Col, Form, Button, Modal, Row } from "react-bootstrap";
 import '../../../styles/App.css';
 import useWorksItems from "../FirebaseHooks/useWorksItems";
 
+
 export default function MenuItemCard({ item, deleteItem, setError, setSuccessfull }) {
 
+  let { 
+    categories, 
+    showConfirmDelete, 
+    update, 
+    setUpdate, 
+    setShowConfirmDelete,
+    validateUrl,
+    handleShowConfirmDelete, 
+    handleClose, 
+    handleCancel, 
+    handleCancelDeletion } = useWorksItems()
+  
 
-  let { categories } = useWorksItems()
 
   const [itemId, setItemId] = useState(item.id);
-  const [cardClass, setCardClass] = useState("");
   const [category, setCategory] = useState(item.category)
   const [date, setDate] = useState(item.date)
   const [title, setTitle] = useState(item.title);
@@ -22,40 +33,23 @@ export default function MenuItemCard({ item, deleteItem, setError, setSuccessful
   const [image, setImage] = useState(item.image);
   const [imageFileName, setImageFileName] = useState(item.imageFileName);
 
-  const [update, setUpdate] = useState(false);
   const [updatedCategory, setUpdatedCategory] = useState(item.category)
   const [updatedDate, setUpdatedDate] = useState(item.date)
   const [updatedTitle, setUpdatedTitle] = useState(item.title);
   const [updatedDescription, setUpdatedDescription] = useState(item.description);
   const [updatedUrl, setUpdatedUrl] = useState(item.url)
   const [updatedImage, setUpdatedImage] = useState(null);
-  const [showConfirmDelete, setShowConfirmDelete] = useState(false);
   const [urlError, setUrlError ] = useState(false)
-
   const urlRegex = /^https?:\/\/\S+$/i;  //para validar la direccion URL que completa el campo
   
-  function validateUrl(url) {
-    const urlRegex = /^https?:\/\/\S+$/i;
-    return urlRegex.test(url);
-  }
 
   const itemDocRef = doc(db, "Works", itemId);
 
-  const handleShowConfirmDelete = () => {
-    setShowConfirmDelete(true);
-  }
-
-  const handleCancel = () => {
-    setUpdate(false)
-    
-  };
-
-  const handleClose = () => setShowConfirmDelete(false);
-  const handleCancelDeletion = () => setShowConfirmDelete(false)
+  
 
   const handleDelete = () => {
-    deleteItem(itemId, imageFileName);
-    setShowConfirmDelete(false);
+     deleteItem(itemId, imageFileName);
+     setShowConfirmDelete(false);
   };
 
   const handleImageUpdate = async () => {
@@ -241,6 +235,7 @@ export default function MenuItemCard({ item, deleteItem, setError, setSuccessful
                       (e) => {
                         setUpdatedUrl(e.target.value)
                         setUrlError(!validateUrl(e.target.value));
+                        validateUrl(e.target.value)
                     
                     }}
                     isInvalid={urlError}
@@ -307,9 +302,9 @@ export default function MenuItemCard({ item, deleteItem, setError, setSuccessful
               
               {update &&
                <Button onClick={handleCancel} variant="btn" className="mt-2 mb-3 mx-2">   Cancel  </Button>
-              }
+             }
 
-              
+
               {update 
                 ? 
                 <Button

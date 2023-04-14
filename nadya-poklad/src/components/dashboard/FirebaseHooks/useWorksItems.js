@@ -11,6 +11,12 @@ export default function useWorksItems (  ) {
   const [loading, setLoading] = useState(false);
   const [succesfull, setSuccessfull] = useState(null);
   const [categories, setCategories] = useState(categoriesList)
+  const [update, setUpdate] = useState(false);
+  const [showConfirmDelete, setShowConfirmDelete] = useState(false);
+  const [urlError, setUrlError ] = useState(false)
+  const [formValid, setFormValid] = useState(false);
+  const [formError, setFormError] = useState(false);
+
 
 
   useEffect(() => {
@@ -162,6 +168,46 @@ export default function useWorksItems (  ) {
     return deleted;
   };
 
+
+  
+  // const validateUrl=(url) =>{
+  //   const urlRegex = /^https?:\/\/\S+$/i;
+  //   return urlRegex.test(url);
+  // }
+
+
+  
+  function validateUrl(url) {
+    const urlRegex = /^https?:\/\/\S+$/i;
+  
+
+    if (urlRegex.test(url)) {
+     
+      setFormError(false)
+      setFormValid(false)
+    }else{
+      setFormError(true)
+      setFormValid(true)
+
+    }
+   
+  }
+
+
+  const handleShowConfirmDelete = () => {
+    setShowConfirmDelete(true);
+  }
+
+  const handleCancel = () => {
+    setUpdate(false)
+    
+  };
+
+  const handleClose = () => setShowConfirmDelete(false);
+  const handleCancelDeletion = () => setShowConfirmDelete(false)
+  
+  
+
   return {
     data,
     setData,
@@ -170,6 +216,16 @@ export default function useWorksItems (  ) {
     succesfull,
     deleteItem,
     addItem,
-    categories,
+    categories, setCategories,
+    validateUrl,
+    
+    handleShowConfirmDelete,
+    handleClose,
+    handleCancelDeletion, handleCancel, 
+    update, setUpdate,
+    showConfirmDelete, setShowConfirmDelete,
+    formError, setFormError,
+    formValid, setFormValid,
+    urlError, setUrlError
   };
 }

@@ -10,9 +10,13 @@ export default function AddMenuItem({ menuItems }) {
   const defaultImageUrl = "https://firebasestorage.googleapis.com/v0/b/nadyapokladsite.appspot.com/o/General%2FNP.png?alt=media&token=967d7a10-db01-44a3-83c2-fe0595197e93"
   // const imageDefault = <img src={defaultImageUrl} alt="Default" />;
 
-
-  const { categories } = useWorksItems()
-  const [category, setCategory] = useState('')
+  let { categories ,
+        fileValid, setFileValid,
+        formError, setFormError,
+        formValid, setFormValid,
+        urlError, setUrlError
+      } = useWorksItems();
+   const [category, setCategory] = useState('')
   const [date, setDate] = useState('')
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
@@ -22,34 +26,19 @@ export default function AddMenuItem({ menuItems }) {
   const [inputKey, setInputKey] = useState('');
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
-  const [fileValid, setFileValid] = useState(true);
-  const [formError, setFormError] = useState(false);
-  const [urlError, setUrlError ] = useState(false)
-
-  const urlRegex = /^https?:\/\/\S+$/i;  //para validar la direccion URL que completa el campo
   
   function validateUrl(url) {
     const urlRegex = /^https?:\/\/\S+$/i;
-    return urlRegex.test(url);
+        if (urlRegex.test(url)) {
+   
+      setFormError(false)
+      setFormValid(false)
+    }else{
+      setFormError(true)
+      setFormValid(true)
+
+    } 
   }
-
-  // const urlRegex = /^https?:\/\/\S+$/i;  //para validar la direccion URL que completa el campo
-  
-  // function validateUrl(url) {
-  //   const urlRegex = /^https?:\/\/\S+$/i;
-  
-
-  //   if (urlRegex.test(url)) {
-     
-  //     setFormError(false)
-  //   }else{
-  //     setFormError(true)
-
-  //   }
-  //   urlRegex.test(url)
-  // }
-
-
   useEffect(() => {
     setError(menuItems.error);
   }, [menuItems.error]);
@@ -85,7 +74,7 @@ export default function AddMenuItem({ menuItems }) {
 
     };
 
-    if (!formError) {
+    if (!formError && !formValid) {
       const addedMenuItem = menuItems.addItem(item, imageFile);
       if (addedMenuItem) clearInputStates();
     } else {
@@ -144,8 +133,12 @@ export default function AddMenuItem({ menuItems }) {
             placeholder=""
             value={date}
             onChange={(e) => setDate(e.target.value)}
+            isInvalid={(e)=> setFormValid(true)}
             required
           />
+
+          <Form.Control.Feedback type="invalid">Please enter a date.</Form.Control.Feedback>
+
           <Form.Label> Title</Form.Label>
           <Form.Control
             name={`${category}-title`}
@@ -154,8 +147,11 @@ export default function AddMenuItem({ menuItems }) {
             placeholder="Enter the text that will appear as a Title"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
+            isInvalid={formValid}
             required
           />
+          <Form.Control.Feedback type="invalid">Please enter a title.</Form.Control.Feedback>
+
           <Form.Label>Description</Form.Label>
           <Form.Control
             as="textarea" rows={4} cols={50}
@@ -165,8 +161,10 @@ export default function AddMenuItem({ menuItems }) {
             placeholder="Enter the text that will appear"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
+            isInvalid={urlError}
             required
           />
+           <Form.Control.Feedback type="invalid">Please enter a description.</Form.Control.Feedback>
 
           <Form.Label> Url  - (start with: "https://www.")</Form.Label>
         
