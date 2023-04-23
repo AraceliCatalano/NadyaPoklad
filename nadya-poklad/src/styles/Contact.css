@@ -61,14 +61,14 @@
 
 
 .card-edition-contact{
-    
     max-width: 450px !important;
     width: 260px !important;
-    max-height: 300px !important;
+    height: 250px !important;
     min-height: 150px !important;
     background-color: rgba(65, 129, 141,0.5) !important;
     color: white !important;
     margin-left: 15px;
+    justify-content: space-between;
     align-items: center;
 
 }
@@ -78,4 +78,4 @@
 
 }
 
-/*CONTACT PAGE-ADMIN START*/
+/*CONTACT PAGE-ADMIN START*/

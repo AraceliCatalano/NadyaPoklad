@@ -203,7 +203,7 @@ export default function MenuItemCard({ item, deleteItem, setError, setSuccessful
         <Col xs={12}>
           <Card.Body style={{ fontSize: '14px' }} className='card-body-event'>
             <Form.Label>description</Form.Label>
-            <Card.Text  >
+            <Card.Text className="textOverflow" >
               {update ? (
                 <Form.Control
                   type="textarea"

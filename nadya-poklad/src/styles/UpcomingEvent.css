@@ -111,13 +111,26 @@
 }
 
 .card-edition-artist{
-    
-    max-width: 325px !important;
-    min-width: 270px !important;
+    height: 785px ;
+    max-width: 450px !important;
+    min-width: 260px !important;
     background-color: rgba(65, 129, 141,0.5) !important;
     color: white !important;
     margin: auto !important;
+    display: flex;
+    justify-content: space-evenly;
 
+}
+
+.card-edition-works{
+    height: 785px ;
+    max-width: 450px !important;
+    min-width: 260px !important;
+    background-color: rgba(65, 129, 141,0.5) !important;
+    color: white !important;
+    margin: auto !important;
+    display: flex;
+    justify-content: space-evenly;
 }
 
 .card-edition{
@@ -144,16 +157,17 @@
 
 .menu-item-card-text-event {
     font-size: 12px !important;
-    
-
 }
-
 
 .menu-item-card-description-event{
     height: 8em;
     overflow-y: auto;
 }
 
+.textOverflow {
+    overflow-y: auto;
+    height:4rem;
+}
 
 .mostly-customized-scrollbar::-webkit-scrollbar {
     width: 5px !important;

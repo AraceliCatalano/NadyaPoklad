@@ -114,7 +114,7 @@ export default function MenuItemCard({ item, deleteItem, setError, setSuccessful
                   size="sm"
                 />
               )}
-              <Card.Text rows={3}>
+              <Card.Text rows={3} className="textOverflow">
                 {update ? (
                   <Form.Control
                     type="text"
