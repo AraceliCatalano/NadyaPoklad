@@ -1,12 +1,9 @@
-import React, { useState, useEffect } from "react";
-
+import React, { useState } from "react";
 import { db, storage } from "../../../firebase-config";
 import { doc, updateDoc } from "firebase/firestore";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
-import { deleteFileFromStorage } from "./FirebaseHooks/Storage";
-
-import { Card, Row, Col, Form, Button, Container } from "react-bootstrap";
-
+import { deleteFileFromStorage } from "../FirebaseHooks/Storage";
+import { Card, Row, Col, Form, Button, Container, Modal } from "react-bootstrap";
 import '../../../styles/App.css';
 
 export default function MenuItemCard({ item, deleteItem, setError, setSuccessfull }) {
@@ -14,36 +11,26 @@ export default function MenuItemCard({ item, deleteItem, setError, setSuccessful
   const [orderDisplay, setOrderDisplay] = useState(item.orderDisplay);
   const [image, setImage] = useState(item.image);
   const [imageFileName, setImageFileName] = useState(item.imageFileName);
-  //const [active, setActive] = useState(item.active);
   const [itemId, setItemId] = useState(item.id);
-  //const [cardClass, setCardClass] = useState("");
-
+  
   const [update, setUpdate] = useState(false);
   const [updatedDescription, setUpdatedDescription] = useState(item.description);
   const [updatedOrderDisplay, setUpdatedOrderDisplay] = useState(item.orderDisplay);
   const [updatedImage, setUpdatedImage] = useState(null);
+  const [showConfirmDelete, setShowConfirmDelete] = useState(false);
+
   const itemDocRef = doc(db, "TheArtist", itemId);
 
-  // useEffect(() => {
-  //   toggleCardClass();
-  // }, [active]);
+  const handleShowConfirmDelete = () => {
+    setShowConfirmDelete(true);
+  }
 
-  // const updateItemActivityToDb = async (e) => {
-  //   let newActive = e.target.checked;
-  //   setActive(newActive);
-  //   const itemDocRef = doc(db, "TheArtist", itemId);
-  //   await updateDoc(itemDocRef, { active: newActive })
-  //     .then(() => { setSuccessfull("Item updated succesfully!") })
-  //     .catch((error) => { setError(error.message) });
-  // };
-
-  // const toggleCardClass = () => {
-  //   if (active) setCardClass("menu-item-card-active");
-  //   else setCardClass("menu-item-card-disabled");
-  // };
+  const handleClose = () => setShowConfirmDelete(false);
+  const handleCancelDeletion = () => setShowConfirmDelete(false)
 
   const handleDelete = () => {
     deleteItem(itemId, imageFileName);
+    setShowConfirmDelete(false);
   };
 
   const handleImageUpdate = async () => {
@@ -106,90 +93,101 @@ export default function MenuItemCard({ item, deleteItem, setError, setSuccessful
   }
 
   return (
-    <Card className="menu-item-card">
-      <Row>
-        <Col>
-          <Card.Img
-            variant="top"
-            src={image}
-            alt={description}
-            className="menu-item-card-image"
-          />
-        </Col>
-        <Col xs={6}>
-          <Card.Body className="menu-item-card-body">
-            <Form.Label>Description:</Form.Label>
-            {update === true && (
-              <Form.Control
-                type="file"
-                onChange={(e) => handleChangeImageInput(e)}
-                id="input-update-image"
-                accept=".jpg, .jpeg, .png, .jfif"
-                size="sm"
-              />
-            )}
-            <Card.Text rows={3}>
-              {update ? (
+    <>
+      <Card className='card-edition-artist menu-item-card-text-event m-2'>
+            <Card.Img
+              variant="top"
+              src={image}
+              alt={description}
+              className="menu-item-card-image-event"
+            />
+          
+          <Col xs={12}>
+            <Card.Body className="menu-item-card-body">
+              <Form.Label>Description:</Form.Label>
+              {update === true && (
                 <Form.Control
-                  type="text"
-                  defaultValue={description}
-                  placeholder="Enter the text that will appear next to the image"
-                  onChange={(e) => setUpdatedDescription(e.target.value)}
+                  type="file"
+                  onChange={(e) => handleChangeImageInput(e)}
+                  id="input-update-image"
+                  accept=".jpg, .jpeg, .png, .jfif"
                   size="sm"
-
                 />
-              ) : (
-                description
               )}
-            </Card.Text>
-            <Col className="menu-item-card-row">
-              <Col>
-                <Form.Label>Order display:</Form.Label>
-              </Col>
-              <Col>
-
+              <Card.Text rows={3}>
                 {update ? (
                   <Form.Control
-                    type="number"
-                    defaultValue={orderDisplay}
-                    step="0.01"
-                    onChange={(e) => setUpdatedOrderDisplay(e.target.value)}
+                    type="text"
+                    defaultValue={description}
+                    placeholder="Enter the text that will appear next to the image"
+                    onChange={(e) => setUpdatedDescription(e.target.value)}
                     size="sm"
                   />
                 ) : (
-                  <span>{orderDisplay}</span>
+                  description
                 )}
+              </Card.Text>
+              <Col className="menu-item-card-row">
+                <Col>
+                  <Form.Label>Order display:</Form.Label>
+                </Col>
+
+                <Col>
+                  {update ? (
+                    <Form.Control
+                      type="number"
+                      defaultValue={orderDisplay}
+                      step="0.01"
+                      onChange={(e) => setUpdatedOrderDisplay(e.target.value)}
+                      size="sm"
+                    />
+                  ) : (
+                    <span>{orderDisplay}</span>
+                  )}
+                </Col>
               </Col>
-            </Col>
-            
+            </Card.Body>
+          </Col>
+          
+          <Col className="card-end-buttons" style={{margin:'auto'}}>
+            <Row>
+              <Container>
+                <Button onClick={handleShowConfirmDelete} variant="btn" className="m-2" size="md">
+                  Delete
+                </Button>
 
-          </Card.Body>
-        </Col>
-        <Col >
-        <Row>
-          <Container>
-            <Row className="mt-2">
-              Possible actions:
+                <Button
+                  onClick={handleUpdate}
+                  variant={update ? "btn" : "btn"}
+                  className="m-2" size="md"
+                >
+                  {update ? (
+                    <>Save</>
+                  ) : (
+                    <>Edit</>
+                  )}
+                </Button>
+              </Container>
             </Row>
-            <Button onClick={handleDelete} variant="btn" className="m-2" size="md">
-              Delete
-            </Button>
+          </Col>
+      </Card>
 
-            <Button
-              onClick={handleUpdate}
-              variant={update ? "btn" : "btn"}
-              className="m-2" size="md"
-            >
-              {update ? (
-                <>Save</>
-              ) : (
-                <>Edit</>
-              )}
+      {/* MODAL TO DISPLAY CONFIRMATION BEFORE DELETING INFORMATION */}
+
+      <Modal show={showConfirmDelete} onHide={handleClose} className="mt-5 p-4">
+        <Modal.Body>
+        <h5 className="title">Do you confirm you want to delete this information?</h5>
+          <p >{description}</p>
+          <Modal.Footer>
+            <Button onClick={handleCancelDeletion} variant="btn">
+              Cancel
             </Button>
-          </Container>
-        </Row>
-        </Col>
-      </Row>
-    </Card>
+            <Button onClick={handleDelete} variant="btn">
+              Yes, delete.
+            </Button>
+          </Modal.Footer>
+        </Modal.Body>
+      </Modal>
+    </>
   );
 }

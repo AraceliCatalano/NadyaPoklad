@@ -1,0 +1,53 @@
+
+/* 
+  AddMenuItem.js
+*/
+
+.form-label {
+  font-size: 1rem;
+}
+
+.menu-item-card-description-contact{
+  /* height: 4em; */
+  overflow-y: auto;
+}
+
+.menu-add-form-input-description {
+  margin-bottom: 10px;
+  max-width: 320px;
+ 
+}
+
+
+.container-menu-item-cards {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 25px;
+    align-items: flex-start;
+}
+
+
+.menu-form-submit-container {
+  display: flex;
+  align-items: "center";
+  margin: 15px 0;
+}
+
+.menu-form-spinner {
+  margin: 5px 15px;
+}
+
+.form-label{
+  color: rgba(172, 216, 236, 0.65);
+  font-size: 18px !important;
+  
+}
+@media only screen and (max-width: 576px) {
+  .menu-add-form .row {
+    display: flex;
+    flex-direction: column;
+  }
+
+}

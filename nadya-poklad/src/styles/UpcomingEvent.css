@@ -110,17 +110,28 @@
     padding-top: 8px;
 }
 
-
-
-.card-edition{
+.card-edition-artist{
     
-    max-width: 450px !important;
+    max-width: 325px !important;
     min-width: 270px !important;
     background-color: rgba(65, 129, 141,0.5) !important;
     color: white !important;
     margin: auto !important;
 
 }
+
+.card-edition{
+    
+    max-width: 450px !important;
+    min-width: 260px !important;
+    background-color: rgba(65, 129, 141,0.5) !important;
+    color: white !important;
+   
+    margin: auto !important;
+
+}
+
+
 .card-body-event{
     padding:2px !important;
    

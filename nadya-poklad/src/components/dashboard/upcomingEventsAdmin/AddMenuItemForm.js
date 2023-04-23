@@ -1,11 +1,6 @@
-/**
- * Add UpcomingEvents Post item to Firestore database
- */
-
 import { useState, useEffect } from "react";
 import { Container, Row, Col, Button, Spinner, Form, Image } from "react-bootstrap";
-
-import ErrorMessage from "./Messages/ErrorMessage";
+import ErrorMessage from "../Messages/ErrorMessage";
 import "./MenuItemsUpdatingEvents.css";
 import '../../../styles/App.css';
 
@@ -65,7 +60,10 @@ export default function AddMenuItem({ menuItems }) {
  
     if (!formError) {
       const addedMenuItem = menuItems.addItem(item, imageFile);
-      if (addedMenuItem) clearInputStates();
+      if (addedMenuItem) {
+        clearInputStates();
+      // Agregar la función de Cancel/Close Add Item form acá también
+      };
     } else {
       setError("Form has unresolved errors!");
     }
@@ -116,6 +114,7 @@ export default function AddMenuItem({ menuItems }) {
           />
           <Form.Label>Description</Form.Label>
           <Form.Control
+            as="textarea" rows={4} cols={50}
             name="upcomingEvents-description"
             className="menu-add-form-input-description "
             type="text"

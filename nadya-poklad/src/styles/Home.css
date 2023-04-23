@@ -1,12 +1,20 @@
 .responsive-Row{
     display: flex;
     flex-wrap: wrap;
-    align-content: space-around;
+    align-content: space-between;
     align-items: flex-start;
-    justify-content:center;
-    margin:15px;
+    justify-content:space-around;
+    margin-bottom:19px;
 }
 .home-h4 {
+    font-family: Marcellus;
+    font-size: 28px;
+    font-weight: 400;
+    color: whitesmoke;
+    text-shadow: 2px 2px 4px #000;
+    margin:5px;
+}
+.home-h5 {
     font-family: Marcellus;
     font-size: 22px;
     font-weight: 400;
@@ -14,26 +22,77 @@
     text-shadow: 2px 2px 4px #000;
     margin:5px;
 }
-.artist-home-container {
-    /* background-image: linear-gradient(to right, rgba(96,152,173,0.2), rgba(65,129,141,1)) !important; */
-    margin-bottom: 20px;
-    margin-right: 20px;
-    background-color: #fff;
 
+.icon-h4 {
+    font-family: Marcellus;
+    font-size: 38px;
+    font-weight: 400;
+    color: whitesmoke;
+    text-shadow: 2px 2px 4px #000;
+    margin:5px;
+}
+.artist-home-container {
+    position:relative;
+    border-radius: 10px;
+    
 }
 
+.artist-home-container::before{
+   
+    background-image: url("https://firebasestorage.googleapis.com/v0/b/nadyapokladsite.appspot.com/o/TheArtist%2F1673990278414-nadya1.jpg?alt=media&token=21c0f912-13c5-4d4a-9d92-ea4b776c0f27");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    opacity: 0.2;
+    border-radius: 10px;
+   
+    content: '';
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+    
 .artist-home-container p {
-    padding: 30px;
+    margin-top:10px;
+    padding: 5px;
     align-self: center;
-    color: white;
-    font-weight: 600;
-    font-size: medium;
+    color: #fff;
+    /* font-weight: 600; */
+    font-size: 20px;
+    
+    text-shadow: 0px 0px 1px #000;
+    position: relative;
+    z-index: 1;
+    text-indent: 1cm;
+    text-align: justify;
+}
+.image-artist-home {
+    width: 270px !important;
+    height: 300px !important;
+    top: 50%;
+    margin:5px;
+    margin-left:10%;
+    padding: 9px;
+    border-radius: 50%;
+    border: rgb(172, 216, 236, 0.6) 4px solid;
+    border-left-style: dotted;
+    border-right-style: dotted;
 
+    box-shadow: #000;
 }
 
 .image-artist {
     width: 270px !important;
     height: 370px !important;
+    top: 50%;
     margin:auto;
     padding: 10px;
+}
+
+.image-artist-container{
+    display: flex;
+    align-items: center;
 }

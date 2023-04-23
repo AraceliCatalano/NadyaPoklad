@@ -5,7 +5,7 @@
 import { useState, useEffect } from "react";
 import { Container, Row, Col, Button, Spinner, Form, Image } from "react-bootstrap";
 
-import ErrorMessage from "./Messages/ErrorMessage";
+import ErrorMessage from "../Messages/ErrorMessage";
 import "./MenuItemsPage.css";
 import '../../../styles/App.css';
 
@@ -46,7 +46,10 @@ export default function AddMenuItem({ menuItems }) {
     };
     if (!formError) {
       const addedMenuItem = menuItems.addItem(item, imageFile);
-      if (addedMenuItem) clearInputStates();
+      if (addedMenuItem) {
+        clearInputStates();
+        // Agregar la función de Cancel/Close Add Item form acá también
+      };
     } else {
       setError("Form has unresolved errors!");
     }
@@ -77,6 +80,7 @@ export default function AddMenuItem({ menuItems }) {
         <Col className="menu-add-input-container">
           <Form.Label>Description</Form.Label>
           <Form.Control
+            as="textarea" rows={4} cols={50}
             name="artist-description"
             className="menu-add-form-input"
             type="text"
@@ -108,13 +112,7 @@ export default function AddMenuItem({ menuItems }) {
           <Form.Control.Feedback type="invalid">
             File size is too big! Maximum size of file is 2mb.
           </Form.Control.Feedback>
-          {/* <Form.Check
-            className="menu-add-form-input"
-            type="switch"
-            label={active ? "Visible" : "Hidden"}
-            checked={active}
-            onChange={(e) => setActive(e.target.checked)}
-          /> */}
+         
         </Col>
         <Col className="menu-item-container-image-preview">
           <Form.Label>Preview image:</Form.Label>

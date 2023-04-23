@@ -1,15 +1,21 @@
 import { Navigate, Route, Routes } from 'react-router-dom';
-import {Container } from 'react-bootstrap';
-import {Composer, Pianist, Teacher, MusicalEventOrganizer} from '../components/works'
+import {  Container, Row } from 'react-bootstrap';
+import { Composer, Pianist, Teacher, MusicalEventOrganizer } from '../components/works'
 
 
 
-export default function Works() {
+
+export function Works() {
+
+ 
+
   return (
     <>
       <Container>
 
-        <h1>Works</h1>
+      <Row >
+        <h4 className='title home-h5 mx-2 mt-3'>Works </h4><br />
+      </Row>
 
 
         <Routes>
@@ -19,7 +25,7 @@ export default function Works() {
           <Route path="musical_event_organizer" element={<MusicalEventOrganizer />} />
           <Route path="/" element={<Navigate to="/works/Pianist" />} />
         </Routes>
-        
+
       </Container>
     </>)
 }
